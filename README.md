@@ -1,62 +1,29 @@
-# PantriFul
+# Pantryful Food Finder
 
-Find free food near the University of South Florida (Tampa). A map and list of nearby food pantries,
-food banks and free meals, plus a Gemini-powered assistant that matches what you need to the right place.
+build a front end website based off this info
+github repo: https://github.com/imfonggg/PantriFul
 
-Built for a hackathon (Gemini API track). Supports UN SDG 2: Zero Hunger.
+create landing page (food listings browsable without signing up) with these colors (#f0d8b6, #b3926f, #69a657, #a63838, #5a0058) but pick a darker muted green
 
-## Stack
+change the text at the top to white for better contrast, same with the open now button. for the what kind of help? section, when someone clicks on the filter, toggle it to change to red. also change the green to a slightly darker one but keep it muted so theres better contrast against the two beige colors. change the font to nexa regular and montserrat (show the website in 2 options)) and optimize for mobile and desktop version. change the pantriful font to sangblue regular
 
-- **Front end:** React + TypeScript + Vite, Tailwind CSS, Google Maps (`@vis.gl/react-google-maps`)
-- **API:** Vercel serverless functions in `api/` (TypeScript), Gemini via `@google/genai`
-- **Hosting:** Vercel free tier (front end and API in one deploy)
+This project was built with [Lovable](https://lovable.dev).
 
-## Quick start
+## Build with Lovable
 
-```bash
-npm install
-cp .env.example .env   # then fill in your keys
-npm run dev            # http://localhost:5173 (API routes work locally too)
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7c2b3803-11eb-4b6a-b9b4-86fbbabba871).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
-
-| Command | What it does |
-|---|---|
-| `npm run dev` | Dev server with the `/api` routes |
-| `npm test` | Unit tests (Vitest) |
-| `npm run build` | Type check and production build |
-| `npm run lint` | Lint (oxlint) |
-
-## API
-
-Every response has the shape `{ success, data, error, meta }`.
-
-| Route | Description |
-|---|---|
-| `GET /api/food-resources?lat=&lng=` | Food resources sorted by distance (defaults to USF), with `openNow` |
-| `POST /api/chat` `{ message, location? }` | Gemini recommends resources: `{ reply, recommendedIds }` |
-
-## Project layout
-
-```
-api/       Vercel functions (thin HTTP wrappers)
-server/    API logic: validation, Gemini call
-shared/    Types, seed data and geo helpers used by both sides
-src/       React app (src/lib/api.ts is the typed API client)
-tests/     Vitest tests
-```
-
-## Food resource data
-
-`shared/foodResources.ts` holds the seed list. **Addresses, coordinates and hours are placeholders
-until checked.** Confirm each entry on its website or by phone and set `verified: true`.
-
-## Deploy to Vercel
-
-1. Import this GitHub repo at vercel.com/new (framework: Vite, auto-detected).
-2. Add `GEMINI_API_KEY` and `VITE_GOOGLE_MAPS_API_KEY` under Settings → Environment Variables.
-3. Deploy. Every push to the branch gives a preview URL.
-
-## Adding the designed UI
-
-Drop components into `src/components/` (or `src/features/<feature>/`) and replace the placeholder
-`src/App.tsx`. Use `getFoodResources()` and `askAssistant()` from `src/lib/api.ts` for data.

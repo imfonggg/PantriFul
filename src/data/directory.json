@@ -1,0 +1,3590 @@
+[
+  {
+    "id": "ftb-23799",
+    "name": "Feeding Tampa Bay: Causeway Center",
+    "type": "food_bank",
+    "serviceTypes": [
+      "food_bank",
+      "pantry",
+      "hot_meal",
+      "benefits"
+    ],
+    "address": "3624 Causeway Blvd, Tampa, FL 33619",
+    "location": {
+      "lat": 27.9237189,
+      "lng": -82.4144975
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "11:00",
+          "close": "14:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "13:00",
+          "close": "19:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "11:00",
+          "close": "14:00"
+        },
+        {
+          "open": "13:00",
+          "close": "19:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "13:00",
+          "close": "19:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "10:00",
+          "close": "14:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Open to everyone",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [
+      "gluten_free",
+      "vegetarian"
+    ],
+    "offers": [
+      "Dairy",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Meat",
+      "Shelf Stable/Non-Perishable Goods"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "The Market requires an appointment. Bistro meal hours and Market grocery hours differ; check the provider before visiting.",
+    "serviceNames": [
+      "the Market",
+      "the Bistro"
+    ],
+    "phone": "813-254-1190",
+    "website": "https://www.feedingtampabay.org"
+  },
+  {
+    "id": "ftb-23443",
+    "name": "New Life Assembly",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5010 12th Ave S, Tampa, FL 33619",
+    "location": {
+      "lat": 27.938028,
+      "lng": -82.40098
+    },
+    "city": "Tampa",
+    "hours": {
+      "0": [
+        {
+          "open": "12:30",
+          "close": "13:30"
+        }
+      ],
+      "3": [
+        {
+          "open": "13:00",
+          "close": "16:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23471",
+    "name": "Victory Baptist (Victory over Poverty)",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2602 Corrine St, Tampa, FL 33605",
+    "location": {
+      "lat": 27.94864,
+      "lng": -82.4305
+    },
+    "city": "Tampa",
+    "hours": {
+      "4": [
+        {
+          "open": "11:30",
+          "close": "12:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "727-678-6842"
+  },
+  {
+    "id": "ftb-23490",
+    "name": "Community Service Center Inc.",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "7001 S 12th Ave, Tampa, FL 33619",
+    "location": {
+      "lat": 27.937171,
+      "lng": -82.377187
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "phone": "813-443-8501"
+  },
+  {
+    "id": "ftb-23407",
+    "name": "Amazing Love Ministries",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3304 E Columbus Dr, Tampa, FL 33605",
+    "location": {
+      "lat": 27.966959,
+      "lng": -82.42291
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "19:00",
+          "close": "20:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "15:30",
+          "close": "18:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "15:30",
+          "close": "18:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "12:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-37099",
+    "name": "Homeless Outreach (Meals)",
+    "type": "hot_meal",
+    "serviceTypes": [
+      "hot_meal"
+    ],
+    "address": "1203 N Nebraska Ave, Tampa, FL 33602",
+    "location": {
+      "lat": 27.9550992,
+      "lng": -82.4508175
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Homeless Outreach"
+    ]
+  },
+  {
+    "id": "ftb-23460",
+    "name": "St. Luke AME",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2709 N 25th St, Tampa, FL 33605",
+    "location": {
+      "lat": 27.967331,
+      "lng": -82.431386
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "08:00",
+          "close": "11:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "09:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23417",
+    "name": "COMOR, Christian Outreach",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2016 N 60th St, Tampa, FL 33619",
+    "location": {
+      "lat": 27.963839,
+      "lng": -82.388057
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "12:00",
+          "close": "15:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "12:00",
+          "close": "15:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23467",
+    "name": "Tampa Deliverance Ministry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2102 E Columbus Dr, Tampa, FL 33605",
+    "location": {
+      "lat": 27.966928,
+      "lng": -82.435411
+    },
+    "city": "Tampa",
+    "hours": {
+      "5": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23466",
+    "name": "(Tampa Bay Community & Family) DBA Bethesda Ministries Pantry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3301 East 22nd Avenue, Tampa, FL 33605",
+    "location": {
+      "lat": 27.971,
+      "lng": -82.423378
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23406",
+    "name": "Abe Brown Ministries",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2918 North 29th Street, Tampa, FL 33605",
+    "location": {
+      "lat": 27.970145,
+      "lng": -82.428244
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23479",
+    "name": "Victory AME",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5202 S 86th St, Tampa, FL 33619",
+    "location": {
+      "lat": 27.90071,
+      "lng": -82.36212
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-677-2411"
+  },
+  {
+    "id": "ftb-23451",
+    "name": "Salvation Army of Tampa",
+    "type": "hot_meal",
+    "serviceTypes": [
+      "hot_meal"
+    ],
+    "address": "1603 N Florida Ave, Tampa, FL 33602",
+    "location": {
+      "lat": 27.959883,
+      "lng": -82.459244
+    },
+    "city": "Tampa",
+    "hours": {
+      "0": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "1": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "08:00",
+          "close": "08:30"
+        },
+        {
+          "open": "12:00",
+          "close": "12:30"
+        },
+        {
+          "open": "17:30",
+          "close": "18:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Hot Meals"
+    ]
+  },
+  {
+    "id": "ftb-23415",
+    "name": "College Hill Mennonite",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3506 Machado St, Tampa, FL 33605",
+    "location": {
+      "lat": 27.975762,
+      "lng": -82.432232
+    },
+    "city": "Tampa",
+    "hours": {
+      "2": [
+        {
+          "open": "11:00",
+          "close": "16:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23801",
+    "name": "Trinity Cafe",
+    "type": "hot_meal",
+    "serviceTypes": [
+      "hot_meal"
+    ],
+    "address": "2801 N. Nebraska Ave., Tampa, FL 33602",
+    "location": {
+      "lat": 27.9679419,
+      "lng": -82.45103
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Trinity Cafe"
+    ],
+    "website": "https://feedingtampabay.org/groceries-meals/trinity-cafe"
+  },
+  {
+    "id": "ftb-23433",
+    "name": "Manifestations Worldwide",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3703 N 30th St, Tampa, FL 33610",
+    "location": {
+      "lat": 27.978309,
+      "lng": -82.426104
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "12:00",
+          "close": "18:30"
+        }
+      ],
+      "5": [
+        {
+          "open": "13:00",
+          "close": "17:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "12:00",
+          "close": "15:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Distribution",
+      "Salon/Barber"
+    ]
+  },
+  {
+    "id": "ftb-23435",
+    "name": "Metropolitan Ministries",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2301 N Tampa Street, Tampa, FL 33602",
+    "location": {
+      "lat": 27.963878,
+      "lng": -82.45978
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "09:00",
+          "close": "17:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "09:00",
+          "close": "19:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "09:00",
+          "close": "17:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "09:00",
+          "close": "17:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "09:00",
+          "close": "17:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23442",
+    "name": "New Bethel Progressive Mission",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3007 E North Bay St, Tampa, FL 33610",
+    "location": {
+      "lat": 27.98278,
+      "lng": -82.42598
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23422",
+    "name": "Greater Mt. Carmel AME",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "4209 N 34th St, Tampa, FL 33610",
+    "location": {
+      "lat": 27.983666,
+      "lng": -82.422139
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-382-0531"
+  },
+  {
+    "id": "ftb-23430",
+    "name": "Lighthouse Gospel Mission",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "7211 78th Street, Riverview, FL 33578",
+    "location": {
+      "lat": 27.875602,
+      "lng": -82.369382
+    },
+    "city": "Riverview",
+    "hours": {
+      "0": [
+        {
+          "open": "12:30",
+          "close": "13:30"
+        }
+      ],
+      "3": [
+        {
+          "open": "20:30",
+          "close": "21:30"
+        }
+      ],
+      "4": [
+        {
+          "open": "13:30",
+          "close": "14:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "This program is open to anyone regardless or race, ethnicity, religion, income etc... There are no qualifications for this program.",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [
+      "Shelf Stable/Non-Perishable Goods",
+      "Fruits & Vegetables",
+      "Meat",
+      "Pet Food / Supplies"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "We provide non-perishable food items, however, based on what is available we may provide items like bread, produce, meat etc... When there is an abundance of items that are perishable and will be distributed on a different day, we will reach out to the community via text message.",
+    "serviceNames": [
+      "A Box of Fresh Groceries",
+      "Operation Hope Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23438",
+    "name": "Mt. Olive AME",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1745 W LaSalle St, Tampa, FL 33607",
+    "location": {
+      "lat": 27.95513,
+      "lng": -82.47847
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23838",
+    "name": "Household of Faith- Mobile Pantry",
+    "type": "mobile_pantry",
+    "serviceTypes": [
+      "mobile_pantry"
+    ],
+    "address": "3921 East Osborne Street, Tampa, FL 33610",
+    "location": {
+      "lat": 27.9886079,
+      "lng": -82.414521
+    },
+    "city": "Tampa",
+    "hours": {
+      "5": [
+        {
+          "open": "11:30",
+          "close": "12:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-368-6453"
+  },
+  {
+    "id": "ftb-23493",
+    "name": "ICNA Relief Programs, Tampa",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5628 56th Commerce Park Blvd, Tampa, FL 33610",
+    "location": {
+      "lat": 27.987192,
+      "lng": -82.39555
+    },
+    "city": "Tampa",
+    "hours": {
+      "6": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23488",
+    "name": "Tampa Underground \"Ministerio Mujeres Restauradas por Dios Underground",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "4310 N Nebraska Ave, Tampa, FL 33603",
+    "location": {
+      "lat": 27.98457,
+      "lng": -82.451399
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "07:00",
+          "close": "08:00"
+        },
+        {
+          "open": "08:30",
+          "close": "10:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23434",
+    "name": "Metropolitan Community Church of Tampa",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "408 E Cayuga St, Tampa, FL 33603",
+    "location": {
+      "lat": 27.987232,
+      "lng": -82.455641
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "11:00",
+          "close": "14:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [
+      "Fruits & Vegetables",
+      "Meat",
+      "Pet Food / Supplies",
+      "Prepared Food / Grab and Go",
+      "Shelf Stable/Non-Perishable Goods",
+      "Toiletries / Hygiene Products"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23495",
+    "name": "Mt. Zion AME Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5920 Robert Tolle Dr., Riverview, FL 33578",
+    "location": {
+      "lat": 27.89454,
+      "lng": -82.33667
+    },
+    "city": "Riverview",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-377-7457"
+  },
+  {
+    "id": "ftb-23421",
+    "name": "EPIC Tampa",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "4703 N Florida Ave, Tampa, FL 33603",
+    "location": {
+      "lat": 27.988143,
+      "lng": -82.459151
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "phone": "813-237-3066",
+    "website": "https://myepic.org/food-pantry/"
+  },
+  {
+    "id": "ftb-56971",
+    "name": "Ibis",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5707 N 22nd St, Tampa, FL 33610",
+    "location": {
+      "lat": 27.9992358,
+      "lng": -82.4341701
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Pantry"
+    ],
+    "website": "https://ibishealthcare.org/"
+  },
+  {
+    "id": "ftb-23489",
+    "name": "Greenway Family Outreach",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5815 N 34th Street, Tampa, FL 33610",
+    "location": {
+      "lat": 28.001066,
+      "lng": -82.422221
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-385-1431"
+  },
+  {
+    "id": "ftb-23449",
+    "name": "Reach City Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "6605 Krycul Ave, Riverview, FL 33578",
+    "location": {
+      "lat": 27.884062,
+      "lng": -82.331195
+    },
+    "city": "Riverview",
+    "hours": {
+      "1": [
+        {
+          "open": "09:00",
+          "close": "10:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23426",
+    "name": "Kingdom Kids of Tampa Bay",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "6400 North 15th Street, Tampa, FL 33610",
+    "location": {
+      "lat": 28.00571,
+      "lng": -82.44336
+    },
+    "city": "Tampa",
+    "hours": {
+      "4": [
+        {
+          "open": "10:30",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "phone": "813-545-0959"
+  },
+  {
+    "id": "ftb-23843",
+    "name": "Living Faith Bible Fellowship",
+    "type": "mobile_pantry",
+    "serviceTypes": [
+      "mobile_pantry"
+    ],
+    "address": "6400 N 15th street, Tampa, FL 33610",
+    "location": {
+      "lat": 28.00571,
+      "lng": -82.44336
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Groceries"
+    ],
+    "phone": "813-900-0767"
+  },
+  {
+    "id": "ftb-38941",
+    "name": "Living Faith Bible Fellowship Church",
+    "type": "mobile_pantry",
+    "serviceTypes": [
+      "mobile_pantry"
+    ],
+    "address": "6400 North 15th Street, Tampa, FL 33610",
+    "location": {
+      "lat": 28.00571,
+      "lng": -82.44336
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Kingdom Kids"
+    ],
+    "phone": "813-900-0767"
+  },
+  {
+    "id": "ftb-23485",
+    "name": "ECHO of Riverview",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "10509 Riverview Drive, Riverview, FL 33578",
+    "location": {
+      "lat": 27.871543,
+      "lng": -82.329497
+    },
+    "city": "Riverview",
+    "hours": {
+      "1": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        },
+        {
+          "open": "17:00",
+          "close": "19:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Must reside in the following communities : Riverview, Gibsonton, Lithia, Ruskin, Apollo Beach, Sun City Center, Palm River-Clair Mel Required Documents: - Current Photo ID - Original Social Security Cards for each family member receiving assistance - Current Proof of Address (Document dated or received within the last 30 days), accepted documents include: utility bill; official mail or correspondence addressed to the applicant; copy of a current lease; rent receipt Services are provided based on eligibility and available resources.",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [
+      "Dairy",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Meat",
+      "Shelf Stable/Non-Perishable Goods"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Pantry"
+    ]
+  },
+  {
+    "id": "ftb-23480",
+    "name": "Riverhills Church of God",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "6310 E Sligh Ave, Tampa, FL 33617",
+    "location": {
+      "lat": 28.012156,
+      "lng": -82.381844
+    },
+    "city": "Tampa",
+    "hours": {
+      "0": [
+        {
+          "open": "13:00",
+          "close": "13:30"
+        },
+        {
+          "open": "23:00",
+          "close": "23:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-985-2388"
+  },
+  {
+    "id": "ftb-23450",
+    "name": "Riverview UMC (Restore Food Pantry)",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "8002 US Hwy 301 South, Riverview, FL 33578",
+    "location": {
+      "lat": 27.871514,
+      "lng": -82.326132
+    },
+    "city": "Riverview",
+    "hours": {
+      "2": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23494",
+    "name": "Masjid An Nasr",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "7326 E Sligh Ave, Tampa, FL 33610",
+    "location": {
+      "lat": 28.011128,
+      "lng": -82.374188
+    },
+    "city": "Tampa",
+    "hours": {
+      "2": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "15:00",
+          "close": "17:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23543",
+    "name": "Hillsborough Community College (Southshore)",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "4010 N Lois Ave, Tampa, FL 33614",
+    "location": {
+      "lat": 27.975482,
+      "lng": -82.514103
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "School Pantry"
+    ],
+    "phone": "813-323-8596",
+    "website": "https://www.hccfl.edu/"
+  },
+  {
+    "id": "ftb-23445",
+    "name": "A Blessing Food Pantry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "920 E Sitka St, Tampa, FL 33604",
+    "location": {
+      "lat": 28.021434,
+      "lng": -82.44987
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "08:00",
+          "close": "12:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "07:00",
+          "close": "09:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23459",
+    "name": "St. Lawrence, Matthew 25",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5225 N Himes Ave, Tampa, FL 33614",
+    "location": {
+      "lat": 27.99369,
+      "lng": -82.49937
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23491",
+    "name": "Dream Builders",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "8131 N Nebraska Avenue, Tampa, FL 33604",
+    "location": {
+      "lat": 28.022085,
+      "lng": -82.451121
+    },
+    "city": "Tampa",
+    "hours": {
+      "4": [
+        {
+          "open": "10:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "TEFAP Application must be filled out. No ID required. We serve food to the homeless, and low-moderate income (LMI) folks.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23413",
+    "name": "Bible Based Fellowship Temple Terrace",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "8718 N 46th St, Temple Terrace, FL 33617",
+    "location": {
+      "lat": 28.029701,
+      "lng": -82.410464
+    },
+    "city": "Temple Terrace",
+    "hours": {
+      "3": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "phone": "813-205-2730"
+  },
+  {
+    "id": "ftb-23499",
+    "name": "Men of Vision",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "8715 N 22nd St, Tampa, FL 33604",
+    "location": {
+      "lat": 28.02997,
+      "lng": -82.434019
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Produce Pantry"
+    ],
+    "phone": "813-975-7652"
+  },
+  {
+    "id": "ftb-23715",
+    "name": "New Salem MB Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "8525 N 78th St, Temple Terrace, FL 33637",
+    "location": {
+      "lat": 28.024763,
+      "lng": -82.367809
+    },
+    "city": "Temple Terrace",
+    "hours": {
+      "6": [
+        {
+          "open": "09:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Open to everyone",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [
+      "Dairy",
+      "Diapers",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Household Products",
+      "Meat",
+      "Pet Food / Supplies",
+      "Shelf Stable/Non-Perishable Goods",
+      "Toiletries / Hygiene Products"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23487",
+    "name": "The Well",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "609 W Waters Ave, Tampa, FL 33604",
+    "location": {
+      "lat": 28.02571,
+      "lng": -82.46564
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "06:30",
+          "close": "20:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "09:00",
+          "close": "10:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [
+      "Dairy",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Prepared Food / Grab and Go"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "website": "https://www.thewellfedcommunity.org/kinship-free-market"
+  },
+  {
+    "id": "ftb-23841",
+    "name": "Windbay Terrace",
+    "type": "mobile_pantry",
+    "serviceTypes": [
+      "mobile_pantry"
+    ],
+    "address": "4817 E Temple Heights Rd, Tampa, FL 33617",
+    "location": {
+      "lat": 28.0355978,
+      "lng": -82.4040875
+    },
+    "city": "Tampa",
+    "hours": {
+      "4": [
+        {
+          "open": "10:30",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-900-0767"
+  },
+  {
+    "id": "ftb-23427",
+    "name": "Landmark Baptist Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "6021 Williams Rd, Seffner, FL 33584",
+    "location": {
+      "lat": 28.002089,
+      "lng": -82.318078
+    },
+    "city": "Seffner",
+    "hours": {
+      "2": [
+        {
+          "open": "08:30",
+          "close": "09:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23473",
+    "name": "ECHO of Brandon",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "507 N Parsons Ave, Brandon, FL 33510",
+    "location": {
+      "lat": 27.94566,
+      "lng": -82.28554
+    },
+    "city": "Brandon",
+    "hours": {
+      "1": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "2": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        },
+        {
+          "open": "17:00",
+          "close": "19:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "09:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Must reside in the following communities: Brandon, Seffner, Mango, Dover, Thonotosassa, Valrico, East Tampa (33610) Required Documents - Current Photo ID - Original Social Security Cards for each family member receiving assistance - Current Proof of Address (Document dated or received within the last 30 days), accepted documents include: utility bill; official mail or correspondence addressed to the applicant; copy of a current lease; rent receipt Services are provided based on eligibility and available resources.",
+    "household": [],
+    "dietary": [],
+    "offers": [
+      "Dairy",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Meat",
+      "Shelf Stable/Non-Perishable Goods"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Pantry"
+    ],
+    "phone": "813-685-0935",
+    "website": "https://echofl.org"
+  },
+  {
+    "id": "ftb-23418",
+    "name": "SVDP, Corpus Christi",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "9807 N 56th St, Temple Terrace, FL 33617",
+    "location": {
+      "lat": 28.03824,
+      "lng": -82.392275
+    },
+    "city": "Temple Terrace",
+    "hours": {
+      "6": [
+        {
+          "open": "09:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23461",
+    "name": "St. Mark MB",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "7221 Sherrill St S, Tampa, FL 33616",
+    "location": {
+      "lat": 27.861249,
+      "lng": -82.531228
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23475",
+    "name": "Bread of Refuge",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "521 Wilbur St, Brandon, FL 33511",
+    "location": {
+      "lat": 27.936052,
+      "lng": -82.278632
+    },
+    "city": "Brandon",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23694",
+    "name": "The Three B's Ministry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "306 Lithia Pinecrest, Brandon, FL 33511",
+    "location": {
+      "lat": 27.932467,
+      "lng": -82.278027
+    },
+    "city": "Brandon",
+    "hours": {
+      "3": [
+        {
+          "open": "13:00",
+          "close": "15:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23437",
+    "name": "Most Holy Redeemer",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "10110 N Central Ave, Tampa, FL 33612",
+    "location": {
+      "lat": 28.041227,
+      "lng": -82.455431
+    },
+    "city": "Tampa",
+    "hours": {
+      "2": [
+        {
+          "open": "09:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23441",
+    "name": "Nativity Outreach",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "705 E Brandon Blvd, 33511 Brandon, FL, Brandon, FL 33511",
+    "location": {
+      "lat": 27.937046,
+      "lng": -82.274679
+    },
+    "city": "Brandon",
+    "hours": {
+      "4": [
+        {
+          "open": "11:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23431",
+    "name": "Tampa First SDA Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "822 W Linebaugh Ave, Tampa, FL 33612",
+    "location": {
+      "lat": 28.039456,
+      "lng": -82.467215
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "None, just sign in and give # in family and zip code",
+    "household": [],
+    "dietary": [
+      "vegetarian"
+    ],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Grocery, vegetables, toiletries/hygiene "
+    ]
+  },
+  {
+    "id": "ftb-23482",
+    "name": "Real Hope Ministries",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1916 Bell Shoals Rd, Brandon, FL 33511",
+    "location": {
+      "lat": 27.913579,
+      "lng": -82.269884
+    },
+    "city": "Brandon",
+    "hours": {
+      "3": [
+        {
+          "open": "10:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23453",
+    "name": "Seeds of Hope",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "710 E Bloomingdale Ave, Brandon, FL 33511",
+    "location": {
+      "lat": 27.89464,
+      "lng": -82.27267
+    },
+    "city": "Brandon",
+    "hours": {
+      "4": [
+        {
+          "open": "17:00",
+          "close": "18:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23419",
+    "name": "Crossover Community",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1235 E Fowler Ave, Tampa, FL 33612",
+    "location": {
+      "lat": 28.053093,
+      "lng": -82.447464
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-971-8887"
+  },
+  {
+    "id": "ftb-23463",
+    "name": "St. Stephen's Catholic",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "10118 St Stephen Circle, Riverview, FL 33569",
+    "location": {
+      "lat": 27.852541,
+      "lng": -82.283276
+    },
+    "city": "Riverview",
+    "hours": {
+      "5": [
+        {
+          "open": "10:30",
+          "close": "12:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23464",
+    "name": "SVDP, West Hills District",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "12310 N Nebraska Ave, Tampa, FL 33612",
+    "location": {
+      "lat": 28.059845,
+      "lng": -82.45163
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "08:00",
+          "close": "10:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-24522",
+    "name": "Harvest Hope Park",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "13704 North 20th Street, Tampa, FL 33613",
+    "location": {
+      "lat": 28.0716991,
+      "lng": -82.4369434
+    },
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Grocery Distribution"
+    ],
+    "phone": "813-558-5212",
+    "website": "https://www.uacdc.org/"
+  },
+  {
+    "id": "ftb-23452",
+    "name": "Santa Maria Mission",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "14004 N 15th St, Tampa, FL 33613",
+    "location": {
+      "lat": 28.075333,
+      "lng": -82.443257
+    },
+    "city": "Tampa",
+    "hours": {
+      "2": [
+        {
+          "open": "10:00",
+          "close": "13:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "17:00",
+          "close": "19:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "18:00",
+          "close": "20:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "phone": "813-910-3575"
+  },
+  {
+    "id": "ftb-23408",
+    "name": "American Veterans Post #4",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1014 Skipper Rd, Tampa, FL 33613",
+    "location": {
+      "lat": 28.080837,
+      "lng": -82.449575
+    },
+    "city": "Tampa",
+    "hours": {
+      "2": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23425",
+    "name": "Kaye Prox Food Bank",
+    "type": "food_bank",
+    "serviceTypes": [
+      "food_bank"
+    ],
+    "address": "8401 W Hillsborough Ave, Tampa, FL 33615",
+    "location": {
+      "lat": 27.9971,
+      "lng": -82.57769
+    },
+    "city": "Tampa",
+    "hours": {
+      "1": [
+        {
+          "open": "12:30",
+          "close": "13:15"
+        }
+      ],
+      "3": [
+        {
+          "open": "12:30",
+          "close": "13:15"
+        }
+      ],
+      "5": [
+        {
+          "open": "12:30",
+          "close": "13:15"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-884-1232",
+    "website": "https://www.facebook.com/kayeproxfoodbank"
+  },
+  {
+    "id": "ftb-23481",
+    "name": "Heritage Christian Community Baptist",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "14801 N 15th St, Lutz, FL 33549",
+    "location": {
+      "lat": 28.084814,
+      "lng": -82.442509
+    },
+    "city": "Lutz",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23472",
+    "name": "Community Food Pantry at Village Presbyterian",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "13115 S Village Dr, Tampa, FL 33618",
+    "location": {
+      "lat": 28.065666,
+      "lng": -82.508088
+    },
+    "city": "Tampa",
+    "hours": {
+      "3": [
+        {
+          "open": "09:00",
+          "close": "11:00"
+        }
+      ],
+      "6": [
+        {
+          "open": "09:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23484",
+    "name": "North West Church of God",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5131 Gunn Hwy, Tampa, FL 33624",
+    "location": {
+      "lat": 28.056465,
+      "lng": -82.529715
+    },
+    "city": "Tampa",
+    "hours": {
+      "0": [
+        {
+          "open": "12:00",
+          "close": "13:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "19:30",
+          "close": "20:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23468",
+    "name": "Tampa Spanish SDA",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "9602 Hulsey Rd, Tampa, FL 33634",
+    "location": {
+      "lat": 28.033281,
+      "lng": -82.558774
+    },
+    "city": "Tampa",
+    "hours": {
+      "6": [
+        {
+          "open": "15:00",
+          "close": "16:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23767",
+    "name": "Cowboys For Christ",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "10625 First Street, Thonotosassa, FL 33592",
+    "location": {
+      "lat": 28.056995,
+      "lng": -82.296935
+    },
+    "city": "Thonotosassa",
+    "hours": {
+      "4": [
+        {
+          "open": "11:00",
+          "close": "13:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-54507",
+    "name": "River of Life Food Pantry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "410 East Chapman Road, Lutz, FL 33549",
+    "location": {
+      "lat": 28.1058347,
+      "lng": -82.4564002
+    },
+    "city": "Lutz",
+    "hours": {
+      "6": [
+        {
+          "open": "10:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "River of Life Food Pantry welcomes individuals and families experiencing food insecurity. Requirements to Receive Food: A valid form of identification (ID) is required. All households must complete a brief informational registration form. We serve individuals and families from ALL ZIP codes. No proof of income or church attendance is required. All food assistance is provided FREE of charge. Food distribution takes place every Saturday from 10:00 AM to 11:00 AM through our convenient drive-through system. Food is available while supplies last.",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [
+      "Diapers",
+      "Fruits & Vegetables",
+      "Meat",
+      "Pet Food / Supplies",
+      "Shelf Stable/Non-Perishable Goods",
+      "Toiletries / Hygiene Products"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "IMPORTANT FOOD PANTRY INFORMATION River of Life Food Pantry distributes FREE groceries every Saturday from 10:00 AM to 11:00 AM through our drive-through food pantry. UPCOMING HOLIDAY CLOSURES: Saturday, November 28, 2026 — CLOSED\nSaturday, December 26, 2026 — CLOSED IMPORTANT REMINDERS:\n\nPlease bring a valid ID for your initial registration.\nNew households will complete a brief informational registration form. We welcome families from ALL ZIP codes.\nChurch attendance is NOT required.\nFood availability varies weekly and is offered while supplies last. For the latest announcements, schedule changes, and emergency closures, please follow River of Life Food Pantry Lutz on Facebook. Thank you for allowing us to serve you and your family!\nBecause No One Should Go Hungry.",
+    "serviceNames": [
+      "River of Life Food Pantry"
+    ],
+    "phone": "813-949-9931"
+  },
+  {
+    "id": "ftb-23420",
+    "name": "Ehrlich Road Bible-Based Fellowship Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "4811 Ehrlich Rd, Tampa, FL 33624",
+    "location": {
+      "lat": 28.08642,
+      "lng": -82.529105
+    },
+    "city": "Tampa",
+    "hours": {
+      "5": [
+        {
+          "open": "10:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Bag of Groceries "
+    ]
+  },
+  {
+    "id": "ftb-23454",
+    "name": "St. Anne Catholic Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "106 11th Ave NE, Ruskin, FL 33570",
+    "location": {
+      "lat": 27.728088,
+      "lng": -82.433201
+    },
+    "city": "Ruskin",
+    "hours": {
+      "6": [
+        {
+          "open": "08:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23416",
+    "name": "Community Cupboard/Calvary",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1480 E College Ave, Ruskin, FL 33570",
+    "location": {
+      "lat": 27.713678,
+      "lng": -82.415158
+    },
+    "city": "Ruskin",
+    "hours": {
+      "2": [
+        {
+          "open": "07:00",
+          "close": "10:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Neighbors must be registered to receive food.  Calvary Community Cupboad is currently at capacity, and we only register new neighbors on the 1st Monday of every month at 1480 College Ave, Ruskin 33570 between 10:00am - 12:00noon",
+    "household": [],
+    "dietary": [],
+    "offers": [
+      "Fruits & Vegetables",
+      "Meat",
+      "Prepared Food / Grab and Go",
+      "Shelf Stable/Non-Perishable Goods"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "Neighbors must be registered to receive food.  The Community Cupboard is currently at capacity and new neighbors can only register on the 1st Monday of every month at the Cupboard at 1480 College Ave., Ruskin between 10:00am - 12:00pm",
+    "serviceNames": [
+      "Food Distribution - Box of fresh food given via drive through"
+    ]
+  },
+  {
+    "id": "ftb-23448",
+    "name": "Our Lady's Pantry",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "16650 US-301 South, Wimauma, FL 33598",
+    "location": {
+      "lat": 27.71003,
+      "lng": -82.33436
+    },
+    "city": "Wimauma",
+    "hours": {
+      "6": [
+        {
+          "open": "07:00",
+          "close": "10:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23474",
+    "name": "RCMA Wimauma",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5121 State road 674, Wimauma, FL 33598",
+    "location": {
+      "lat": 27.712067,
+      "lng": -82.322762
+    },
+    "city": "Wimauma",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Youth Programs"
+    ]
+  },
+  {
+    "id": "ftb-54500",
+    "name": "The Lord's Lighthouse",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "5801 Hickman Street, Wimauma, FL 33598",
+    "location": {
+      "lat": 27.7105595,
+      "lng": -82.2992685
+    },
+    "city": "Wimauma",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A box of Groceries"
+    ]
+  },
+  {
+    "id": "ftb-24783",
+    "name": "The Ladybug Venue",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "603 Elnor Street, Plant City, FL 32623",
+    "location": {
+      "lat": 28.0097359,
+      "lng": -82.1631352
+    },
+    "city": "Plant City",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Live Well & Dance"
+    ]
+  },
+  {
+    "id": "ftb-23446",
+    "name": "Faith Focus Community Development Corp.",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "603 Elnor St, Plant City, FL 33563",
+    "location": {
+      "lat": 28.009753,
+      "lng": -82.162962
+    },
+    "city": "Plant City",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Groceries - Various"
+    ],
+    "phone": "813-716-4758"
+  },
+  {
+    "id": "ftb-23432",
+    "name": "Acts 29 Foccus",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "18908 Sunlake Blvd, Lutz, FL 33558",
+    "location": {
+      "lat": 28.151829,
+      "lng": -82.4936837
+    },
+    "city": "Lutz",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Pantry"
+    ],
+    "website": "https://acts29foccus.org"
+  },
+  {
+    "id": "ftb-23447",
+    "name": "The Harbor Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "15612 Race Track Rd, Keystone, FL 33556",
+    "location": {
+      "lat": 28.096768,
+      "lng": -82.607192
+    },
+    "city": "Keystone",
+    "hours": {
+      "3": [
+        {
+          "open": "16:00",
+          "close": "18:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23836",
+    "name": "North Tampa Church of Christ",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "3611 E. County Line Rd., Lutz, FL 33559",
+    "location": {
+      "lat": 28.1706191,
+      "lng": -82.4109929
+    },
+    "city": "Lutz",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Pantry "
+    ],
+    "phone": "813-404-2300"
+  },
+  {
+    "id": "ftb-23429",
+    "name": "Liberty Southern Baptist",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "2505 W Granfield Ave, Plant City, FL 33563",
+    "location": {
+      "lat": 28.013619,
+      "lng": -82.148615
+    },
+    "city": "Plant City",
+    "hours": {
+      "3": [
+        {
+          "open": "10:00",
+          "close": "14:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ],
+    "phone": "813-756-5040"
+  },
+  {
+    "id": "ftb-23671",
+    "name": "BMG Walden Lake",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1601 W Timberlane Drive Suite 300, Plant City, FL 33566",
+    "location": {
+      "lat": 27.996181,
+      "lng": -82.139125
+    },
+    "city": "Plant City",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "FoodRX"
+    ]
+  },
+  {
+    "id": "ftb-23411",
+    "name": "Beth-El Farmworkers Ministries, Inc.",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "18240 Hwy 301 S, Wimauma, FL 33598",
+    "location": {
+      "lat": 27.66319,
+      "lng": -82.3622
+    },
+    "city": "Wimauma",
+    "hours": {
+      "2": [
+        {
+          "open": "08:30",
+          "close": "16:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "08:30",
+          "close": "17:30"
+        }
+      ],
+      "4": [
+        {
+          "open": "08:30",
+          "close": "16:00"
+        }
+      ],
+      "5": [
+        {
+          "open": "08:30",
+          "close": "16:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Open to everyone",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "https://www.usda.gov/non-discrimination-statement",
+    "serviceNames": [
+      "Food Distribution"
+    ]
+  },
+  {
+    "id": "ftb-23981",
+    "name": "St Clement Catholic Church",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "1104 N Alexander St, Plant City, FL 33563",
+    "location": {
+      "lat": 28.02401,
+      "lng": -82.13515
+    },
+    "city": "Plant City",
+    "hours": {
+      "5": [
+        {
+          "open": "08:00",
+          "close": "12:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "My Brother's Keeper",
+      "The Golden Door Thrift Store"
+    ],
+    "website": "https://www.stclementpc.org/my-brother-s-keeper-food-pantry"
+  },
+  {
+    "id": "ftb-23439",
+    "name": "Mt. Olive Baptist",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "604 W Ball St, Plant City, FL 33563",
+    "location": {
+      "lat": 28.009541,
+      "lng": -82.126563
+    },
+    "city": "Plant City",
+    "hours": {
+      "2": [
+        {
+          "open": "10:00",
+          "close": "15:00"
+        }
+      ],
+      "4": [
+        {
+          "open": "10:00",
+          "close": "11:00"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "A Box of Fresh Groceries"
+    ]
+  },
+  {
+    "id": "ftb-23470",
+    "name": "United Food Bank of Plant City",
+    "type": "food_bank",
+    "serviceTypes": [
+      "food_bank"
+    ],
+    "address": "702 E Alsobrook St, Plant City, FL 33563",
+    "location": {
+      "lat": 28.0077,
+      "lng": -82.11889
+    },
+    "city": "Plant City",
+    "hours": {
+      "1": [
+        {
+          "open": "12:00",
+          "close": "15:30"
+        }
+      ],
+      "2": [
+        {
+          "open": "12:00",
+          "close": "17:00"
+        }
+      ],
+      "3": [
+        {
+          "open": "12:00",
+          "close": "15:30"
+        }
+      ],
+      "4": [
+        {
+          "open": "12:00",
+          "close": "15:30"
+        }
+      ],
+      "5": [
+        {
+          "open": "12:00",
+          "close": "15:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Food Distribution"
+    ],
+    "website": "https://ufbpc.org/"
+  },
+  {
+    "id": "ftb-23492",
+    "name": "Generations Renewed",
+    "type": "pantry",
+    "serviceTypes": [
+      "pantry"
+    ],
+    "address": "304 E Baker St. Suite B., Plant City, FL 33563",
+    "location": {
+      "lat": 28.018346,
+      "lng": -82.121559
+    },
+    "city": "Plant City",
+    "hours": {
+      "6": [
+        {
+          "open": "09:30",
+          "close": "23:30"
+        }
+      ]
+    },
+    "scheduleKnown": true,
+    "eligibility": "Open to everyone",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [
+      "Dairy",
+      "Eggs",
+      "Fruits & Vegetables",
+      "Meat"
+    ],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "1st Saturday - Glover School- Bealsville 5104 Horton Road, Plant City Florida 33547 2nd Saturday - Dwelling Place Lithia- 6627 Lithia Pinecrest, Lithia Florida 33527 3rd Saturday - Dover Advent Christian Church-14202 Downing Street, Dover Florida 33527 4th Saturday - Youmans Praise & Worship Center - 3816 US 92, Plant City, Florida 33566 5th Saturday -Greater New Hope A.M - 2104 Mudlake Road, Plant City, Florida 33563",
+    "serviceNames": [
+      "A Fresh Community  - powered by Generations Renewed "
+    ],
+    "phone": "813-704-5265",
+    "website": "https://generationsrenewd.org/"
+  },
+  {
+    "id": "ftb-23477",
+    "name": "Plant City Black Heritage",
+    "type": "hot_meal",
+    "serviceTypes": [
+      "hot_meal"
+    ],
+    "address": "2001 N. Park Road, Plant City, FL 33563",
+    "location": {
+      "lat": 28.032049,
+      "lng": -82.105596
+    },
+    "city": "Plant City",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "verified": false,
+    "source": "https://feedingtampabay.org/findfood",
+    "notes": "",
+    "serviceNames": [
+      "Hot Meals"
+    ]
+  },
+  {
+    "id": "directory-hope-effect-food-pantry",
+    "name": "Hope Effect Food Pantry at MorningStar Church",
+    "type": "pantry",
+    "address": "5102 W Linebaugh Ave, Tampa, FL 33624",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 960-3030",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/hope-effect-food-pantry"
+  },
+  {
+    "id": "directory-fl_33558_st-timothy-catholic-church",
+    "name": "St. Timothy Catholic Church Food Pantry",
+    "type": "pantry",
+    "address": "17512 Lakeshore Rd, Lutz, FL 33558",
+    "city": "Lutz",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 968-1077",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33558_st-timothy-catholic-church"
+  },
+  {
+    "id": "directory-fl_33626_rock-church-of-tampa-bay",
+    "name": "Rock Church of Tampa Bay",
+    "type": "pantry",
+    "address": "12120 Race Track Road, Tampa, FL 33626",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 926-4101",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33626_rock-church-of-tampa-bay"
+  },
+  {
+    "id": "directory-fl_33613_st-mary",
+    "name": "St Mary Catholic Church",
+    "type": "pantry",
+    "address": "15520 North Boulevard, Tampa, FL 33613",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 961-1061",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33613_st-mary"
+  },
+  {
+    "id": "directory-fl_33609_st-patrick",
+    "name": "St. Patrick Catholic Church",
+    "type": "pantry",
+    "address": "4518 S Manhattan Ave, Tampa, FL 33611",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 839-5337",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33609_st-patrick"
+  },
+  {
+    "id": "directory-heavens-gate-christian-church-inc",
+    "name": "Heaven's Gate Christian Church, Inc.",
+    "type": "pantry",
+    "address": "5563 Peach Ave, Seffner, FL 33584",
+    "city": "Seffner",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 681-5643",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/heavens-gate-christian-church-inc"
+  },
+  {
+    "id": "directory-fl_33612_reasonable-service",
+    "name": "Reasonable Service Food Pantry",
+    "type": "pantry",
+    "address": "2166 W Busch Ave, Tampa, FL 33612",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 618-3381",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33612_reasonable-service"
+  },
+  {
+    "id": "directory-fl_33534_gibsonton-elementary-school-pantry",
+    "name": "Food Pantry at Gibsonton Elementary School",
+    "type": "pantry",
+    "address": "7723 Gibsonton Drive, Gibsonton, FL 33534",
+    "city": "Gibsonton",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 671-5100",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33534_gibsonton-elementary-school-pantry"
+  },
+  {
+    "id": "directory-open-hands-food-pantry-at-lamb-of-god-lutheran-church",
+    "name": "Open Hands Food Pantry at Lamb of God Lutheran Church",
+    "type": "pantry",
+    "address": "10540 Browning Road, Lithia, FL 33547",
+    "city": "Lithia",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 653-2354",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/open-hands-food-pantry-at-lamb-of-god-lutheran-church"
+  },
+  {
+    "id": "directory-fl_33609_light-of-hope",
+    "name": "Light of Hope",
+    "type": "pantry",
+    "address": "2606 N. Mac Dill Ave, Tampa , FL 33607",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 872-0883",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33609_light-of-hope"
+  },
+  {
+    "id": "directory-fl_33602_feeding-ministries-global-nonprofit",
+    "name": "Feeding Ministries Global Nonprofit",
+    "type": "pantry",
+    "address": "5015 E Fowler Avenue, Tampa, FL 33617",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 544-0488",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33602_feeding-ministries-global-nonprofit"
+  },
+  {
+    "id": "directory-fl_33618_st-paul-catholic-church",
+    "name": "St. Paul Catholic Church",
+    "type": "pantry",
+    "address": "12708 N Dale Mabry Hwy, Tampa, FL 33618",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 961-3023",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33618_st-paul-catholic-church"
+  },
+  {
+    "id": "directory-fl_33615_berkeley-preparatory-school-food-pantry-33615",
+    "name": "Berkeley Preparatory School Food Pantry",
+    "type": "pantry",
+    "address": "4546 Kelly Road, Tampa, FL 33615",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Contact the provider to confirm eligibility.",
+    "household": [],
+    "dietary": [],
+    "offers": [],
+    "phone": "(813) 830-1017",
+    "verified": false,
+    "source": "https://www.foodpantries.org/li/fl_33615_berkeley-preparatory-school-food-pantry-33615"
+  },
+  {
+    "id": "tjfs-north",
+    "name": "Tampa Jewish Family Services — North Tampa",
+    "type": "food_bank",
+    "address": "2030 W Fletcher Ave, Tampa, FL 33612",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Individuals and families; monthly distribution. Contact the provider to confirm eligibility.",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [],
+    "phone": "813-960-1848",
+    "website": "https://tjfs.org/services/community-food-bank/",
+    "source": "https://tjfs.org/services/community-food-bank/",
+    "verified": false
+  },
+  {
+    "id": "tjfs-south",
+    "name": "Tampa Jewish Family Services — South Tampa",
+    "type": "food_bank",
+    "address": "2713 Bayshore Blvd, Tampa, FL 33629",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "Individuals and families; monthly distribution. Contact the provider to confirm eligibility.",
+    "household": [
+      "individuals",
+      "families",
+      "seniors",
+      "students"
+    ],
+    "dietary": [],
+    "offers": [],
+    "phone": "813-960-1848",
+    "website": "https://tjfs.org/services/community-food-bank/",
+    "source": "https://tjfs.org/services/community-food-bank/",
+    "verified": false
+  },
+  {
+    "id": "usf-feed-a-bull",
+    "name": "Feed-A-Bull Food Pantry (USF)",
+    "type": "pantry",
+    "address": "USF Tampa campus, Tampa, FL 33620",
+    "city": "Tampa",
+    "hours": {},
+    "scheduleKnown": false,
+    "eligibility": "USF students; confirm campus pantry location and hours before visiting.",
+    "household": [
+      "students"
+    ],
+    "dietary": [],
+    "offers": [],
+    "website": "https://www.usf.edu/student-affairs/feed-a-bull/",
+    "source": "https://www.usf.edu/student-affairs/feed-a-bull/",
+    "verified": false
+  }
+]
