@@ -38,6 +38,17 @@ export function weekOfMonth(now: Date): number {
   return Math.ceil(date / 7);
 }
 
+/** A slot split for display: the time (plus extras) and, separately, the weeks note. */
+export function slotLines(text: string, day: number, t: (s: string) => string): { main: string; weeks: string } {
+  const slot = parseSlot(text);
+  return {
+    main: `${slot.time}${slot.extra ? ` · ${slot.extra}` : ""}`,
+    weeks: slot.weeks.length
+      ? `${slot.weeks.map((w) => ORDINAL[w]).join(" & ")} ${t(DAY_NAMES[day] ?? "")} ${t("of the month only")}`
+      : "",
+  };
+}
+
 /** Plain-language text for one slot, e.g. "8am–10am (1st & 3rd Saturday of the month only) · TEFAP". */
 export function describeSlot(text: string, day: number, t: (s: string) => string): string {
   const slot = parseSlot(text);
