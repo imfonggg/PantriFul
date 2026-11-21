@@ -41,3 +41,30 @@ describe('directionsUrl', () => {
     )
   })
 })
+
+describe('FOOD_RESOURCES data', () => {
+  it('has unique ids', () => {
+    const ids = FOOD_RESOURCES.map((r) => r.id)
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+  it('places are all in the Tampa Bay area', () => {
+    for (const r of FOOD_RESOURCES) {
+      expect(distanceMiles(USF_TAMPA, r.location)).toBeLessThan(20)
+    }
+  })
+  it('hours are well formed', () => {
+    for (const r of FOOD_RESOURCES) {
+      for (const slots of Object.values(r.hours)) {
+        for (const s of slots ?? []) {
+          expect(s.open).toMatch(/^\d{2}:\d{2}$/)
+          expect(s.close > s.open).toBe(true)
+        }
+      }
+    }
+  })
+  it('places with no weekly hours explain their schedule in notes', () => {
+    for (const r of FOOD_RESOURCES) {
+      if (Object.keys(r.hours).length === 0) expect(r.notes).toBeTruthy()
+    }
+  })
+})
