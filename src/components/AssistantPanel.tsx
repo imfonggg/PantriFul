@@ -4,7 +4,7 @@ import { Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/LanguageProvider";
 import { askAssistant } from "@/lib/assistant.functions";
-import type { AssistantResult } from "@/data/assistant";
+import type { AssistantProfile, AssistantResult } from "@/data/assistant";
 import type { LatLng } from "@/data/types";
 
 const LOCAL: Record<"es" | "ar", Record<string, string>> = {
@@ -21,6 +21,7 @@ const LOCAL: Record<"es" | "ar", Record<string, string>> = {
     "Hot meal today, no ID": "Comida caliente hoy, sin identificación",
     "Halal food for my family": "Comida halal para mi familia",
     "Suggested places are highlighted below.": "Los lugares sugeridos están resaltados abajo.",
+    "Using your saved profile preferences.": "Usando las preferencias de tu perfil.",
   },
   ar: {
     "Ask PantriFul AI": "اسأل مساعد PantriFul",
@@ -35,6 +36,7 @@ const LOCAL: Record<"es" | "ar", Record<string, string>> = {
     "Hot meal today, no ID": "وجبة ساخنة اليوم، بدون هوية",
     "Halal food for my family": "طعام حلال لعائلتي",
     "Suggested places are highlighted below.": "الأماكن المقترحة مميزة في الأسفل.",
+    "Using your saved profile preferences.": "نستخدم تفضيلات ملفك الشخصي المحفوظة.",
   },
 };
 
@@ -48,11 +50,13 @@ interface Props {
   origin: LatLng;
   hasLocation: boolean;
   result: AssistantResult | null;
+  /** Saved account preferences; Gemini uses them to tailor suggestions. */
+  profile?: AssistantProfile | undefined;
   onResult: (result: AssistantResult | null) => void;
 }
 
 /** Gemini-powered "describe what you need" box. Results highlight cards and pins. */
-export function AssistantPanel({ origin, hasLocation, result, onResult }: Props) {
+export function AssistantPanel({ origin, hasLocation, result, profile, onResult }: Props) {
   const { language, t: baseT } = useLanguage();
   const t = (text: string) => (language !== "en" && LOCAL[language]?.[text]) || baseT(text);
   const ask = useServerFn(askAssistant);
@@ -67,7 +71,7 @@ export function AssistantPanel({ origin, hasLocation, result, onResult }: Props)
     setBusy(true);
     setError("");
     try {
-      onResult(await ask({ data: { message: trimmed, origin: hasLocation ? origin : undefined } }));
+      onResult(await ask({ data: { message: trimmed, origin: hasLocation ? origin : undefined, profile } }));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Please try again.");
     } finally {
@@ -87,6 +91,11 @@ export function AssistantPanel({ origin, hasLocation, result, onResult }: Props)
       <p className="mt-1 text-sm">
         {t("Tell us what you need and Gemini will suggest places that fit.")}
       </p>
+      {profile && (profile.dietary || profile.household || profile.householdSize) && (
+        <p className="mt-1 text-sm font-semibold text-green">
+          {t("Using your saved profile preferences.")}
+        </p>
+      )}
       <form
         onSubmit={(event: FormEvent) => {
           event.preventDefault();
