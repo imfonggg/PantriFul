@@ -107,6 +107,7 @@ function Index() {
       <h2 className="text-2xl font-bold sm:text-3xl">{t("Food near you")}</h2>
       <section aria-label={t("What kind of help?")} className="mt-5 border-y border-brown py-5">
         <p className="font-bold">{t("What kind of help?")}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{t("Shows places offering any of the kinds you pick. The other filters narrow the list.")}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {TYPES.map((type) => <Button key={type.id} variant="outline" aria-pressed={types.includes(type.id)} onClick={() => toggleType(type.id)} className={`min-h-10 h-auto whitespace-normal rounded-full border-2 px-4 py-2 font-semibold ${types.includes(type.id) ? "border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground" : "border-brown bg-card hover:bg-beige hover:text-foreground"}`}>{t(type.label)}</Button>)}
         </div>
