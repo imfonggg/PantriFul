@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, HeartHandshake, Sprout, BusFront, CircleHelp 
 import { Button } from "@/components/ui/button";
 import { aboutSections, faqItems, rideSections, valueSections } from "@/data/pages";
 import { useLanguage } from "./LanguageProvider";
+import { EmpowerRideProgram } from "./EmpowerRideProgram";
 
 export function InfoPage({ kind }: { kind: "about" | "faq" | "mission" | "rides" }) {
   const { t } = useLanguage();
@@ -31,7 +32,8 @@ export function InfoPage({ kind }: { kind: "about" | "faq" | "mission" | "rides"
           <h2 className="text-xl font-bold">{t(heading ?? "")}</h2><p className="mt-3 max-w-3xl leading-relaxed">{t(text ?? "")}</p>
         </article>)}
       </div>
-      {kind === "about" && <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold text-plum"><a className="underline" href="https://feedingtampabay.org/findfood" target="_blank" rel="noreferrer">Feeding Tampa Bay</a><a className="underline" href="https://www.foodpantries.org/co/fl-hillsborough" target="_blank" rel="noreferrer">FoodPantries.org</a></div>}
+      {kind === "rides" && <EmpowerRideProgram />}
+      {kind === "about" && <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold text-plum"><a className="underline" href="https://www.foodpantries.org/co/fl-hillsborough" target="_blank" rel="noreferrer">FoodPantries.org</a></div>}
       <Button asChild className="mt-8"><Link to="/">{t("Browse food")}<ArrowRight /></Link></Button>
     </section>
   </main>;
