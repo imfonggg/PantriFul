@@ -1,5 +1,6 @@
 import type { FoodResource, LatLng, ResourceType } from "./types";
 import { isOpenNow, milesBetween } from "./hours";
+import { matchesZipCode } from "./zipCodes";
 
 export interface ResourceFilters {
   types: ResourceType[];
@@ -7,6 +8,7 @@ export interface ResourceFilters {
   dietary: string;
   includeUnknown: boolean;
   city: string;
+  zipCode?: string;
   query: string;
   openOnly: boolean;
   maxMiles: number;
@@ -29,12 +31,16 @@ export function filterResources(resources: FoodResource[], filters: ResourceFilt
     const haystack = [resource.name, resource.address, resource.city, resource.eligibility, ...resource.offers, ...(resource.serviceNames ?? [])].join(" ").toLocaleLowerCase();
     return (!filters.types.length || filters.types.some((type) => (resource.serviceTypes ?? [resource.type]).includes(type)))
       && matchesNeed(resource.household, filters.household, filters.includeUnknown)
-      && (!filters.dietary || Boolean(resource.dietary?.includes(filters.dietary)) || filters.includeUnknown)
+      && matchesNeed(resource.dietary, filters.dietary, filters.includeUnknown)
       && (!filters.city || resource.city === filters.city)
+      && matchesZipCode(resource.address, filters.zipCode)
       && terms.every((term) => haystack.includes(term))
       && (!filters.openOnly || resource.open)
       && (!filters.maxMiles || (resource.miles !== null && resource.miles <= filters.maxMiles));
-  }).sort((a, b) => (a.miles ?? Infinity) - (b.miles ?? Infinity) || a.name.localeCompare(b.name));
+  }).sort((a, b) => {
+    const dietaryRank = filters.dietary ? Number(Boolean(b.dietary?.includes(filters.dietary))) - Number(Boolean(a.dietary?.includes(filters.dietary))) : 0;
+    return dietaryRank || (a.miles ?? Infinity) - (b.miles ?? Infinity) || a.name.localeCompare(b.name);
+  });
 }
 
 export type TravelMode = "driving" | "transit" | "walking" | "bicycling";

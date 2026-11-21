@@ -9,9 +9,19 @@ export function tampaClock(now: Date) {
 
 export function fmt(t: string) {
   const [h = 0, m = 0] = t.split(":").map(Number);
-  const suffix = h >= 12 ? "pm" : "am";
+  const suffix = h >= 12 ? "PM" : "AM";
   const hr = h % 12 || 12;
-  return m ? `${hr}:${String(m).padStart(2, "0")}${suffix}` : `${hr}${suffix}`;
+  return m ? `${hr}:${String(m).padStart(2, "0")} ${suffix}` : `${hr} ${suffix}`;
+}
+
+/** Preserve source times and program notes; expand ordinal weekdays, not calendar dates. */
+export function formatPublishedHours(value: string, day: number, language: "en" | "es" = "en") {
+  const weekday = (language === "es" ? ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"] : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])[day] ?? "";
+  return value.replace(/\b([01]?\d|2[0-3]):([0-5]\d)\b/g, time => fmt(time))
+    .replace(/Dates:\s*((?:[1-5](?:st|nd|rd|th)(?:,\s*)?)+)/g, (_, ordinals: string) => {
+      const dates = ordinals.match(/[1-5](?:st|nd|rd|th)/g) ?? [];
+      return dates.map(ordinal => language === "es" ? `${ordinal[0]}º ${weekday} del mes` : `${ordinal} ${weekday} of the month`).join(", ");
+    }).trim();
 }
 
 export function isOpenNow(r: FoodResource, now = new Date()) {

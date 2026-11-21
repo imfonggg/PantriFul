@@ -21,6 +21,16 @@ describe("Food assistance rules", () => {
     expect(matchesNeed([], "vegetarian", true)).toBe(true);
     expect(matchesNeed([], "vegetarian", false)).toBe(false);
   });
+  it("ranks vegetarian matches above nearer unconfirmed listings", () => {
+    const results = filterResources(FOOD_RESOURCES, { ...filters, dietary: "vegetarian" });
+    expect(results.slice(0, 2).map(r => r.id).sort()).toEqual(["ftb-23431", "ftb-23799"]);
+    expect(results.slice(2).every(r => !r.dietary?.length)).toBe(true);
+  });
+  it("does not treat a published nonmatching diet as unconfirmed", () => {
+    const results = filterResources(FOOD_RESOURCES, { ...filters, dietary: "vegan", includeUnknown: true });
+    expect(results.map(r => r.id)).not.toContain("ftb-23431");
+    expect(results.map(r => r.id)).not.toContain("ftb-23799");
+  });
   it("offers transit directions to the exact pantry address", () => {
     const url = new URL(directionsUrl("2030 W Fletcher Ave, Tampa, FL 33612", "transit"));
     expect(url.searchParams.get("travelmode")).toBe("transit");
