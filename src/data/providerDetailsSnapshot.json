@@ -1,0 +1,1757 @@
+{
+  "checked": "2026-11-21",
+  "records": {
+    "ftb-23799": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Eggs, Fruits & Vegetables, Meat, Shelf Stable/Non-Perishable Goods. Availability varies.",
+        "es": "Lácteos, Huevos, Frutas y verduras, Carne, Alimentos no perecederos. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "The Bistro welcomes everyone, free of charge. Market shopping is limited to one appointment per household/address every 30 days.",
+        "es": "El Bistro recibe a todos gratis. El Market permite una cita por hogar/domicilio cada 30 días.",
+        "sources": [
+          "https://ftb.org/causeway/the-market",
+          "https://ftb.org/groceries-meals/trinity-cafe",
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "openToEveryone": true,
+        "marketAppointmentRequired": true,
+        "marketVisitFrequencyDays": 30,
+        "marketMaximumShoppers": 2,
+        "bistroWalkInsAccepted": true,
+        "dietaryAppliesTo": "Bistro"
+      },
+      "requirements": {
+        "en": "Market: book online in advance; appointments cannot be made in person. Bring no more than 2 shoppers and arrive no earlier than 5 minutes before your appointment. Bistro meals accept walk-ins.",
+        "es": "Market: reserva por internet con anticipación; no se hacen citas en persona. Acude con un máximo de 2 compradores y no llegues más de 5 minutos antes de la cita. El Bistro acepta visitas sin cita.",
+        "sources": [
+          "https://ftb.org/causeway/the-market",
+          "https://ftb.org/groceries-meals/trinity-cafe",
+          "https://ftb.org/findfood"
+        ]
+      },
+      "dietary": {
+        "en": "Vegetarian and gluten-free options are listed for the Bistro’s meals. These labels do not guarantee equivalent options in Market grocery supplies or allergy-safe preparation.",
+        "es": "Se publican opciones vegetarianas y sin gluten para las comidas del Bistro. No garantizan las mismas opciones en los alimentos del Market ni una preparación segura para alergias.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23443": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23471": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23490": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23407": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-37099": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Homeless outreach services.",
+        "es": "Servicios de ayuda para personas sin hogar.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23460": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23417": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23467": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23466": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23406": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23479": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23451": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Hot meals.",
+        "es": "Comidas calientes.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23415": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23801": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Free prepared meals.",
+        "es": "Comidas preparadas gratis.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Anyone in need of a meal.",
+        "es": "Cualquier persona que necesite una comida.",
+        "sources": [
+          "https://ftb.org/groceries-meals/trinity-cafe"
+        ]
+      },
+      "requirements": {
+        "en": "Walk in for a 3-course meal on-site or a meal to go. No need to call ahead.",
+        "es": "Acude sin cita para una comida de 3 platos en el lugar o para llevar. No es necesario llamar antes.",
+        "sources": [
+          "https://ftb.org/groceries-meals/trinity-cafe"
+        ]
+      },
+      "rules": {
+        "walkInsAccepted": true,
+        "appointmentRequired": false
+      }
+    },
+    "ftb-23433": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23435": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Metro Market: fresh produce, bread, meat and pantry staples; clothing is also available.",
+        "es": "Metro Market: frutas y verduras frescas, pan, carne y alimentos básicos; también hay ropa.",
+        "sources": [
+          "https://www.metromin.org/get-help/"
+        ]
+      },
+      "eligibility": {
+        "en": "Metro Market groceries are for households able to store and cook food at home. Eligibility is determined by an assessment; visits are once per month.",
+        "es": "Los alimentos del Metro Market son para hogares que pueden guardar y cocinar alimentos en casa. Una evaluación determina la elegibilidad; se permite una visita al mes.",
+        "sources": [
+          "https://www.metromin.org/get-help/"
+        ]
+      },
+      "requirements": {
+        "en": "Bring a utility bill, lease agreement or rent receipt for the assessment. If staying with someone else, bring their note confirming safe food storage/cooking and a copy of their utility bill, lease or rent receipt.",
+        "es": "Lleva factura de servicios, contrato o recibo de alquiler para la evaluación. Si vives con otra persona, lleva una nota suya confirmando que puedes guardar y cocinar alimentos, y copia de su factura, contrato o recibo de alquiler.",
+        "sources": [
+          "https://www.metromin.org/get-help/"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true,
+        "foodStorageAndCookingRequired": true,
+        "assessmentRequired": true,
+        "proofOfAddressRequired": true,
+        "visitFrequencyMonths": 1
+      }
+    },
+    "ftb-23442": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23422": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23430": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Shelf Stable/Non-Perishable Goods, Fruits & Vegetables, Meat, Pet Food / Supplies. Availability varies.",
+        "es": "Alimentos no perecederos, Frutas y verduras, Carne, Alimentos y artículos para mascotas. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Anyone in need, regardless of race, ethnicity, religion or income. The provider lists no program qualifications.",
+        "es": "Cualquier persona que necesite ayuda, sin distinción de raza, origen étnico, religión o ingresos. El proveedor no publica requisitos de elegibilidad.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Curbside/drive-through, pre-packed groceries; lifting/carrying assistance is listed for the grocery-box program.",
+        "es": "Alimentos preempacados para recoger desde el automóvil; el programa de cajas publica ayuda para levantar o cargar alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "openToEveryone": true,
+        "incomeRestriction": false
+      }
+    },
+    "ftb-23438": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23838": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23493": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23488": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23434": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Fruits & Vegetables, Meat, Pet Food / Supplies, Prepared Food / Grab and Go, Shelf Stable/Non-Perishable Goods, Toiletries / Hygiene Products. Availability varies.",
+        "es": "Frutas y verduras, Carne, Alimentos y artículos para mascotas, Comida preparada para llevar, Alimentos no perecederos, Artículos de higiene. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "This location lists the CSFP senior food program, for adults age 60 and older who meet program income limits. This restriction applies to CSFP, not necessarily other food services.",
+        "es": "Este lugar publica el programa alimentario CSFP, para adultos de 60 años o más que cumplen sus límites de ingresos. Esta restricción corresponde a CSFP, no necesariamente a otros servicios de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fna.usda.gov/csfp/applicant-recipient"
+        ]
+      },
+      "rules": {
+        "csfpMinimumAge": 60
+      }
+    },
+    "ftb-23495": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23421": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Non-perishable groceries, personal-care and cleaning supplies; fresh bread, pastries and produce when available.",
+        "es": "Alimentos no perecederos, artículos de cuidado personal y limpieza; pan, pasteles y frutas y verduras frescas cuando hay disponibles.",
+        "sources": [
+          "https://myepic.org/food-pantry/"
+        ]
+      },
+      "eligibility": {
+        "en": "Enrolled EPIC clients and their families; the Fred B. Sieber Pantry serves clients in Hillsborough County.",
+        "es": "Clientes inscritos de EPIC y sus familias; la despensa Fred B. Sieber atiende a clientes en Hillsborough County.",
+        "sources": [
+          "https://myepic.org/food-pantry/"
+        ]
+      },
+      "requirements": {
+        "en": "Pantry access is through EPIC client enrollment. Enrolled clients can choose 10 food items and 10 personal-care items per month.",
+        "es": "El acceso requiere inscripción como cliente de EPIC. Los clientes inscritos pueden elegir 10 alimentos y 10 artículos de cuidado personal por mes.",
+        "sources": [
+          "https://myepic.org/food-pantry/"
+        ]
+      },
+      "rules": {
+        "epicEnrollmentRequired": true,
+        "monthlyFoodItemLimit": 10,
+        "monthlyPersonalCareItemLimit": 10
+      }
+    },
+    "ftb-56971": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food pantry.",
+        "es": "Despensa de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23489": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23449": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "TEFAP groceries: Florida households meeting the 300%-of-poverty income limit or receiving SNAP, TANF, SSI or Medicaid. CSFP senior food: adults 60+ meeting that program’s income limits.",
+        "es": "Alimentos TEFAP: hogares de Florida con ingresos de hasta el 300% del nivel de pobreza o que reciben SNAP, TANF, SSI o Medicaid. Alimentos CSFP para mayores: adultos de 60 años o más que cumplen los límites de ingresos del programa.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements",
+          "https://www.fna.usda.gov/csfp/applicant-recipient"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true,
+        "csfpMinimumAge": 60
+      }
+    },
+    "ftb-23426": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23843": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-38941": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Kingdom Kids program.",
+        "es": "Programa Kingdom Kids.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23485": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Eggs, Fruits & Vegetables, Meat, Shelf Stable/Non-Perishable Goods. Availability varies.",
+        "es": "Lácteos, Huevos, Frutas y verduras, Carne, Alimentos no perecederos. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Bring a current photo ID; an original Social Security card or birth certificate for each family member receiving assistance; and proof of address dated/received within 30 days (bill, mail, recent lease or rent receipt). Walk-ins are listed in the provider directory.",
+        "es": "Lleva identificación vigente con foto; tarjeta original de Seguro Social o acta de nacimiento de cada familiar que recibirá ayuda; y comprobante de domicilio fechado o recibido en los últimos 30 días (factura, correspondencia, contrato reciente o recibo de alquiler). El directorio acepta visitas sin cita.",
+        "sources": [
+          "https://www.echofl.org/need-help",
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "walkInsAccepted": true,
+        "serviceZipCodes": [
+          "33534",
+          "33547",
+          "33569",
+          "33570",
+          "33572",
+          "33573",
+          "33578",
+          "33579",
+          "33619"
+        ],
+        "idRequired": true,
+        "familyIdentificationRequired": true,
+        "birthCertificateAccepted": true,
+        "addressProofMaximumAgeDays": 30,
+        "emergencyVisitFrequencyMonths": 4
+      },
+      "eligibility": {
+        "en": "Neighbors experiencing a crisis who live in these service ZIP codes: 33534, 33547, 33569, 33570, 33572, 33573, 33578, 33579, 33619. Emergency assistance visits must be at least 4 months apart.",
+        "es": "Vecinos en situación de crisis que viven en estos códigos postales: 33534, 33547, 33569, 33570, 33572, 33573, 33578, 33579, 33619. Deben pasar al menos 4 meses entre visitas de asistencia de emergencia.",
+        "sources": [
+          "https://www.echofl.org/need-help"
+        ]
+      }
+    },
+    "ftb-23480": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23450": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23494": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23543": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Emergency food relief packs, diapers and period products.",
+        "es": "Paquetes de alimentos de emergencia, pañales y productos menstruales.",
+        "sources": [
+          "https://www.hcfl.edu/food-2-finish"
+        ]
+      },
+      "eligibility": {
+        "en": "Hillsborough College students, faculty and staff experiencing food insecurity; Food 2 Finish operates across all five campuses.",
+        "es": "Estudiantes, docentes y personal de Hillsborough College con inseguridad alimentaria; Food 2 Finish opera en los cinco campus.",
+        "sources": [
+          "https://www.hcfl.edu/food-2-finish"
+        ]
+      },
+      "rules": {
+        "collegeStudentsFacultyStaff": true
+      }
+    },
+    "ftb-23445": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23459": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23491": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "People experiencing homelessness and people with low to moderate incomes.",
+        "es": "Personas sin hogar y personas con ingresos bajos o moderados.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Complete a TEFAP application. The provider explicitly states that no ID is required.",
+        "es": "Completa una solicitud TEFAP. El proveedor indica expresamente que no se requiere identificación.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "registrationRequired": true,
+        "idRequired": false
+      }
+    },
+    "ftb-23413": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23499": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Fresh produce pantry.",
+        "es": "Despensa de frutas y verduras.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23715": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Diapers, Eggs, Fruits & Vegetables, Household Products, Meat, Pet Food / Supplies, Shelf Stable/Non-Perishable Goods, Toiletries / Hygiene Products. Availability varies.",
+        "es": "Lácteos, Pañales, Huevos, Frutas y verduras, Artículos para el hogar, Carne, Alimentos y artículos para mascotas, Alimentos no perecederos, Artículos de higiene. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Open to everyone, as listed in Feeding Tampa Bay’s directory.",
+        "es": "Abierto a todos, según el directorio de Feeding Tampa Bay.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "openToEveryone": true,
+        "walkInsAccepted": true
+      },
+      "requirements": {
+        "en": "Walk-ins accepted for the listed food program.",
+        "es": "Se aceptan visitas sin cita para el programa de alimentos publicado.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23487": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Eggs, Fruits & Vegetables, Prepared Food / Grab and Go. Availability varies.",
+        "es": "Lácteos, Huevos, Frutas y verduras, Comida preparada para llevar. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23841": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23427": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23473": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Eggs, Fruits & Vegetables, Meat, Shelf Stable/Non-Perishable Goods. Availability varies.",
+        "es": "Lácteos, Huevos, Frutas y verduras, Carne, Alimentos no perecederos. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Bring a current photo ID; an original Social Security card or birth certificate for each family member receiving assistance; and proof of address dated/received within 30 days (bill, mail, recent lease or rent receipt). Walk-ins are listed in the provider directory.",
+        "es": "Lleva identificación vigente con foto; tarjeta original de Seguro Social o acta de nacimiento de cada familiar que recibirá ayuda; y comprobante de domicilio fechado o recibido en los últimos 30 días (factura, correspondencia, contrato reciente o recibo de alquiler). El directorio acepta visitas sin cita.",
+        "sources": [
+          "https://www.echofl.org/need-help",
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "walkInsAccepted": true,
+        "serviceZipCodes": [
+          "33510",
+          "33511",
+          "33527",
+          "33584",
+          "33592",
+          "33594",
+          "33596",
+          "33610"
+        ],
+        "idRequired": true,
+        "familyIdentificationRequired": true,
+        "birthCertificateAccepted": true,
+        "addressProofMaximumAgeDays": 30,
+        "emergencyVisitFrequencyMonths": 4
+      },
+      "eligibility": {
+        "en": "Neighbors experiencing a crisis who live in these service ZIP codes: 33510, 33511, 33527, 33584, 33592, 33594, 33596, 33610. Emergency assistance visits must be at least 4 months apart.",
+        "es": "Vecinos en situación de crisis que viven en estos códigos postales: 33510, 33511, 33527, 33584, 33592, 33594, 33596, 33610. Deben pasar al menos 4 meses entre visitas de asistencia de emergencia.",
+        "sources": [
+          "https://www.echofl.org/need-help"
+        ]
+      }
+    },
+    "ftb-23418": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23461": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23475": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23694": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23437": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23441": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23431": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "No eligibility restrictions are listed; visitors sign in with household size and ZIP code.",
+        "es": "No se publican restricciones de elegibilidad; los visitantes se registran con el tamaño del hogar y el código postal.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Sign in and provide the number of people in your family and your ZIP code.",
+        "es": "Regístrate e indica el número de personas en tu familia y tu código postal.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "food": {
+        "en": "Groceries, vegetables and toiletries/hygiene supplies.",
+        "es": "Alimentos, verduras y artículos de higiene.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "dietary": {
+        "en": "Vegetarian options are listed in the provider directory.",
+        "es": "El directorio del proveedor publica opciones vegetarianas.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "householdSizeAtSignIn": true,
+        "zipCodeAtSignIn": true,
+        "vegetarianListed": true
+      }
+    },
+    "ftb-23482": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23453": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Register each week online. The provider’s procedure says registration opens Thursday at 9 a.m. for that Thursday’s food bank. One registration per person/email; duplicate tickets are deleted. All registered adults must be present to receive food.",
+        "es": "Regístrate cada semana por internet. El procedimiento del proveedor indica que el registro abre el jueves a las 9 a.m. para la distribución de ese jueves. Un registro por persona/correo; se eliminan duplicados. Todos los adultos registrados deben estar presentes.",
+        "sources": [
+          "https://sohopefl.org/food-bank-registration-procedure/"
+        ]
+      },
+      "rules": {
+        "weeklyRegistrationRequired": true,
+        "registrationOpensWeekday": 4,
+        "registrationOpensHour": 9,
+        "registeredAdultsMustAttend": true
+      }
+    },
+    "ftb-23419": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23463": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23464": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-24522": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23452": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23408": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23425": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23481": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23472": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Households in the service ZIP codes shown on the provider’s Client Info map. One family per address; visits every 4–6 weeks.",
+        "es": "Hogares de los códigos postales indicados en el mapa Client Info del proveedor. Una familia por domicilio; visitas cada 4–6 semanas.",
+        "sources": [
+          "https://www.thecommunityfoodpantry.com/client-info"
+        ]
+      },
+      "requirements": {
+        "en": "Bring a driver’s license, passport or government-issued ID and proof of current address. No appointment for the first visit; you receive an appointment card for future visits. Drive-through: arrive between 9 and 10:45 a.m., never before opening.",
+        "es": "Lleva licencia de conducir, pasaporte o identificación oficial y comprobante del domicilio actual. La primera visita no requiere cita; recibirás una tarjeta para las siguientes. Desde el automóvil: llega entre las 9 y las 10:45 a.m., nunca antes de abrir.",
+        "sources": [
+          "https://www.thecommunityfoodpantry.com/client-info",
+          "https://www.thecommunityfoodpantry.com/"
+        ]
+      },
+      "rules": {
+        "idRequired": true,
+        "proofOfAddressRequired": true,
+        "familiesPerAddress": 1,
+        "firstVisitAppointmentRequired": false,
+        "returnVisitAppointmentRequired": true,
+        "minimumVisitFrequencyWeeks": 4,
+        "maximumVisitFrequencyWeeks": 6
+      }
+    },
+    "ftb-23484": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23468": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23767": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-54507": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Diapers, Fruits & Vegetables, Meat, Pet Food / Supplies, Shelf Stable/Non-Perishable Goods, Toiletries / Hygiene Products. Availability varies.",
+        "es": "Pañales, Frutas y verduras, Carne, Alimentos y artículos para mascotas, Alimentos no perecederos, Artículos de higiene. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Individuals and families experiencing food insecurity, from all ZIP codes. Church attendance and proof of income are not required.",
+        "es": "Personas y familias con inseguridad alimentaria, de cualquier código postal. No se requiere asistir a la iglesia ni comprobar ingresos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Bring a valid ID and complete a brief household registration form. Drive-through food is available while supplies last.",
+        "es": "Lleva identificación vigente y completa un breve formulario de registro del hogar. La distribución desde el automóvil depende de las existencias.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "anyZipCode": true,
+        "idRequired": true,
+        "registrationRequired": true,
+        "proofOfIncomeRequired": false,
+        "churchAttendanceRequired": false
+      }
+    },
+    "ftb-23420": {
+      "checked": "2026-11-21"
+    },
+    "ftb-23454": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23416": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Fruits & Vegetables, Meat, Prepared Food / Grab and Go, Shelf Stable/Non-Perishable Goods. Availability varies.",
+        "es": "Frutas y verduras, Carne, Comida preparada para llevar, Alimentos no perecederos. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Registration is required. The provider directory reports the pantry is at capacity; new-neighbor registration is only on the first Monday of each month, 10 a.m.–noon, at 1480 College Ave., Ruskin. Food pickup is drive-through.",
+        "es": "Se requiere registro. El directorio indica que la despensa está al máximo de su capacidad; los nuevos vecinos solo pueden registrarse el primer lunes del mes, de 10 a.m. a mediodía, en 1480 College Ave., Ruskin. Se recoge desde el automóvil.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "registrationRequired": true,
+        "newRegistrationWeekday": 1,
+        "newRegistrationWeekOfMonth": 1
+      }
+    },
+    "ftb-23448": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "The provider welcomes anyone in need regardless of race or religion. The published pantry listing names Balm, Wimauma, Ruskin, Apollo Beach, Riverview, Gibsonton and Sun City Center as its service area.",
+        "es": "El proveedor recibe a cualquier persona que necesite ayuda, sin distinción de raza o religión. El listado publica Balm, Wimauma, Ruskin, Apollo Beach, Riverview, Gibsonton y Sun City Center como zona de servicio.",
+        "sources": [
+          "https://www.ourladyspantry.com/",
+          "https://www.foodpantries.org/li/our-lady-of-guadalupe-food-pantry-our-ladys-pantry"
+        ]
+      },
+      "requirements": {
+        "en": "The pantry listing requires registration, valid ID and proof of address (such as a utility bill). The provider’s current homepage says you must be inside the gate by 10 a.m. on Saturday.",
+        "es": "El listado requiere registro, identificación vigente y comprobante de domicilio (como factura de servicios). La página actual del proveedor indica que debes estar dentro del portón antes de las 10 a.m. del sábado.",
+        "sources": [
+          "https://www.foodpantries.org/li/our-lady-of-guadalupe-food-pantry-our-ladys-pantry",
+          "https://www.ourladyspantry.com/"
+        ]
+      },
+      "rules": {
+        "registrationRequired": true,
+        "idRequired": true,
+        "proofOfAddressRequired": true,
+        "saturdayGateDeadlineHour": 10
+      }
+    },
+    "ftb-23474": {
+      "checked": "2026-11-21"
+    },
+    "ftb-54500": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-24783": {
+      "checked": "2026-11-21"
+    },
+    "ftb-23446": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Groceries.",
+        "es": "Alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23432": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food pantry.",
+        "es": "Despensa de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "For this location’s TEFAP groceries: Florida households with income at or below 300% of the federal poverty level, or receiving SNAP, TANF, SSI or Medicaid.",
+        "es": "Para los alimentos TEFAP de este lugar: hogares de Florida con ingresos de hasta el 300% del nivel federal de pobreza, o que reciben SNAP, TANF, SSI o Medicaid.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true
+      }
+    },
+    "ftb-23447": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Pre-assembled grocery bundles typically include produce and bread; supplies and contents vary weekly.",
+        "es": "Bolsas de alimentos prearmadas que suelen incluir frutas y verduras y pan; las existencias y el contenido varían cada semana.",
+        "sources": [
+          "https://theharborfl.org/ministries/food-pantry/"
+        ]
+      },
+      "requirements": {
+        "en": "Bring proof of income for all working adults, ID for each household member, and a household application. Accepted IDs include state/driver’s ID, military ID, US passport, work visa, green card or Social Security card. Missing paperwork on your first visit will not prevent receiving food; return it on your next visit. Enter from McGlamery Road for drive-through pickup.",
+        "es": "Lleva comprobantes de ingresos de todos los adultos que trabajan, identificación de cada miembro del hogar y una solicitud familiar. Se aceptan identificación estatal/licencia, militar, pasaporte de EE. UU., visa de trabajo, tarjeta de residencia o Seguro Social. No te negarán alimentos por faltar documentos en la primera visita; entrégalos en la siguiente. Entra por McGlamery Road para recoger desde el automóvil.",
+        "sources": [
+          "https://theharborfl.org/ministries/food-pantry/"
+        ]
+      },
+      "rules": {
+        "householdApplicationRequired": true,
+        "workingAdultIncomeProofRequired": true,
+        "firstVisitWithoutPaperworkAllowed": true
+      }
+    },
+    "ftb-23836": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food pantry.",
+        "es": "Despensa de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23429": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23671": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "FoodRx program.",
+        "es": "Programa FoodRx.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23411": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Food distribution.",
+        "es": "Distribución de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Open to everyone, as listed in Feeding Tampa Bay’s directory.",
+        "es": "Abierto a todos, según el directorio de Feeding Tampa Bay.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "requirements": {
+        "en": "Complete the TEFAP household eligibility declaration with your household information and qualifying income or benefit program.",
+        "es": "Completa la declaración de elegibilidad TEFAP con los datos de tu hogar y los ingresos o el programa de asistencia que te permiten reunir los requisitos.",
+        "sources": [
+          "https://ftb.org/findfood",
+          "https://www.fdacs.gov/Food-Nutrition/Nutrition-Programs/The-Emergency-Food-Assistance-Program-TEFAP/Eligibility-Requirements"
+        ]
+      },
+      "rules": {
+        "tefap": true,
+        "tefapPovertyPercent": 300,
+        "registrationRequired": true,
+        "openToEveryone": true
+      }
+    },
+    "ftb-23981": {
+      "checked": "2026-11-21"
+    },
+    "ftb-23439": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery boxes.",
+        "es": "Cajas de alimentos.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23470": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Grocery bundles typically include produce, meat, eggs, dairy, dry goods, cereals, grains, soups, juice and bread; contents depend on donations and inventory.",
+        "es": "Las bolsas suelen incluir frutas y verduras, carne, huevos, lácteos, alimentos secos, cereales, granos, sopas, jugo y pan; el contenido depende de donaciones y existencias.",
+        "sources": [
+          "https://ufbpc.org/food-distribution/"
+        ]
+      },
+      "eligibility": {
+        "en": "Feeding Our Community members must live in a service ZIP code: 33510, 33511, 33527, 33587, 33547, 33563, 33564, 33565, 33566, 33567, 33569, 33578, 33579, 33584, 33592, 33594, 33596, 33598. People without the required ID or service-area address can use the separate drive-through distributions.",
+        "es": "Los miembros de Feeding Our Community deben vivir en un código postal de servicio: 33510, 33511, 33527, 33587, 33547, 33563, 33564, 33565, 33566, 33567, 33569, 33578, 33579, 33584, 33592, 33594, 33596, 33598. Quienes no tienen la identificación o domicilio requerido pueden utilizar las distribuciones separadas desde el automóvil.",
+        "sources": [
+          "https://ufbpc.org/food-distribution/"
+        ]
+      },
+      "requirements": {
+        "en": "Membership: a non-expired Florida driver’s license or Florida state ID showing your current service-area address. Complete registration and book a new-member appointment together online. Returning members book every 2 weeks.",
+        "es": "Membresía: licencia de conducir o identificación estatal de Florida vigente con el domicilio actual de la zona de servicio. Completa el registro y reserva la cita de nuevo miembro juntos por internet. Los miembros actuales reservan cada 2 semanas.",
+        "sources": [
+          "https://ufbpc.org/food-distribution/"
+        ]
+      },
+      "rules": {
+        "membershipServiceZipCodes": [
+          "33510",
+          "33511",
+          "33527",
+          "33587",
+          "33547",
+          "33563",
+          "33564",
+          "33565",
+          "33566",
+          "33567",
+          "33569",
+          "33578",
+          "33579",
+          "33584",
+          "33592",
+          "33594",
+          "33596",
+          "33598"
+        ],
+        "membershipFloridaIdRequired": true,
+        "membershipAppointmentRequired": true,
+        "visitFrequencyDays": 14,
+        "alternativeDriveThroughAvailable": true
+      }
+    },
+    "ftb-23492": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Dairy, Eggs, Fruits & Vegetables, Meat. Availability varies.",
+        "es": "Lácteos, Huevos, Frutas y verduras, Carne. La disponibilidad varía.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "eligibility": {
+        "en": "Open to everyone, as listed in Feeding Tampa Bay’s directory.",
+        "es": "Abierto a todos, según el directorio de Feeding Tampa Bay.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      },
+      "rules": {
+        "openToEveryone": true,
+        "walkInsAccepted": true
+      },
+      "requirements": {
+        "en": "Walk-ins accepted for the listed food program.",
+        "es": "Se aceptan visitas sin cita para el programa de alimentos publicado.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "ftb-23477": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Hot meals.",
+        "es": "Comidas calientes.",
+        "sources": [
+          "https://ftb.org/findfood"
+        ]
+      }
+    },
+    "directory-hope-effect-food-pantry": {
+      "checked": "2026-11-21",
+      "requirements": {
+        "en": "If the listed distribution hours do not work for you, the pantry offers appointments by phone.",
+        "es": "Si el horario de distribución no te sirve, la despensa ofrece citas por teléfono.",
+        "sources": [
+          "https://www.foodpantries.org/li/hope-effect-food-pantry"
+        ]
+      }
+    },
+    "directory-fl_33558_st-timothy-catholic-church": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Service area: ZIP codes 33558, 33618 and 33624 north of Ehrlich Road.",
+        "es": "Zona de servicio: códigos postales 33558, 33618 y 33624 al norte de Ehrlich Road.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33558_st-timothy-catholic-church"
+        ]
+      },
+      "rules": {
+        "serviceZipCodes": [
+          "33558",
+          "33618",
+          "33624"
+        ],
+        "serviceAreaNorthOfEhrlich": true
+      }
+    },
+    "directory-fl_33626_rock-church-of-tampa-bay": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Anyone in the community who is hungry and needs food.",
+        "es": "Cualquier persona de la comunidad que tenga hambre y necesite alimentos.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33626_rock-church-of-tampa-bay"
+        ]
+      },
+      "requirements": {
+        "en": "Bring photo ID and proof of your current address. Appointments can be arranged by phone.",
+        "es": "Lleva identificación con foto y comprobante del domicilio actual. Puedes concertar una cita por teléfono.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33626_rock-church-of-tampa-bay"
+        ]
+      },
+      "rules": {
+        "idRequired": true,
+        "proofOfAddressRequired": true
+      }
+    },
+    "directory-fl_33613_st-mary": {
+      "checked": "2026-11-21"
+    },
+    "directory-fl_33609_st-patrick": {
+      "checked": "2026-11-21"
+    },
+    "directory-heavens-gate-christian-church-inc": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Families and neighbors in need in the Seffner community.",
+        "es": "Familias y vecinos de la comunidad de Seffner que necesitan ayuda.",
+        "sources": [
+          "https://www.foodpantries.org/li/heavens-gate-christian-church-inc"
+        ]
+      },
+      "requirements": {
+        "en": "Food assistance is also available by appointment outside the listed distribution.",
+        "es": "También hay ayuda alimentaria con cita fuera de la distribución publicada.",
+        "sources": [
+          "https://www.foodpantries.org/li/heavens-gate-christian-church-inc"
+        ]
+      }
+    },
+    "directory-fl_33612_reasonable-service": {
+      "checked": "2026-11-21",
+      "requirements": {
+        "en": "Appointment only. Bring picture ID.",
+        "es": "Solo con cita. Lleva identificación con foto.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33612_reasonable-service"
+        ]
+      },
+      "rules": {
+        "appointmentRequired": true,
+        "idRequired": true
+      }
+    },
+    "directory-fl_33534_gibsonton-elementary-school-pantry": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "The school pantry welcomes all Bulldogs.",
+        "es": "La despensa escolar recibe a todos los Bulldogs.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33534_gibsonton-elementary-school-pantry"
+        ]
+      },
+      "requirements": {
+        "en": "Located at the back of the school in room 226.",
+        "es": "En la parte trasera de la escuela, salón 226.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33534_gibsonton-elementary-school-pantry"
+        ]
+      },
+      "food": {
+        "en": "Meat, produce, bread, canned and boxed food, household and hygiene items.",
+        "es": "Carne, frutas y verduras, pan, alimentos enlatados y en cajas, artículos del hogar y de higiene.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33534_gibsonton-elementary-school-pantry"
+        ]
+      }
+    },
+    "directory-open-hands-food-pantry-at-lamb-of-god-lutheran-church": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Families in the Lithia community experiencing food hardship.",
+        "es": "Familias de la comunidad de Lithia que tienen dificultades para acceder a alimentos.",
+        "sources": [
+          "https://www.foodpantries.org/li/open-hands-food-pantry-at-lamb-of-god-lutheran-church"
+        ]
+      },
+      "food": {
+        "en": "Food to help meet a family’s needs for the coming week.",
+        "es": "Alimentos para ayudar a cubrir las necesidades de la familia durante la semana siguiente.",
+        "sources": [
+          "https://www.foodpantries.org/li/open-hands-food-pantry-at-lamb-of-god-lutheran-church"
+        ]
+      }
+    },
+    "directory-fl_33609_light-of-hope": {
+      "checked": "2026-11-21",
+      "requirements": {
+        "en": "The pantry is in the church hall.",
+        "es": "La despensa está en el salón de la iglesia.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33609_light-of-hope"
+        ]
+      }
+    },
+    "directory-fl_33602_feeding-ministries-global-nonprofit": {
+      "checked": "2026-11-21",
+      "requirements": {
+        "en": "The published listing asks visitors to call for food availability or appointment times.",
+        "es": "El listado pide llamar para consultar la disponibilidad de alimentos o las citas.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33602_feeding-ministries-global-nonprofit"
+        ]
+      }
+    },
+    "directory-fl_33618_st-paul-catholic-church": {
+      "checked": "2026-11-21"
+    },
+    "directory-fl_33615_berkeley-preparatory-school-food-pantry-33615": {
+      "checked": "2026-11-21",
+      "food": {
+        "en": "Shop for food; clothing and books are also available through the pantry’s clothing closet.",
+        "es": "Elige alimentos; también hay ropa y libros en el armario de ropa de la despensa.",
+        "sources": [
+          "https://www.foodpantries.org/li/fl_33615_berkeley-preparatory-school-food-pantry-33615"
+        ]
+      }
+    },
+    "tjfs-north": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Individuals and families of all faiths, as reported by the Jewish Press in November 2025.",
+        "es": "Personas y familias de todas las religiones, según Jewish Press en noviembre de 2025.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "requirements": {
+        "en": "Published program information describes monthly pickups; emergency food bags are available by appointment.",
+        "es": "La información publicada describe recogidas mensuales; las bolsas de alimentos de emergencia están disponibles con cita.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "food": {
+        "en": "Fresh fruits and vegetables, whole grains, dairy and non-perishable food, as reported in the program announcement.",
+        "es": "Frutas y verduras frescas, granos integrales, lácteos y alimentos no perecederos, según el anuncio del programa.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "rules": {
+        "allFaiths": true,
+        "emergencyBagAppointmentRequired": true
+      }
+    },
+    "tjfs-south": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Individuals and families of all faiths, as reported by the Jewish Press in November 2025.",
+        "es": "Personas y familias de todas las religiones, según Jewish Press en noviembre de 2025.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "requirements": {
+        "en": "Published program information describes monthly pickups; emergency food bags are available by appointment.",
+        "es": "La información publicada describe recogidas mensuales; las bolsas de alimentos de emergencia están disponibles con cita.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "food": {
+        "en": "Fresh fruits and vegetables, whole grains, dairy and non-perishable food, as reported in the program announcement.",
+        "es": "Frutas y verduras frescas, granos integrales, lácteos y alimentos no perecederos, según el anuncio del programa.",
+        "sources": [
+          "https://www.jewishpresstampa.com/articles/tampa-jewish-family-services-launches-2nd-community-food-bank/"
+        ]
+      },
+      "rules": {
+        "allFaiths": true,
+        "emergencyBagAppointmentRequired": true
+      }
+    },
+    "usf-feed-a-bull": {
+      "checked": "2026-11-21",
+      "eligibility": {
+        "en": "Currently enrolled USF students only. Students may visit once weekly, with no semester visit limit.",
+        "es": "Solo estudiantes actualmente inscritos en USF. Se permite una visita semanal, sin límite de visitas por semestre.",
+        "sources": [
+          "https://www.usf.edu/student-affairs/departments/food-resources.aspx"
+        ]
+      },
+      "requirements": {
+        "en": "Drop in at SVC 0002 or order for MSC locker pickup. Locker orders must be placed at least 24 hours in advance and depend on availability.",
+        "es": "Acude a SVC 0002 sin cita o pide para recoger en los casilleros del MSC. Los pedidos deben hacerse con al menos 24 horas de anticipación y dependen de la disponibilidad.",
+        "sources": [
+          "https://www.usf.edu/student-affairs/student-health-services/services/feed-a-bull-food-pantry.aspx"
+        ]
+      },
+      "food": {
+        "en": "Choose groceries in the pantry or request a customized order for pickup.",
+        "es": "Elige alimentos en la despensa o solicita un pedido personalizado para recoger.",
+        "sources": [
+          "https://www.usf.edu/student-affairs/student-health-services/services/feed-a-bull-food-pantry.aspx"
+        ]
+      },
+      "dietary": {
+        "en": "Tell the pantry about food allergies or religious dietary restrictions when requesting food. The website does not guarantee particular diet-specific items.",
+        "es": "Indica a la despensa tus alergias o restricciones alimentarias religiosas al pedir alimentos. El sitio no garantiza artículos para dietas específicas.",
+        "sources": [
+          "https://www.usf.edu/student-affairs/student-health-services/services/feed-a-bull-food-pantry.aspx"
+        ]
+      },
+      "rules": {
+        "currentlyEnrolledUsfOnly": true,
+        "visitFrequencyDays": 7,
+        "lockerOrderMinimumHours": 24
+      }
+    },
+    "st-mark-evangelist": {
+      "checked": "2026-11-21"
+    }
+  }
+}

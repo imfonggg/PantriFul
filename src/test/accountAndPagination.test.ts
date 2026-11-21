@@ -15,7 +15,7 @@ describe("Optional saving and result limits", () => {
   it("still displays published hours after closing and when unconfirmed", () => {
     const base = FOOD_RESOURCES[0]; if (!base) throw new Error("Missing resource");
     const resource = {...base, scheduleKnown: false, hours: {1: [{open: "11:00", close: "13:00"}]}};
-    expect(todayHours(resource,new Date("2026-11-23T20:00:00Z"))).toBe("11am–1pm");
+    expect(todayHours(resource,new Date("2026-11-23T20:00:00Z"))).toBe("11 AM–1 PM");
     expect(openingStatus(resource,new Date("2026-11-23T20:00:00Z"))).toBe("unknown");
   });
   it("shows only the first 10 results by default", () => {

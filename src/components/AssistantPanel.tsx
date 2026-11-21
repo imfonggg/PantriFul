@@ -7,7 +7,7 @@ import { askAssistant } from "@/lib/assistant.functions";
 import type { AssistantProfile, AssistantResult } from "@/data/assistant";
 import type { LatLng } from "@/data/types";
 
-const LOCAL: Record<"es" | "ar", Record<string, string>> = {
+const LOCAL: Record<"es", Record<string, string>> = {
   es: {
     "Ask PantriFul AI": "Pregunta a PantriFul IA",
     "Tell us what you need and Gemini will suggest places that fit.":
@@ -22,21 +22,6 @@ const LOCAL: Record<"es" | "ar", Record<string, string>> = {
     "Halal food for my family": "Comida halal para mi familia",
     "Suggested places are highlighted below.": "Los lugares sugeridos están resaltados abajo.",
     "Using your saved profile preferences.": "Usando las preferencias de tu perfil.",
-  },
-  ar: {
-    "Ask PantriFul AI": "اسأل مساعد PantriFul",
-    "Tell us what you need and Gemini will suggest places that fit.":
-      "أخبرنا بما تحتاجه وسيقترح Gemini أماكن مناسبة.",
-    "e.g. I'm a student with no car and need groceries tonight":
-      "مثال: أنا طالب بلا سيارة وأحتاج طعامًا الليلة",
-    Ask: "اسأل",
-    "Finding places…": "جارٍ البحث عن أماكن…",
-    Clear: "مسح",
-    "No car, need groceries tonight": "بلا سيارة، أحتاج طعامًا الليلة",
-    "Hot meal today, no ID": "وجبة ساخنة اليوم، بدون هوية",
-    "Halal food for my family": "طعام حلال لعائلتي",
-    "Suggested places are highlighted below.": "الأماكن المقترحة مميزة في الأسفل.",
-    "Using your saved profile preferences.": "نستخدم تفضيلات ملفك الشخصي المحفوظة.",
   },
 };
 

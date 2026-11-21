@@ -33,11 +33,19 @@ use the editor.
 - Keep shared navigation, help and language state around the root Outlet so they remain available across every page.
 - Keep food data in a dated, source-linked static snapshot; never infer coordinates, eligibility or dietary availability when source details are missing.
 - Use browser-safe resource filtering and Google Maps direction URLs; ordinary browsing must not require authentication or billable server calls.
-- Translate app-owned text locally and use right-to-left layout for Arabic; retain provider names and street addresses as published for accurate destinations.
+- Translate app-owned text locally into the languages offered in the language picker; retain provider names and street addresses as published for accurate destinations.
 - Use a deterministic, dismissible tutorial rather than AI for navigation guidance so it is available without accounts, costs or hallucinated instructions.
 - Keep optional profile and bookmark writes behind authenticated server functions and owner-scoped RLS; empty signup profiles must not auto-save browsing preferences.
 - Keep provider donation URLs source-verified and separate from the application's own donation fund; missing checkout setup must never simulate payment success.
+- Share the dated Empower pricing snapshot and ride-program explanation across supporter and rider pages; keep project scenarios separate from real agreements, booking and payment state so fictional partnerships cannot activate transactions.
 - Paginate the displayed list and map together so the footer stays reachable and map selection always matches the current results.
 - Keep private account pages under the client-only authenticated layout; each private server function independently verifies identity to protect directly callable endpoints.
 - Keep published weekly schedules as a source-derived companion snapshot so monthly restrictions are displayed without falsely marking recurring events open.
-- Render Leaflet popup actions through React portals so shared language context remains available and Directions uses the same copy-link flow everywhere.
+- Format published schedule strings at display time into AM/PM and explicit ordinal weekdays of the month; retain original source times and notes for auditability.
+- Apply dated provider identity and spoken-language evidence without changing resource IDs so names stay accurate and saved locations remain stable.
+- Restrict Feeding Tampa Bay hyperlinks to its own operated locations; omit unavailable official links rather than send partner visitors to the umbrella food bank.
+- Rank published dietary matches before unconfirmed listings while preserving distance order within each group so dietary filters show relevant locations first.
+- Keep provider visit details in a dated bilingual companion snapshot with per-fact source URLs; omit unpublished rules and dietary guarantees so missing evidence never becomes an access barrier.
+- Treat the ZIP field as an exact published-address filter, not a inferred service-area or distance calculation; ordinary browsing must remain free of geocoding calls.
+- Render Leaflet popup actions through React portals so shared language context remains available and Directions, Copy Address, and blocked-popup link recovery stay consistent everywhere.
+- Keep funded-ride and donation previews browser-local with no contact or card collection; preview outcomes never book, charge, save personal data, or imply successful transactions.
