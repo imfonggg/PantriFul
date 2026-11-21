@@ -40,7 +40,8 @@
 - [x] Pushed Lovable codebase to imfonggg/PantriFul as branch `lovable-main`, PR #6 open (uploaded via GitHub API; sandbox git push/fetch is blocked).
 - [ ] Ongoing: user wants all future changes committed to imfonggg/PantriFul via branch + PR, and the Lovable preview kept in sync with pantriful.vercel.app (GitHub main). Reuse the token the user already pasted; do not ask for a fresh one each time.
 - [x] Delivered listing, Empower, FAQ and fare updates to imfonggg/PantriFul as PR #14 on branch `lovable/listings-empower-20261121-201403`; applied changed files over current main without force-pushing.
-- [ ] Resolve PR #18 conflict: merge teammate's main (PRs #7–#17: Gemini assistant, card-to-map highlight, phone/website on cards, ZIP filter) into our version, keeping user-mandated choices (no Arabic, Montserrat only, ZIP text input, service-days-only hours, provider identity layer); then update PR #18 and verify mergeable.
+- [x] Resolve PR #18 conflict: merged teammate's main (PRs #7–#17: Gemini assistant, card-to-map highlight, phone/website on cards, ZIP filter) into our version, keeping user-mandated choices (no Arabic, Montserrat only, ZIP text input, service-days-only hours, provider identity layer); merge commit d676ccac on the PR branch, GitHub reports mergeable.
+- [ ] Underline the "No car, need groceries tonight?" button so it reads as clickable; push to PR #18 branch.
 
 ## Waiting on external setup or confirmation
 - [ ] Stripe checkout: user approved Stripe, but declined the Stripe account setup form; no payments enabled or accepted.

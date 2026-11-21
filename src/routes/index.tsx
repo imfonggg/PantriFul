@@ -107,7 +107,7 @@ function Index() {
           <div className="relative min-w-0 flex-1"><Search className="pointer-events-none absolute start-4 top-4 size-5 text-muted-foreground" aria-hidden="true" /><input aria-label={t("Search by name, city or ZIP")} value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("Try: Tampa, 33612, Trinity")} className="h-12 w-full min-w-0 rounded-lg border-2 border-brown bg-card pe-4 ps-12 text-base outline-none focus:border-plum sm:text-lg" /></div>
           <Button type="submit" className="h-12 rounded-lg px-6 font-bold">{t("Find food")}<Search /></Button>
         </form>
-        <Button type="button" variant="ghost" className="mt-3 h-auto w-full justify-start px-0 text-sm font-semibold text-plum hover:bg-transparent hover:text-plum/80" onClick={() => { setQuery("no car, need groceries tonight"); setRideOfferOpen(true); }}>
+        <Button type="button" variant="ghost" className="mt-3 h-auto w-full justify-start px-0 text-sm font-semibold text-plum underline underline-offset-4 hover:bg-transparent hover:text-plum/80" onClick={() => { setQuery("no car, need groceries tonight"); setRideOfferOpen(true); }}>
           <BusFront className="size-4" />{t("No car, need groceries tonight?")}
         </Button>
         <AssistantPanel origin={origin} hasLocation={hasLocation} result={aiResult} onResult={handleAiResult} profile={profile.data ? toAssistantProfile(profile.data) : undefined} />
