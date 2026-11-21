@@ -45,3 +45,12 @@ describe("Food assistance rules", () => {
     expect(isOpenNow(fixture, new Date("2026-11-23T18:00:00Z"))).toBe(false);
   });
 });
+describe("ZIP code filter", () => {
+  it("keeps only places whose published address has that ZIP", async () => {
+    const { filterResources } = await import("@/data/resourceFilters");
+    const { FOOD_RESOURCES } = await import("@/data/foodResources");
+    const rows = filterResources(FOOD_RESOURCES, { types: [], household: "", dietary: "", includeUnknown: true, city: "", zipCode: "33612", openOnly: false, maxMiles: 0, origin: { lat: 28.0637, lng: -82.4131 }, now: new Date("2026-11-21T15:00:00Z"), query: "" });
+    expect(rows.length).toBeGreaterThan(0);
+    expect(rows.every((r) => /\b33612\b/.test(r.address))).toBe(true);
+  });
+});
