@@ -23,7 +23,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   };
   return <div className="flex min-h-screen flex-col">
     <header className="bg-green text-primary-foreground">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <div className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-10">
         <Link to="/" className="font-brand text-4xl font-bold sm:text-3xl" dir="ltr">PantriFul</Link>
         {/* Phones: language, help and account live in one small menu at the right edge. */}
         <DropdownMenu>
