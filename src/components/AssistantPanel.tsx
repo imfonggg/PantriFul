@@ -15,7 +15,7 @@ const LOCAL: Record<"es" | "ar", Record<string, string>> = {
     "e.g. I'm a student with no car and need groceries tonight":
       "p. ej. Soy estudiante, no tengo auto y necesito comida esta noche",
     Ask: "Preguntar",
-    "Thinking…": "Pensando…",
+    "Finding places…": "Buscando lugares…",
     Clear: "Borrar",
     "No car, need groceries tonight": "Sin auto, necesito comida esta noche",
     "Hot meal today, no ID": "Comida caliente hoy, sin identificación",
@@ -30,7 +30,7 @@ const LOCAL: Record<"es" | "ar", Record<string, string>> = {
     "e.g. I'm a student with no car and need groceries tonight":
       "مثال: أنا طالب بلا سيارة وأحتاج طعامًا الليلة",
     Ask: "اسأل",
-    "Thinking…": "جارٍ التفكير…",
+    "Finding places…": "جارٍ البحث عن أماكن…",
     Clear: "مسح",
     "No car, need groceries tonight": "بلا سيارة، أحتاج طعامًا الليلة",
     "Hot meal today, no ID": "وجبة ساخنة اليوم، بدون هوية",
@@ -106,20 +106,28 @@ export function AssistantPanel({ origin, hasLocation, result, profile, onResult 
         <label htmlFor="assistant-input" className="sr-only">
           {t("Ask PantriFul AI")}
         </label>
-        <input
+        <textarea
           id="assistant-input"
           value={message}
           maxLength={1000}
+          rows={3}
           onChange={(event) => setMessage(event.target.value)}
+          onKeyDown={(event) => {
+            // Enter sends; Shift+Enter adds a new line.
+            if (event.key === "Enter" && !event.shiftKey) {
+              event.preventDefault();
+              void run(message);
+            }
+          }}
           placeholder={t("e.g. I'm a student with no car and need groceries tonight")}
-          className="h-12 w-full min-w-0 flex-1 rounded-lg border-2 border-brown bg-background px-4 text-base outline-none focus:border-plum"
+          className="min-h-28 w-full min-w-0 flex-1 resize-none rounded-lg border-2 border-brown bg-background px-4 py-3 text-lg leading-snug outline-none focus:border-plum sm:h-12 sm:min-h-12 sm:py-2.5 sm:text-base"
         />
         <Button
           type="submit"
           disabled={busy}
-          className="h-12 rounded-lg bg-plum px-6 font-bold text-primary-foreground hover:bg-plum/90"
+          className="h-12 w-full rounded-lg bg-plum px-6 font-bold sm:w-auto text-primary-foreground hover:bg-plum/90"
         >
-          {busy ? t("Thinking…") : t("Ask")}
+          {busy ? t("Finding places…") : t("Ask")}
         </Button>
       </form>
       <div className="mt-3 flex flex-wrap gap-2">
