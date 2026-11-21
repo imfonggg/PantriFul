@@ -52,6 +52,7 @@ export default function ResourceCard({ resource: r, recommended, selected = fals
         </p>
       )}
       {r.offers.length > 0 && <p className="mt-1 text-sm">Offers: {r.offers.join(', ')}</p>}
+      {r.notes && <p className="mt-1 text-sm font-medium">{r.notes}</p>}
       {!r.verified && (
         <p className="mt-2 text-xs italic">Details not yet verified. Call ahead to confirm hours.</p>
       )}
