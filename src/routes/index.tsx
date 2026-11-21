@@ -144,7 +144,7 @@ function Index() {
             const saved = profile.data?.saved_resource_ids.includes(resource.id) ?? false;
             const householdLabel = resource.id === "usf-feed-a-bull" ? t("USF students") : resource.household?.length === 4 ? t("Open to everyone") : t("Confirm household eligibility with the provider.");
             const dietLabels = DIETS.filter((diet) => resource.dietary?.includes(diet.id)).map((diet) => t(diet.label));
-            return <li key={resource.id} className={`min-w-0 rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : suggested.includes(resource.id) ? "border-green" : "border-beige"}`}>
+            return <li key={resource.id} onClick={(event) => { if (!resource.location || (event.target as HTMLElement).closest("a, button, input, select, [role=dialog]")) return; setSelectedId(resource.id); }} className={`min-w-0 cursor-pointer rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : suggested.includes(resource.id) ? "border-green" : "border-beige"}`}>
               {suggested.includes(resource.id) && <p className="mb-2 inline-flex items-center gap-1 rounded-full bg-green px-3 py-1 text-xs font-bold text-primary-foreground"><Sparkles className="size-3.5" aria-hidden="true" />{t("Suggested for you")}</p>}
               <details className="location-details" open={selectedId === resource.id ? true : undefined}>
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4"><div className="min-w-0"><h3 className="break-words text-lg font-bold leading-snug" lang="en" dir="ltr">{resource.name}</h3>

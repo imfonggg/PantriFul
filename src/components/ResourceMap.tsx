@@ -104,10 +104,10 @@ export default function ResourceMap({ points, origin, originLabel, selectedId, o
       const popup = document.createElement("div");
       popupNodes.push({ point: p, node: popup });
       const pin = L.circleMarker([p.location.lat, p.location.lng], {
-        radius: p.id === selectedId ? 11 : 9,
+        radius: p.id === selectedId ? 14 : 9,
         color: MAP_COLORS.ring,
-        weight: 2,
-        fillColor: p.open ? MAP_COLORS.open : MAP_COLORS.closed,
+        weight: p.id === selectedId ? 4 : 2,
+        fillColor: p.id === selectedId ? MAP_COLORS.selected : p.open ? MAP_COLORS.open : MAP_COLORS.closed,
         fillOpacity: 1,
       })
         .bindPopup(popup)
@@ -127,7 +127,8 @@ export default function ResourceMap({ points, origin, originLabel, selectedId, o
     const m = map.current;
     const pin = selectedId ? markers.current[selectedId] : undefined;
     if (!ready || !m || !pin) return;
-    m.panTo(pin.getLatLng());
+    pin.bringToFront();
+    m.setView(pin.getLatLng(), Math.max(m.getZoom(), 14));
     pin.openPopup();
   }, [ready, selectedId, points]);
 

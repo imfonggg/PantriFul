@@ -96,6 +96,7 @@ function MapBody({
     if (!map) return;
     if (selected) {
       map.panTo(selected.location);
+      if ((map.getZoom() ?? 0) < 14) map.setZoom(14);
       return;
     }
     const bounds = new google.maps.LatLngBounds();
@@ -104,13 +105,13 @@ function MapBody({
     map.fitBounds(bounds, 40);
   }, [map, points, origin, selected]);
 
-  const pin = (color: string, scale: number) => ({
+  const pin = (color: string, scale: number, strokeWeight = 2) => ({
     path: google.maps.SymbolPath.CIRCLE,
     scale,
     fillColor: color,
     fillOpacity: 1,
     strokeColor: MAP_COLORS.ring,
-    strokeWeight: 2,
+    strokeWeight,
   });
 
   return (
@@ -124,7 +125,7 @@ function MapBody({
           title={p.name}
           zIndex={p.id === selectedId ? 10 : 1}
           onClick={() => onSelect(p.id)}
-          icon={pin(p.open ? MAP_COLORS.open : MAP_COLORS.closed, p.id === selectedId ? 11 : 8)}
+          icon={p.id === selectedId ? pin(MAP_COLORS.selected, 14, 4) : pin(p.open ? MAP_COLORS.open : MAP_COLORS.closed, 8)}
         />
       ))}
 
