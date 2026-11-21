@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { ApiError, GoogleGenAI, Type } from "@google/genai";
+import { ApiError, GoogleGenAI, ThinkingLevel, Type, type ThinkingConfig } from "@google/genai";
 import { FOOD_RESOURCES } from "@/data/foodResources";
 import {
   assistantCandidates,
@@ -11,6 +11,19 @@ import {
 
 const DEFAULT_MODEL = "gemini-3.8-flash";
 const FALLBACK_MODELS = ["gemini-flash-latest", "gemini-2.5-flash"];
+/** Give up on a slow Gemini call instead of leaving the person waiting. */
+const TIMEOUT_MS = 15_000;
+
+/**
+ * Picking 1-4 places from a short list needs little reasoning, and "thinking"
+ * is what makes replies slow. Gemini 2.5 takes a token budget (0 = off);
+ * newer models take a level.
+ */
+function thinkingFor(model: string): ThinkingConfig {
+  return /gemini-2\.5/.test(model)
+    ? { thinkingBudget: 0 }
+    : { thinkingLevel: ThinkingLevel.LOW };
+}
 
 /** Short, actionable message for the person (and for whoever is debugging the deploy). */
 function friendlyError(error: unknown): string {
@@ -22,6 +35,8 @@ function friendlyError(error: unknown): string {
     return "The assistant's API key isn't allowed to use Gemini (check GEMINI_API_KEY). You can still browse the list below.";
   if (status === 404)
     return "The assistant's Gemini model wasn't found (check GEMINI_MODEL). You can still browse the list below.";
+  if (/abort|timed? ?out/i.test(text))
+    return "The assistant took too long to answer. Please try again, or browse the list below.";
   if (status === 429)
     return "The assistant has hit its usage limit for now. Please try again in a minute, or browse the list below.";
   return "The assistant is busy right now. Please try again, or browse the list below.";
@@ -40,7 +55,7 @@ export const askAssistant = createServerFn({ method: "POST" })
 
     const now = new Date();
     const candidates = assistantCandidates(FOOD_RESOURCES, data.origin, now);
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = new GoogleGenAI({ apiKey, httpOptions: { timeout: TIMEOUT_MS } });
     const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin));
     const knownIds = new Set(candidates.map((c) => c.id));
     // Try the configured model first; fall back if Google doesn't know that model name.
@@ -54,6 +69,8 @@ export const askAssistant = createServerFn({ method: "POST" })
           config: {
             systemInstruction,
             temperature: 0.4,
+            maxOutputTokens: 600,
+            thinkingConfig: thinkingFor(model),
             responseMimeType: "application/json",
             responseSchema: {
               type: Type.OBJECT,
@@ -72,7 +89,8 @@ export const askAssistant = createServerFn({ method: "POST" })
         const status = error instanceof ApiError ? error.status : undefined;
         const detail = error instanceof Error ? error.message.slice(0, 300) : "unknown";
         console.error(`assistant failed: model=${model} status=${status ?? "?"} ${detail}`);
-        if (status !== 404) break;
+        // Move on only if this model is unknown or rejects the thinking setting.
+        if (status !== 404 && !(status === 400 && /thinking/i.test(detail))) break;
       }
     }
     throw new Error(friendlyError(lastError));

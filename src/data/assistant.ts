@@ -18,7 +18,7 @@ export interface AssistantResult {
 
 const USF: LatLng = { lat: 28.0637, lng: -82.4131 };
 /** How many of the nearest places Gemini sees. Keeps prompts small and fast. */
-export const ASSISTANT_CANDIDATES = 40;
+export const ASSISTANT_CANDIDATES = 25;
 
 /** The nearest places (with distance and open-now) that Gemini may recommend from. */
 export function assistantCandidates(
