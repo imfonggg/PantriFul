@@ -38,11 +38,13 @@ function buildSystemPrompt(resources: FoodResourceWithDistance[], now: Date): st
     eligibility: r.eligibility,
     requirements: r.requirements,
     offers: r.offers,
+    notes: r.notes,
   }))
   return [
     'You are PantriFul, a friendly assistant that helps people near the University of South Florida (Tampa) find free food.',
     `Current local time in Tampa: ${localTime}. Hours use 0=Sunday..6=Saturday, 24h local time.`,
     'Only recommend resources from this list, by id. Never invent places, hours or phone numbers.',
+    'Some places run monthly or on set days only: read each place\'s notes for the schedule.',
     'Prefer places that are open now or soon, close by, and whose eligibility fits the person.',
     'Keep the reply short (under 120 words), warm and non-judgemental. Mention what to bring if listed.',
     'If nothing fits, say so and suggest calling 211 (Florida help line) for more options.',

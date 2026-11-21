@@ -1,15 +1,16 @@
 import { useState, type FormEvent } from 'react'
-import type { ChatResult } from '../../shared/types'
+import type { ChatResult, LatLng } from '../../shared/types'
 import { askAssistant } from '../lib/api'
 
 interface Props {
   onAnswer: (answer: ChatResult | null) => void
   answer: ChatResult | null
+  location?: LatLng | null
 }
 
 const EXAMPLES = ['I have no car and need groceries tonight', 'Hot meal today, no ID', 'Halal-friendly options']
 
-export default function Hero({ onAnswer, answer }: Props) {
+export default function Hero({ onAnswer, answer, location }: Props) {
   const [message, setMessage] = useState('')
   const [asking, setAsking] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -19,7 +20,7 @@ export default function Hero({ onAnswer, answer }: Props) {
     setAsking(true)
     setError(null)
     try {
-      onAnswer(await askAssistant(text))
+      onAnswer(await askAssistant(text, location ?? undefined))
     } catch (err) {
       setError((err as Error).message)
     } finally {

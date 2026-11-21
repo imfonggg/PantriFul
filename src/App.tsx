@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { ChatResult, FoodResourceWithDistance } from '../shared/types'
+import type { ChatResult, FoodResourceWithDistance, LatLng } from '../shared/types'
 import Filters, { type FilterState } from './components/Filters'
+import { FoodMap } from './components/FoodMap'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import ResourceCard from './components/ResourceCard'
@@ -16,6 +17,8 @@ export default function App() {
   const [filters, setFilters] = useState<FilterState>(NO_FILTERS)
   const [locating, setLocating] = useState(false)
   const [locationNote, setLocationNote] = useState<string | null>(null)
+  const [userLocation, setUserLocation] = useState<LatLng | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
 
   useEffect(() => {
     getFoodResources()
@@ -33,7 +36,9 @@ export default function App() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          setResources(await getFoodResources({ lat: pos.coords.latitude, lng: pos.coords.longitude }))
+          const here = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+          setResources(await getFoodResources(here))
+          setUserLocation(here)
           setLocationNote('Distances are now from your location.')
         } catch (e) {
           setError((e as Error).message)
@@ -72,10 +77,17 @@ export default function App() {
         Skip to food listings
       </a>
       <Header />
-      <Hero answer={answer} onAnswer={setAnswer} />
+      <Hero
+        answer={answer}
+        onAnswer={(a) => {
+          setSelectedId(null)
+          setAnswer(a)
+        }}
+        location={userLocation}
+      />
 
       <main id="listings" className="mx-auto max-w-6xl px-4 py-8">
-        <h2 className="mb-4 text-2xl font-emph">Food near you</h2>
+        <h2 className="mb-4 text-2xl font-bold">Food near you</h2>
         <Filters
           value={filters}
           onChange={setFilters}
@@ -106,11 +118,28 @@ export default function App() {
             </button>
           </p>
         ) : (
-          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {ordered.map((r) => (
-              <ResourceCard key={r.id} resource={r} recommended={suggested.includes(r.id)} />
-            ))}
-          </ul>
+          <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+            <section aria-label="Map" className="h-[55vh] lg:sticky lg:top-4 lg:order-2 lg:h-[calc(100vh-2rem)]">
+              <FoodMap
+                resources={ordered}
+                recommendedIds={suggested}
+                selectedId={selectedId}
+                onSelect={setSelectedId}
+                userLocation={userLocation}
+              />
+            </section>
+            <ul className="grid content-start gap-4 lg:order-1">
+              {ordered.map((r) => (
+                <ResourceCard
+                  key={r.id}
+                  resource={r}
+                  recommended={suggested.includes(r.id)}
+                  selected={selectedId === r.id}
+                  onSelect={() => setSelectedId(r.id)}
+                />
+              ))}
+            </ul>
+          </div>
         )}
       </main>
 

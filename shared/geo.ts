@@ -53,3 +53,9 @@ export function withDistance(
     }))
     .sort((a, b) => a.distanceMiles - b.distanceMiles)
 }
+
+/** Google Maps directions link (opens the Maps app on phones). Defaults to transit for students without cars. */
+export function directionsUrl(to: LatLng, travelmode: 'transit' | 'walking' | 'driving' = 'transit'): string {
+  const params = new URLSearchParams({ api: '1', destination: `${to.lat},${to.lng}`, travelmode })
+  return `https://www.google.com/maps/dir/?${params}`
+}

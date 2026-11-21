@@ -1,19 +1,31 @@
+import { directionsUrl } from '../../shared/geo'
 import type { FoodResourceWithDistance } from '../../shared/types'
 import { TYPE_LABELS, todaysHours } from '../lib/format'
 
 interface Props {
   resource: FoodResourceWithDistance
   recommended: boolean
+  selected?: boolean
+  onSelect?: () => void
 }
 
-export default function ResourceCard({ resource: r, recommended }: Props) {
+export default function ResourceCard({ resource: r, recommended, selected = false, onSelect }: Props) {
   return (
     <li
-      className={`rounded-xl border-2 bg-white p-4 ${recommended ? 'border-leaf' : 'border-sand'}`}
+      className={`rounded-xl border-2 bg-white p-4 ${selected ? 'border-plum ring-2 ring-plum' : recommended ? 'border-leaf' : 'border-sand'}`}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <h3 className="text-lg font-emph">{r.name}</h3>
+          <h3 className="text-lg font-bold">
+            {onSelect ? (
+              <button type="button" onClick={onSelect} className="text-left hover:underline">
+                {r.name}
+                <span className="sr-only"> (show on map)</span>
+              </button>
+            ) : (
+              r.name
+            )}
+          </h3>
           <p className="text-sm text-plum">{TYPE_LABELS[r.type]}</p>
         </div>
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -40,6 +52,7 @@ export default function ResourceCard({ resource: r, recommended }: Props) {
         </p>
       )}
       {r.offers.length > 0 && <p className="mt-1 text-sm">Offers: {r.offers.join(', ')}</p>}
+      {r.notes && <p className="mt-1 text-sm font-medium">{r.notes}</p>}
       {!r.verified && (
         <p className="mt-2 text-xs italic">Details not yet verified. Call ahead to confirm hours.</p>
       )}
@@ -56,8 +69,8 @@ export default function ResourceCard({ resource: r, recommended }: Props) {
           </a>
         )}
         <a
-          className="inline-flex min-h-11 items-center text-plum underline"
-          href={`https://www.openstreetmap.org/directions?to=${r.location.lat}%2C${r.location.lng}`}
+          className="text-plum underline"
+          href={directionsUrl(r.location)}
           target="_blank"
           rel="noreferrer"
         >

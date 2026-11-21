@@ -1,9 +1,9 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
+import type { ApiRequest, ApiResponse } from '../server/http.js'
 import { listFoodResources, parseLocation } from '../server/foodResources.js'
 import { fail, HttpError, ok } from '../server/respond.js'
 
 // GET /api/food-resources?lat=..&lng=..  (defaults to USF Tampa)
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'GET') return res.status(405).json(fail('Method not allowed'))
   try {
     const from = parseLocation(req.query.lat, req.query.lng)
