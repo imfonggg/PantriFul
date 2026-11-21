@@ -159,9 +159,11 @@ function Index() {
                 <DirectionsAction url={directionsUrl(resource.address, travelMode, hasLocation ? origin : undefined)} />
                 <Button size="sm" variant="outline" aria-pressed={saved} aria-label={t(saved ? "Unsave Location" : "Save Location") + ": " + resource.name} onClick={async () => { if (!user) { setSignupOpen(true); return; } try { await bookmark({data: {resourceId: resource.id, saved: !saved}}); await queryClient.invalidateQueries({queryKey: ["profile"]}); setSaveMessage(t(saved ? "Location Removed" : "Location Saved")); } catch { setSaveMessage(t("Please try again.")); } }}><Bookmark />{t(saved ? "Saved" : "Save")}</Button>
                 {resource.location && <Button variant="outline" size="sm" onClick={() => { setSelectedId(resource.id); mapSection.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" }); }}><MapPin />{t("Show on map")}</Button>}
-                {resource.phone && <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`}><Phone />{t("Call")}</a></Button>}
+                {resource.phone
+                  ? <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`} aria-label={`${t("Call")} ${resource.name}`}><Phone /><span dir="ltr">{resource.phone}</span></a></Button>
+                  : <Button asChild variant="outline" size="sm"><a href="tel:211" title={t("No phone listed. 211 can connect you.")}><Phone />{t("Call 211")}</a></Button>}
                 {donationUrl && <Button asChild variant="outline" size="sm"><a href={donationUrl} target="_blank" rel="noopener noreferrer"><HeartHandshake />{t("Donate")}</a></Button>}
-                {resource.website && <Button asChild variant="link" size="sm"><a href={resource.website} target="_blank" rel="noreferrer">{t("Website")}<ExternalLink /></a></Button>}
+                {(resource.website || resource.source) && <Button asChild variant="outline" size="sm"><a href={resource.website || resource.source} target="_blank" rel="noopener noreferrer">{t(resource.website ? "Website" : "Listing page")}<ExternalLink /><span className="sr-only"> ({t("opens in a new tab")})</span></a></Button>}
               </div>
               </div></details>
             </li>;
