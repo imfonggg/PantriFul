@@ -55,3 +55,10 @@ describe("Food assistance rules", () => {
     expect(isOpenNow(fixture, new Date("2026-11-23T18:00:00Z"))).toBe(false);
   });
 });
+describe("ZIP code filter", () => {
+  it("keeps only places whose published address has that ZIP", () => {
+    const rows = filterResources(FOOD_RESOURCES, { ...filters, zipCode: "33612", now: new Date("2026-11-21T15:00:00Z") });
+    expect(rows.length).toBeGreaterThan(0);
+    expect(rows.every((r) => /\b33612\b/.test(r.address))).toBe(true);
+  });
+});

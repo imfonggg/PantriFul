@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { MapPin, Navigation, Search, RotateCcw, ExternalLink, Phone, HeartHandshake, Bookmark, ChevronDown, ChevronLeft, ChevronRight, BusFront, Car, Footprints, Bike } from "lucide-react";
+import { MapPin, Navigation, Search, RotateCcw, ExternalLink, Phone, HeartHandshake, Bookmark, ChevronDown, ChevronLeft, ChevronRight, BusFront, Car, Footprints, Bike, Sparkles, type LucideIcon } from "lucide-react";
 import ResourceMap from "@/components/ResourceMap";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -22,6 +22,8 @@ import { useAuth } from "@/components/AuthProvider";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { getProfile, saveBookmark } from "@/lib/profile.functions";
+import { AssistantPanel } from "@/components/AssistantPanel";
+import { toAssistantProfile, type AssistantResult } from "@/data/assistant";
 
 export const Route = createFileRoute("/")({
   head: () => pageHead("Free food in Hillsborough County", "Browse Hillsborough County food pantries, food banks and free meals without signing up. Filter by household, dietary needs and city, and get directions."),
@@ -29,12 +31,12 @@ export const Route = createFileRoute("/")({
 });
 
 const USF = { lat: 28.0637, lng: -82.4131 };
-const MAPS_KEY = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"] as string | undefined;
+const MAPS_KEY = (import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"] ?? import.meta.env["VITE_GOOGLE_MAPS_API_KEY"]) as string | undefined;
 const GoogleFoodMap = lazy(() => import("@/components/GoogleFoodMap"));
 const TYPES: { id: ResourceType; label: string }[] = [{ id: "pantry", label: "Food pantry" }, { id: "food_bank", label: "Food bank" }, { id: "hot_meal", label: "Hot meals" }, { id: "mobile_pantry", label: "Mobile pantry" }, { id: "benefits", label: "Benefits help" }];
 const HOUSEHOLDS = [{ id: "individuals", label: "Individuals" }, { id: "families", label: "Families with children" }, { id: "seniors", label: "Older adults" }, { id: "students", label: "Students" }];
 const DIETS = [{ id: "vegetarian", label: "Vegetarian" }, { id: "vegan", label: "Vegan" }, { id: "halal", label: "Halal" }, { id: "gluten_free", label: "Gluten-free" }];
-const MODES = [{ id: "transit", label: "Transit", icon: BusFront }, { id: "driving", label: "Drive", icon: Car }, { id: "walking", label: "Walk", icon: Footprints }, { id: "bicycling", label: "Bike", icon: Bike }] as const;
+const MODES: { id: TravelMode; label: string; icon: LucideIcon }[] = [{ id: "transit", label: "Transit", icon: BusFront }, { id: "driving", label: "Drive", icon: Car }, { id: "walking", label: "Walk", icon: Footprints }, { id: "bicycling", label: "Bike", icon: Bike }];
 const CITIES = [...new Set(FOOD_RESOURCES.map((r) => r.city).filter((city): city is string => Boolean(city)))].sort();
 const selectClass = "h-11 w-full min-w-0 rounded-lg border-2 border-brown bg-card px-3 text-base";
 
@@ -64,13 +66,24 @@ function Index() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mapsFailed, setMapsFailed] = useState(false);
   const [travelMode, setTravelMode] = useState<TravelMode>("transit");
+  const [aiResult, setAiResult] = useState<AssistantResult | null>(null);
+  const suggested = aiResult?.recommendedIds ?? [];
 
   useEffect(() => {
     setNow(new Date()); setMounted(true);
     const timer = setInterval(() => setNow(new Date()), 60000);
     return () => clearInterval(timer);
   }, []);
-  const list = useMemo(() => filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query }), [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query]);
+  const list = useMemo(() => {
+    const rows = filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query });
+    // Places Gemini suggested float to the top, in the order it suggested them.
+    const rank = (id: string) => { const i = suggested.indexOf(id); return i === -1 ? Infinity : i; };
+    return suggested.length ? [...rows].sort((a, b) => rank(a.id) - rank(b.id)) : rows;
+  }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query, suggested]);
+  const handleAiResult = (result: AssistantResult | null) => {
+    setAiResult(result); setPage(1);
+    setSelectedId(result?.recommendedIds.find((id) => FOOD_RESOURCES.some((r) => r.id === id && r.location)) ?? null);
+  };
   const paginated = paginateResults(list, limit, page);
   const visibleList = paginated.rows;
   useEffect(() => { setPage(1); }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, query, limit]);
@@ -97,12 +110,14 @@ function Index() {
         <Button type="button" variant="ghost" className="mt-3 h-auto w-full justify-start px-0 text-sm font-semibold text-plum hover:bg-transparent hover:text-plum/80" onClick={() => { setQuery("no car, need groceries tonight"); setRideOfferOpen(true); }}>
           <BusFront className="size-4" />{t("No car, need groceries tonight?")}
         </Button>
+        <AssistantPanel origin={origin} hasLocation={hasLocation} result={aiResult} onResult={handleAiResult} profile={profile.data ? toAssistantProfile(profile.data) : undefined} />
       </div>
     </section>
     <main id="results" className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <h2 className="text-2xl font-bold sm:text-3xl">{t("Food near you")}</h2>
       <section aria-label={t("What kind of help?")} className="mt-5 border-y border-brown py-5">
         <p className="font-bold">{t("What kind of help?")}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{t("Shows places offering any of the kinds you pick. The other filters narrow the list.")}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {TYPES.map((type) => <Button key={type.id} variant="outline" aria-pressed={types.includes(type.id)} onClick={() => toggleType(type.id)} className={`min-h-10 h-auto whitespace-normal rounded-full border-2 px-4 py-2 font-semibold ${types.includes(type.id) ? "border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground" : "border-brown bg-card hover:bg-beige hover:text-foreground"}`}>{t(type.label)}</Button>)}
         </div>
@@ -144,7 +159,9 @@ function Index() {
             const donationUrl = providerDonationUrl(resource);
             const website = providerWebsite(resource);
             const saved = profile.data?.saved_resource_ids.includes(resource.id) ?? false;
-            return <li key={resource.id} className={`min-w-0 rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : "border-beige"}`}>
+            return <li key={resource.id} onClick={(event) => { if (!resource.location || (event.target as HTMLElement).closest("a, button, input, select, [role=dialog]")) return; const id = resource.id; // Defer so the <details> toggle from this click lands first.
+              window.setTimeout(() => setSelectedId(id), 0); }} className={`min-w-0 cursor-pointer rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : suggested.includes(resource.id) ? "border-green" : "border-beige"}`}>
+              {suggested.includes(resource.id) && <p className="mb-2 inline-flex items-center gap-1 rounded-full bg-green px-3 py-1 text-xs font-bold text-primary-foreground"><Sparkles className="size-3.5" aria-hidden="true" />{t("Suggested for you")}</p>}
               <details className="location-details" open={selectedId === resource.id ? true : undefined}>
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4"><div className="min-w-0"><h3 className="break-words text-lg font-bold leading-snug" lang="en" dir="ltr">{resource.name}</h3>
               <p className="mt-1 text-sm font-semibold text-plum">{(resource.serviceTypes ?? [resource.type]).map((type) => t(TYPES.find((item) => item.id === type)?.label ?? "Food pantry")).join(" · ")}</p><p className="mt-2 break-words text-sm" lang="en" dir="ltr">{resource.address}</p></div><ChevronDown className="location-chevron mt-1 size-5 shrink-0 text-plum transition-transform" /></summary>
@@ -157,7 +174,9 @@ function Index() {
                 <DirectionsAction url={directionsUrl(resource.address, travelMode, hasLocation ? origin : undefined)} />
                 <Button size="sm" variant="outline" aria-pressed={saved} aria-label={t(saved ? "Unsave Location" : "Save Location") + ": " + resource.name} onClick={async () => { if (!user) { setSignupOpen(true); return; } try { await bookmark({data: {resourceId: resource.id, saved: !saved}}); await queryClient.invalidateQueries({queryKey: ["profile"]}); setSaveMessage(t(saved ? "Location Removed" : "Location Saved")); } catch { setSaveMessage(t("Please try again.")); } }}><Bookmark />{t(saved ? "Saved" : "Save")}</Button>
                 {resource.location && <Button variant="outline" size="sm" onClick={() => { setSelectedId(resource.id); mapSection.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" }); }}><MapPin />{t("Show on map")}</Button>}
-                {resource.phone && <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`}><Phone />{t("Call")}</a></Button>}
+                {resource.phone
+                  ? <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`} aria-label={`${t("Call")} ${resource.name}`}><Phone /><span dir="ltr">{resource.phone}</span></a></Button>
+                  : <Button asChild variant="outline" size="sm"><a href="tel:211" title={t("No phone listed. 211 can connect you.")}><Phone />{t("Call 211")}</a></Button>}
                 {donationUrl && <Button asChild variant="outline" size="sm"><a href={donationUrl} target="_blank" rel="noopener noreferrer"><HeartHandshake />{t("Donate")}</a></Button>}
               </div>
               </div></details>
@@ -173,6 +192,7 @@ function Index() {
       <RideOfferDialog open={rideOfferOpen} onOpenChange={setRideOfferOpen} />
       <div className="mt-8 border-t border-brown pt-5 text-sm leading-relaxed text-muted-foreground">
         <p>{t("Directory snapshot: November 21, 2026. Not a complete or live inventory.")}</p>
+        <a href="https://feedingtampabay.org/findfood" target="_blank" rel="noreferrer" className="mt-2 inline-block text-plum underline">{t("Check Feeding Tampa Bay for more pantries and changing mobile distributions.")}</a>
       </div>
     </main>
   </>;

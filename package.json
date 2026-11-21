@@ -13,6 +13,10 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
+  "overrides": {
+    "rolldown": "1.2.1",
+    "shell-quote": ">=1.11.0"
+  },
   "dependencies": {
     "@google/genai": "^3.6.1",
     "@hookform/resolvers": "^5.2.2",

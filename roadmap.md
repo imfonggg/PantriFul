@@ -2,7 +2,7 @@
 
 - [x] List only the days a provider serves: non-service days are removed from each listing's weekly schedule, with a call-ahead line when none are published; English/Spanish and phone checks passed, 93 tests pass.
 - [x] Add a popup offering an Empower ride when someone searches for help without a car (for example "no car, need groceries tonight"); the popup links to funded ride booking and is dismissible.
-- [ ] Push the current changes to imfonggg/PantriFul as a branch + pull request.
+- [x] Pushed the current changes to imfonggg/PantriFul as branch `lovable/ride-popup-hours-20261121-203609`, PR #18 open (37 files applied over current main; no force-push).
 
 - [x] Add funded-ride booking preview and donor payment selection; remove project-language sections while clearly marking inactive transactions. Desktop/phone English/Spanish flows verified; 89 tests pass.
 - [x] Move funded ride booking to the first subsection under "Ride Options With Empower", remove the old hero title, and word ride steps as booking on PantriFul; English/Spanish and phone checks pending.
@@ -38,8 +38,9 @@
 
 ## GitHub delivery
 - [x] Pushed Lovable codebase to imfonggg/PantriFul as branch `lovable-main`, PR #6 open (uploaded via GitHub API; sandbox git push/fetch is blocked).
-- [ ] Ongoing: user wants all future changes committed to imfonggg/PantriFul via branch + PR. Token is not stored; user pastes a GitHub token each time.
+- [ ] Ongoing: user wants all future changes committed to imfonggg/PantriFul via branch + PR, and the Lovable preview kept in sync with pantriful.vercel.app (GitHub main). Reuse the token the user already pasted; do not ask for a fresh one each time.
 - [x] Delivered listing, Empower, FAQ and fare updates to imfonggg/PantriFul as PR #14 on branch `lovable/listings-empower-20261121-201403`; applied changed files over current main without force-pushing.
+- [ ] Resolve PR #18 conflict: merge teammate's main (PRs #7–#17: Gemini assistant, card-to-map highlight, phone/website on cards, ZIP filter) into our version, keeping user-mandated choices (no Arabic, Montserrat only, ZIP text input, service-days-only hours, provider identity layer); then update PR #18 and verify mergeable.
 
 ## Waiting on external setup or confirmation
 - [ ] Stripe checkout: user approved Stripe, but declined the Stripe account setup form; no payments enabled or accepted.
