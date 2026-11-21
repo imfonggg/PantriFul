@@ -45,7 +45,9 @@ function friendlyError(error: unknown): string {
     return "The assistant took too long to answer. Please try again, or browse the list below.";
   if (status === 429)
     return "The assistant has hit its usage limit for now. Please try again in a minute, or browse the list below.";
-  return "The assistant is busy right now. Please try again, or browse the list below.";
+  // Include a short code so whoever runs the deploy can tell what failed without logs.
+  const code = status ?? (error instanceof Error ? error.name : "unknown");
+  return `The assistant is busy right now (code ${code}). Please try again, or browse the list below.`;
 }
 
 /**
@@ -121,8 +123,10 @@ export const askAssistant = createServerFn({ method: "POST" })
           console.error(`assistant failed: model=${model} thinking=${thinking} status=${status ?? "?"} ${detail}`);
           if (model === workingModel) workingModel = undefined;
           if (thinking && status === 400 && /thinking/i.test(detail)) continue;
-          if (status === 404 || (status === 400 && !/api key/i.test(detail))) break; // try the next model
-          throw new Error(friendlyError(error));
+          // A bad key or a usage limit won't get better on another model; anything else might.
+          if ((status === 400 && /api key/i.test(detail)) || status === 401 || status === 403 || status === 429 || /abort|timed? ?out/i.test(detail))
+            throw new Error(friendlyError(error));
+          break; // try the next model
         }
       }
       // None of the names we know worked: ask Google which Flash models this key can use.
