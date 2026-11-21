@@ -25,6 +25,6 @@ export function FundedRideBooking() {
       <label className="flex items-center gap-3"><input type="checkbox" checked={returnTrip} onChange={(event) => setReturnTrip(event.target.checked)} className="size-4 accent-green" />{t("Include a return trip")}</label>
       <Button type="submit"><BusFront />{t("Review Funded Ride")}</Button>
     </form>
-    {reviewed && resource && <div role="status" className="mt-6 border-s-4 border-green ps-4 leading-relaxed"><h3 className="font-bold">{t("Ride Preview")}</h3><p>{resource.name}</p><p>{date.replace("T", " · ")}</p><p>{t(returnTrip ? "Round Trip" : "One Way")}</p><p>{t("Rider Fare")}: ${preview.riderCostUsd}</p><p className="mt-2 font-semibold">{t("Not booked. This preview does not arrange transportation.")}</p></div>}
+    {reviewed && resource && <div role="status" className="mt-6 border-s-4 border-green ps-4 leading-relaxed"><h3 className="font-bold">{t("Ride Preview")}</h3><p>{resource.name}</p><p>{date.replace("T", " · ")}</p><p>{t(returnTrip ? "Round Trip" : "One Way")}</p><p>{t("Rider Fare")}: ${preview.riderCostUsd}</p></div>}
   </section>;
 }

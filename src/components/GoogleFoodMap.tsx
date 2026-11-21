@@ -31,12 +31,22 @@ export default function GoogleFoodMap(props: Props) {
   // on every render and they would never fire.
   const fail = useCallback(() => onFail(), [onFail]);
 
-  // If the Maps API never finishes loading, hand the space to the free map.
+  // If the map never draws its tiles, hand the space to the free map.
   useEffect(() => {
     if (ready) return;
-    const t = setTimeout(fail, 9000);
+    const t = setTimeout(fail, 6000);
     return () => clearTimeout(t);
   }, [ready, fail]);
+
+  // Google calls this global when the key is refused for this site (referer,
+  // billing or API not enabled). It leaves a blank map, so switch right away.
+  useEffect(() => {
+    const w = window as unknown as { gm_authFailure?: () => void };
+    w.gm_authFailure = fail;
+    return () => {
+      if (w.gm_authFailure === fail) delete w.gm_authFailure;
+    };
+  }, [fail]);
 
   if (!BROWSER_KEY) return null;
 
@@ -52,8 +62,9 @@ export default function GoogleFoodMap(props: Props) {
         gestureHandling="greedy"
         clickableIcons={false}
         internalUsageAttributionIds={["gmp_lovable_agentskills_v1"]}
+        onTilesLoaded={() => setReady(true)}
       >
-        <MapBody {...rest} onReady={() => setReady(true)} onFail={fail} />
+        <MapBody {...rest} onFail={fail} />
       </Map>
     </APIProvider>
   );
@@ -65,18 +76,13 @@ function MapBody({
   originLabel,
   selectedId,
   onSelect,
-  onReady,
   onFail,
   travelMode = "transit",
-}: Omit<Props, "onFail"> & { onReady: () => void; onFail: () => void }) {
+}: Props) {
   const { t } = useLanguage();
   const map = useMap();
   const selected = points.find((p) => p.id === selectedId) ?? null;
   const warned = useRef(false);
-
-  useEffect(() => {
-    if (map) onReady();
-  }, [map, onReady]);
 
   // Google draws an in-map error box when this domain isn't allowed to use the
   // key. Detect it and swap to the free map rather than leaving it on screen.

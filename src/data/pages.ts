@@ -17,7 +17,7 @@ export const valueSections = [
   ["Accessibility", "No sign-up to browse, phone-friendly pages and language choices help more neighbors reach resources."],
   ["Honesty", "We distinguish published information from confirmed availability and make original sources easy to find."],
   ["Community", "We connect neighbors to existing local providers rather than replacing their work."],
-  ["Zero Hunger", "Our work supports UN Sustainable Development Goal 2: Zero Hunger."],
+  ["Zero Hunger", "No one should end the day hungry."],
 ];
 export const rideSections = [
   ["Confirm Your Trip", "Use the booking form above to choose your food destination and visit time. PantriFul checks whether the trip is covered in Hillsborough County before a driver is assigned."],
