@@ -11,13 +11,13 @@ const steps = [
   { title: "Come back anytime", text: "Reopen this guide with Help at the top of any page. Change your language there, too.", icon: CircleHelp },
 ];
 export function HelpTutorial({ open, onOpenChange }: { open: boolean; onOpenChange: (value: boolean) => void }) {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [step, setStep] = useState(0);
   const current = steps[step];
   if (!current) return null;
   const Icon = current.icon;
   return <Dialog open={open} onOpenChange={onOpenChange}>
-    <DialogContent closeLabel={t("Close")} className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-lg" dir={language === "ar" ? "rtl" : "ltr"}>
+    <DialogContent closeLabel={t("Close")} className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-lg">
       <DialogTitle>{t("Welcome to PantriFul")}</DialogTitle>
       <DialogDescription>{t("Find food, one step at a time.")}</DialogDescription>
       <div className="mt-2 flex size-12 items-center justify-center rounded-lg bg-beige text-plum"><Icon aria-hidden="true" /></div>

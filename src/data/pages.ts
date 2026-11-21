@@ -5,7 +5,7 @@ export const faqItems = [
   ["What documents should I bring?", "Requirements vary by provider and program. Ask about photo ID, proof of address, household information, appointments and service-area restrictions using the listing's phone or source link."],
   ["Can I get directions without a car?", "Yes. Choose Transit, Walk or Bike above the listings. Directions opens Google Maps with your destination; Google determines available routes and schedules."],
   ["Are Empower rides free or available in Tampa?", "PantriFul does not book or pay for rides. Empower is an independent service; confirm Hillsborough availability and pricing with Empower before relying on a ride."],
-  ["How do I use another language?", "Choose English, Español or العربية at the top. Organization names and addresses stay as published so you can identify the correct destination. Linked provider websites may use another language."],
+  ["How do I use another language?", "Choose English or Español at the top. Organization names and addresses stay as published so you can identify the correct destination. Linked provider websites may use another language."],
 ];
 export const aboutSections = [
   ["No account. No judgment.", "You should not need to register just to find your next meal. Everyone can browse local food resources and plan a visit."],

@@ -16,7 +16,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     try { if (!sessionStorage.getItem("pantriful-guide-seen")) setHelpOpen(true); } catch { /* Guide can still be opened manually. */ }
   }, []);
-  useEffect(() => { document.documentElement.dataset["font"] = "montserrat"; }, []);
   const changeHelp = (open: boolean) => {
     setHelpOpen(open);
     if (!open) { try { sessionStorage.setItem("pantriful-guide-seen", "1"); } catch { /* Nonessential preference. */ } }
@@ -28,7 +27,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="flex flex-wrap items-center gap-2">
           <label className="flex items-center gap-1 text-sm"><Languages className="size-4" aria-hidden="true" /><span className="sr-only">{t("Language")}</span>
             <select aria-label={t("Language")} value={language} onChange={(e) => setLanguage(e.target.value as Language)} className="h-9 max-w-28 rounded-md border border-primary-foreground/50 bg-green px-2 text-primary-foreground">
-              <option value="en">English</option><option value="es">Español</option><option value="ar">العربية</option>
+              <option value="en">English</option><option value="es">Español</option>
             </select>
           </label>
           <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground" onClick={() => { setHelpKey((v) => v + 1); changeHelp(true); }}><CircleHelp />{t("Help")}</Button>

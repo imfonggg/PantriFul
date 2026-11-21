@@ -1,5 +1,6 @@
 import type { FoodResource, LatLng, ResourceType } from "./types";
 import { isOpenNow, milesBetween } from "./hours";
+import { matchesZipCode } from "./zipCodes";
 
 export interface ResourceFilters {
   types: ResourceType[];
@@ -7,6 +8,7 @@ export interface ResourceFilters {
   dietary: string;
   includeUnknown: boolean;
   city: string;
+  zipCode?: string;
   query: string;
   openOnly: boolean;
   maxMiles: number;
@@ -31,6 +33,7 @@ export function filterResources(resources: FoodResource[], filters: ResourceFilt
       && matchesNeed(resource.household, filters.household, filters.includeUnknown)
       && (!filters.dietary || Boolean(resource.dietary?.includes(filters.dietary)) || filters.includeUnknown)
       && (!filters.city || resource.city === filters.city)
+      && matchesZipCode(resource.address, filters.zipCode)
       && terms.every((term) => haystack.includes(term))
       && (!filters.openOnly || resource.open)
       && (!filters.maxMiles || (resource.miles !== null && resource.miles <= filters.maxMiles));

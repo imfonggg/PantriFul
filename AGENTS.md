@@ -33,11 +33,13 @@ use the editor.
 - Keep shared navigation, help and language state around the root Outlet so they remain available across every page.
 - Keep food data in a dated, source-linked static snapshot; never infer coordinates, eligibility or dietary availability when source details are missing.
 - Use browser-safe resource filtering and Google Maps direction URLs; ordinary browsing must not require authentication or billable server calls.
-- Translate app-owned text locally and use right-to-left layout for Arabic; retain provider names and street addresses as published for accurate destinations.
+- Translate app-owned text locally into the languages offered in the language picker; retain provider names and street addresses as published for accurate destinations.
 - Use a deterministic, dismissible tutorial rather than AI for navigation guidance so it is available without accounts, costs or hallucinated instructions.
 - Keep optional profile and bookmark writes behind authenticated server functions and owner-scoped RLS; empty signup profiles must not auto-save browsing preferences.
 - Keep provider donation URLs source-verified and separate from the application's own donation fund; missing checkout setup must never simulate payment success.
 - Paginate the displayed list and map together so the footer stays reachable and map selection always matches the current results.
 - Keep private account pages under the client-only authenticated layout; each private server function independently verifies identity to protect directly callable endpoints.
 - Keep published weekly schedules as a source-derived companion snapshot so monthly restrictions are displayed without falsely marking recurring events open.
+- Keep provider visit details in a dated bilingual companion snapshot with per-fact source URLs; omit unpublished rules and dietary guarantees so missing evidence never becomes an access barrier.
+- Treat the ZIP field as an exact published-address filter, not a inferred service-area or distance calculation; ordinary browsing must remain free of geocoding calls.
 - Render Leaflet popup actions through React portals so shared language context remains available and Directions uses the same copy-link flow everywhere.
