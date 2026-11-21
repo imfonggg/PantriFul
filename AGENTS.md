@@ -48,3 +48,4 @@ use the editor.
 - Keep provider visit details in a dated bilingual companion snapshot with per-fact source URLs; omit unpublished rules and dietary guarantees so missing evidence never becomes an access barrier.
 - Treat the ZIP field as an exact published-address filter, not a inferred service-area or distance calculation; ordinary browsing must remain free of geocoding calls.
 - Render Leaflet popup actions through React portals so shared language context remains available and Directions, Copy Address, and blocked-popup link recovery stay consistent everywhere.
+- Keep funded-ride and donation previews browser-local with no contact or card collection; preview outcomes never book, charge, save personal data, or imply successful transactions.

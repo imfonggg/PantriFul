@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add funded-ride booking preview and donor payment selection; remove project-language sections while clearly marking inactive transactions. Desktop/phone English/Spanish flows verified; 89 tests pass.
+- [ ] Update PR #14 without rewriting history, resolve conflicts against current main, and preserve mobile navigation.
+
 - [x] Update the Empower FAQ and ride-fare section to explain donor-covered approved trips and driver earnings without project wording in those sections; English/Spanish and phone checks passed, separate disclaimer and booking limitations retained.
 
 - [x] Present PantriFul–Empower as a fictional project partnership with an explicit non-agreement disclaimer on driver, ride assistance and donation pages; verified in English and Spanish, real payments and bookings remain disabled.
@@ -31,7 +34,7 @@
 ## GitHub delivery
 - [x] Pushed Lovable codebase to imfonggg/PantriFul as branch `lovable-main`, PR #6 open (uploaded via GitHub API; sandbox git push/fetch is blocked).
 - [ ] Ongoing: user wants all future changes committed to imfonggg/PantriFul via branch + PR. Token is not stored; user pastes a GitHub token each time.
-- [ ] Deliver listing, Empower, FAQ and fare updates to GitHub as requested: waiting on a fresh GitHub token; previous token was used once and is not reused.
+- [x] Delivered listing, Empower, FAQ and fare updates to imfonggg/PantriFul as PR #14 on branch `lovable/listings-empower-20261121-201403`; applied changed files over current main without force-pushing.
 
 ## Waiting on external setup or confirmation
 - [ ] Stripe checkout: user approved Stripe, but declined the Stripe account setup form; no payments enabled or accepted.

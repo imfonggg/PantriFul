@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DonationsRouteImport } from './routes/donations'
+import { Route as DonorPaymentRouteImport } from './routes/donor-payment'
 import { Route as EmpowerDriversRouteImport } from './routes/empower-drivers'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as MissionValuesRouteImport } from './routes/mission-values'
@@ -43,6 +44,11 @@ const AuthRoute = AuthRouteImport.update({
 const DonationsRoute = DonationsRouteImport.update({
   id: '/donations',
   path: '/donations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonorPaymentRoute = DonorPaymentRouteImport.update({
+  id: '/donor-payment',
+  path: '/donor-payment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmpowerDriversRoute = EmpowerDriversRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/donations': typeof DonationsRoute
+  '/donor-payment': typeof DonorPaymentRoute
   '/empower-drivers': typeof EmpowerDriversRoute
   '/faq': typeof FaqRoute
   '/mission-values': typeof MissionValuesRoute
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/donations': typeof DonationsRoute
+  '/donor-payment': typeof DonorPaymentRoute
   '/empower-drivers': typeof EmpowerDriversRoute
   '/faq': typeof FaqRoute
   '/mission-values': typeof MissionValuesRoute
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/donations': typeof DonationsRoute
+  '/donor-payment': typeof DonorPaymentRoute
   '/empower-drivers': typeof EmpowerDriversRoute
   '/faq': typeof FaqRoute
   '/mission-values': typeof MissionValuesRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/donations'
+    | '/donor-payment'
     | '/empower-drivers'
     | '/faq'
     | '/mission-values'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/donations'
+    | '/donor-payment'
     | '/empower-drivers'
     | '/faq'
     | '/mission-values'
@@ -146,6 +157,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/donations'
+    | '/donor-payment'
     | '/empower-drivers'
     | '/faq'
     | '/mission-values'
@@ -160,6 +172,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   DonationsRoute: typeof DonationsRoute
+  DonorPaymentRoute: typeof DonorPaymentRoute
   EmpowerDriversRoute: typeof EmpowerDriversRoute
   FaqRoute: typeof FaqRoute
   MissionValuesRoute: typeof MissionValuesRoute
@@ -202,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/donations'
       fullPath: '/donations'
       preLoaderRoute: typeof DonationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donor-payment': {
+      id: '/donor-payment'
+      path: '/donor-payment'
+      fullPath: '/donor-payment'
+      preLoaderRoute: typeof DonorPaymentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/empower-drivers': {
@@ -266,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   DonationsRoute: DonationsRoute,
+  DonorPaymentRoute: DonorPaymentRoute,
   EmpowerDriversRoute: EmpowerDriversRoute,
   FaqRoute: FaqRoute,
   MissionValuesRoute: MissionValuesRoute,
