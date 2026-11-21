@@ -27,13 +27,13 @@ export default function Filters({ value, onChange, onUseLocation, locating, loca
   return (
     <section aria-label="Filter food resources" className="rounded-xl border border-clay bg-white p-4">
       <fieldset>
-        <legend className="mb-2 font-semibold">What kind of help?</legend>
+        <legend className="mb-2 font-emph">What kind of help?</legend>
         <div className="flex flex-wrap gap-2">
           {(Object.keys(TYPE_LABELS) as ResourceType[]).map((t) => (
             <label
               key={t}
-              className={`cursor-pointer rounded-full border-2 px-3 py-1 text-sm has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-plum ${
-                value.types.includes(t) ? 'border-plum bg-plum text-white' : 'border-clay bg-paper'
+              className={`inline-flex min-h-11 cursor-pointer items-center rounded-full border-2 px-4 py-1 text-sm has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-plum ${
+                value.types.includes(t) ? 'border-brick bg-brick text-white' : 'border-clay bg-paper'
               }`}
             >
               <input
@@ -48,8 +48,8 @@ export default function Filters({ value, onChange, onUseLocation, locating, loca
         </div>
       </fieldset>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <label className="flex items-center gap-2">
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+        <label className="flex min-h-11 items-center gap-2">
           <input
             type="checkbox"
             className="size-5 accent-plum"
@@ -59,10 +59,10 @@ export default function Filters({ value, onChange, onUseLocation, locating, loca
           Open now
         </label>
 
-        <label className="flex items-center gap-2">
+        <label className="flex min-h-11 items-center gap-2">
           Within
           <select
-            className="rounded-lg border-2 border-clay bg-white px-2 py-1"
+            className="min-h-11 flex-1 rounded-lg border-2 border-clay bg-white px-2 py-1 sm:flex-none"
             value={value.radius ?? ''}
             onChange={(e) => onChange({ ...value, radius: e.target.value ? Number(e.target.value) : null })}
           >
@@ -79,7 +79,7 @@ export default function Filters({ value, onChange, onUseLocation, locating, loca
           type="button"
           onClick={onUseLocation}
           disabled={locating}
-          className="rounded-lg border-2 border-plum px-3 py-1 font-medium text-plum disabled:opacity-60"
+          className="min-h-11 w-full rounded-lg border-2 border-plum px-4 py-1 font-emph text-plum disabled:opacity-60 sm:w-auto"
         >
           {locating ? 'Locating…' : 'Use my location'}
         </button>

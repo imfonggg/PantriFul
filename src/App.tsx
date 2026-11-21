@@ -99,7 +99,7 @@ export default function App() {
         <div aria-live="polite" className="mt-4">
           {loading && <p>Loading food resources…</p>}
           {error && (
-            <p role="alert" className="font-medium text-brick">
+            <p role="alert" className="font-emph text-brick">
               {error}
             </p>
           )}
@@ -144,7 +144,7 @@ export default function App() {
       </main>
 
       <footer className="bg-sand px-4 py-6 text-sm">
-        <p className="mx-auto max-w-5xl">
+        <p className="mx-auto max-w-6xl">
           PantriFul supports UN Sustainable Development Goal 2: Zero Hunger. Hours and eligibility can change, so
           call ahead when you can.
         </p>
