@@ -17,7 +17,7 @@ interface Props {
 export function FoodMap(props: Props) {
   if (!MAPS_KEY) {
     return (
-      <div className="flex h-full min-h-72 items-center justify-center rounded-lg bg-slate-100 p-4 text-center text-slate-600">
+      <div className="flex h-full min-h-72 items-center justify-center rounded-lg bg-sand p-4 text-center">
         Map unavailable: add VITE_GOOGLE_MAPS_API_KEY to .env
       </div>
     )
@@ -80,7 +80,7 @@ function Markers({ resources, recommendedIds, selectedId, onSelect, userLocation
             zIndex={recommended ? 10 : 1}
           >
             <Pin
-              background={recommended ? '#16a34a' : r.openNow ? '#2563eb' : '#94a3b8'}
+              background={recommended ? '#69a657' : r.openNow ? '#5a0058' : '#b3926f'}
               borderColor="#ffffff"
               glyphColor="#ffffff"
               scale={recommended ? 1.3 : 1}
@@ -98,7 +98,7 @@ function Markers({ resources, recommendedIds, selectedId, onSelect, userLocation
               {selected.openNow ? 'Open now' : 'Closed now'} · {selected.distanceMiles} mi
             </span>
             <a
-              className="text-green-700 underline"
+              className="text-plum underline"
               href={directionsUrl(selected.location)}
               target="_blank"
               rel="noreferrer"

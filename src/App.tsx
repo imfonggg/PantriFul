@@ -1,145 +1,154 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { ChatResult, FoodResourceWithDistance, LatLng } from '../shared/types'
+import Filters, { type FilterState } from './components/Filters'
 import { FoodMap } from './components/FoodMap'
-import { ResourceCard } from './components/ResourceCard'
-import { askAssistant, getFoodResources } from './lib/api'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import ResourceCard from './components/ResourceCard'
+import { getFoodResources } from './lib/api'
 
-/**
- * Functional layout: assistant + map + list. The designed UI can restyle or
- * replace this; FoodMap and ResourceCard are reusable building blocks.
- */
+const NO_FILTERS: FilterState = { types: [], openNow: false, radius: null }
+
 export default function App() {
   const [resources, setResources] = useState<FoodResourceWithDistance[]>([])
-  const [userLocation, setUserLocation] = useState<LatLng | null>(null)
-  const [openOnly, setOpenOnly] = useState(false)
-  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [message, setMessage] = useState('')
   const [answer, setAnswer] = useState<ChatResult | null>(null)
-  const [asking, setAsking] = useState(false)
+  const [filters, setFilters] = useState<FilterState>(NO_FILTERS)
   const [locating, setLocating] = useState(false)
+  const [locationNote, setLocationNote] = useState<string | null>(null)
+  const [userLocation, setUserLocation] = useState<LatLng | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
 
   useEffect(() => {
-    getFoodResources(userLocation ?? undefined).then(setResources, (e: Error) => setError(e.message))
-  }, [userLocation])
+    getFoodResources()
+      .then(setResources, (e: Error) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [])
 
-  function useMyLocation() {
-    if (!navigator.geolocation) return setError('Location is not available in this browser')
+  function handleUseLocation() {
+    if (!navigator.geolocation) {
+      setLocationNote('Your browser can’t share location. Showing distances from USF.')
+      return
+    }
     setLocating(true)
+    setLocationNote(null)
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude })
-        setLocating(false)
+      async (pos) => {
+        try {
+          const here = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+          setResources(await getFoodResources(here))
+          setUserLocation(here)
+          setLocationNote('Distances are now from your location.')
+        } catch (e) {
+          setError((e as Error).message)
+        } finally {
+          setLocating(false)
+        }
       },
       () => {
-        setError('Could not get your location. Showing distances from USF.')
+        setLocationNote('We couldn’t get your location. Showing distances from USF.')
         setLocating(false)
       },
-      { timeout: 10000 },
     )
   }
 
-  async function onAsk(e: FormEvent) {
-    e.preventDefault()
-    if (!message.trim()) return
-    setAsking(true)
-    setError(null)
-    setSelectedId(null)
-    try {
-      setAnswer(await askAssistant(message, userLocation ?? undefined))
-    } catch (err) {
-      setError((err as Error).message)
-    } finally {
-      setAsking(false)
-    }
-  }
+  const visible = useMemo(
+    () =>
+      resources.filter(
+        (r) =>
+          (filters.types.length === 0 || filters.types.includes(r.type)) &&
+          (!filters.openNow || r.openNow) &&
+          (filters.radius === null || r.distanceMiles <= filters.radius),
+      ),
+    [resources, filters],
+  )
 
-  const recommendedIds = answer?.recommendedIds ?? []
-  const shown = resources
-    .filter((r) => !openOnly || r.openNow)
-    .sort((a, b) => Number(recommendedIds.includes(b.id)) - Number(recommendedIds.includes(a.id)))
+  const suggested = useMemo(() => answer?.recommendedIds ?? [], [answer])
+  // Suggested places float to the top, otherwise keep distance order.
+  const ordered = useMemo(
+    () => [...visible].sort((a, b) => Number(suggested.includes(b.id)) - Number(suggested.includes(a.id))),
+    [visible, suggested],
+  )
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      <header className="border-b border-slate-200 px-4 py-3">
-        <h1 className="text-xl font-bold text-green-800">PantriFul</h1>
-        <p className="text-sm text-slate-600">Free food near USF Tampa</p>
-      </header>
+    <>
+      <a href="#listings" className="sr-only focus:not-sr-only focus:absolute focus:bg-white focus:p-2">
+        Skip to food listings
+      </a>
+      <Header />
+      <Hero
+        answer={answer}
+        onAnswer={(a) => {
+          setSelectedId(null)
+          setAnswer(a)
+        }}
+        location={userLocation}
+      />
 
-      <main className="mx-auto grid max-w-6xl gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-        <section aria-label="Find food" className="flex flex-col gap-3">
-          <form onSubmit={onAsk} className="flex flex-col gap-2">
-            <label htmlFor="ask" className="font-medium">
-              What do you need?
-            </label>
-            <div className="flex gap-2">
-              <input
-                id="ask"
-                className="min-w-0 flex-1 rounded border border-slate-300 px-3 py-2"
-                placeholder="e.g. I'm a student with no car and need groceries tonight"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                maxLength={1000}
-              />
-              <button className="rounded bg-green-700 px-4 py-2 text-white disabled:opacity-50" disabled={asking}>
-                {asking ? 'Thinking…' : 'Ask'}
-              </button>
-            </div>
-          </form>
+      <main id="listings" className="mx-auto max-w-6xl px-4 py-8">
+        <h2 className="mb-4 text-2xl font-bold">Food near you</h2>
+        <Filters
+          value={filters}
+          onChange={setFilters}
+          onUseLocation={handleUseLocation}
+          locating={locating}
+          locationNote={locationNote}
+        />
 
+        <div aria-live="polite" className="mt-4">
+          {loading && <p>Loading food resources…</p>}
           {error && (
-            <p role="alert" className="text-red-700">
+            <p role="alert" className="font-medium text-brick">
               {error}
             </p>
           )}
-          <div aria-live="polite">
-            {answer && <p className="rounded bg-green-50 p-3">{answer.reply}</p>}
-          </div>
+          {!loading && !error && (
+            <p className="text-sm">
+              Showing {ordered.length} of {resources.length} places
+            </p>
+          )}
+        </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <button
-              type="button"
-              onClick={useMyLocation}
-              disabled={locating}
-              className="rounded border border-slate-300 px-3 py-1.5 disabled:opacity-50"
-            >
-              {locating ? 'Locating…' : userLocation ? 'Location on ✓' : 'Use my location'}
+        {!loading && !error && ordered.length === 0 ? (
+          <p className="mt-4 rounded-xl bg-sand p-4">
+            Nothing matches those filters.{' '}
+            <button type="button" className="text-plum underline" onClick={() => setFilters(NO_FILTERS)}>
+              Clear filters
             </button>
-            <label className="flex items-center gap-2">
-              <input type="checkbox" checked={openOnly} onChange={(e) => setOpenOnly(e.target.checked)} />
-              Open now only
-            </label>
-            <span className="text-slate-600">
-              {shown.length} place{shown.length === 1 ? '' : 's'}
-            </span>
-          </div>
-
-          <ul className="flex flex-col gap-3">
-            {shown.map((r) => (
-              <ResourceCard
-                key={r.id}
-                resource={r}
-                recommended={recommendedIds.includes(r.id)}
-                selected={selectedId === r.id}
-                onSelect={() => setSelectedId(r.id)}
+          </p>
+        ) : (
+          <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+            <section aria-label="Map" className="h-[55vh] lg:sticky lg:top-4 lg:order-2 lg:h-[calc(100vh-2rem)]">
+              <FoodMap
+                resources={ordered}
+                recommendedIds={suggested}
+                selectedId={selectedId}
+                onSelect={setSelectedId}
+                userLocation={userLocation}
               />
-            ))}
-            {shown.length === 0 && resources.length > 0 && (
-              <li className="text-slate-600">Nothing is open right now. Untick "Open now only" or call 211.</li>
-            )}
-          </ul>
-        </section>
-
-        <section aria-label="Map" className="h-[60vh] lg:sticky lg:top-4 lg:h-[calc(100vh-6rem)]">
-          <FoodMap
-            resources={shown}
-            recommendedIds={recommendedIds}
-            selectedId={selectedId}
-            onSelect={setSelectedId}
-            userLocation={userLocation}
-          />
-        </section>
+            </section>
+            <ul className="grid content-start gap-4 lg:order-1">
+              {ordered.map((r) => (
+                <ResourceCard
+                  key={r.id}
+                  resource={r}
+                  recommended={suggested.includes(r.id)}
+                  selected={selectedId === r.id}
+                  onSelect={() => setSelectedId(r.id)}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </main>
-    </div>
+
+      <footer className="bg-sand px-4 py-6 text-sm">
+        <p className="mx-auto max-w-5xl">
+          PantriFul supports UN Sustainable Development Goal 2: Zero Hunger. Hours and eligibility can change, so
+          call ahead when you can.
+        </p>
+      </footer>
+    </>
   )
 }
