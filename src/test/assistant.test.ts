@@ -77,3 +77,22 @@ describe("urgent info", () => {
     expect(result).toEqual({ reply: "Hi\nPlace A", urgent: "Call 211 today.", recommendedIds: ["a"] });
   });
 });
+
+describe("structured places", () => {
+  it("keeps known places with our own names, and highlights them", () => {
+    const known = new Set(["a", "b"]);
+    const names = new Map([["a", "Place A"], ["b", "Place B"]]);
+    const text = JSON.stringify({
+      reply: "Here are the soonest options.",
+      places: [
+        { id: "a", when: "Tomorrow, 10 AM–12 PM", why: "Near campus." },
+        { id: "zzz", when: "Today", why: "Made up." },
+      ],
+    });
+    expect(parseAssistantResult(text, known, names)).toEqual({
+      reply: "Here are the soonest options.",
+      places: [{ id: "a", name: "Place A", when: "Tomorrow, 10 AM–12 PM", why: "Near campus." }],
+      recommendedIds: ["a"],
+    });
+  });
+});

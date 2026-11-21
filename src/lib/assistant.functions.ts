@@ -78,6 +78,7 @@ export const askAssistant = createServerFn({ method: "POST" })
     const ai = new GoogleGenAI({ apiKey, httpOptions: { timeout: TIMEOUT_MS } });
     const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin), data.profile);
     const knownIds = new Set(candidates.map((c) => c.id));
+    const names = new Map(candidates.map((c) => [c.id, c.name]));
     const ask = (model: string, thinking: boolean) =>
       ai.models.generateContent({
         model,
@@ -93,10 +94,17 @@ export const askAssistant = createServerFn({ method: "POST" })
             type: Type.OBJECT,
             properties: {
               reply: { type: Type.STRING },
+              places: {
+                type: Type.ARRAY,
+                items: {
+                  type: Type.OBJECT,
+                  properties: { id: { type: Type.STRING }, when: { type: Type.STRING }, why: { type: Type.STRING } },
+                  required: ["id", "when", "why"],
+                },
+              },
               urgent: { type: Type.STRING },
-              recommendedIds: { type: Type.ARRAY, items: { type: Type.STRING } },
             },
-            required: ["reply", "recommendedIds"],
+            required: ["reply", "places"],
           },
         },
       });
@@ -117,7 +125,7 @@ export const askAssistant = createServerFn({ method: "POST" })
         const started = Date.now();
         try {
           const response = await ask(model, thinking);
-          const result = parseAssistantResult(response.text ?? "", knownIds);
+          const result = parseAssistantResult(response.text ?? "", knownIds, names);
           workingModel = model;
           // Timing only, never the person's message.
           console.log(`assistant ok: model=${model} thinking=${thinking} ms=${Date.now() - started}`);

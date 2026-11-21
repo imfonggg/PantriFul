@@ -21,9 +21,21 @@ export const assistantInputSchema = z.object({
 export type AssistantProfile = NonNullable<AssistantInput["profile"]>;
 export type AssistantInput = z.infer<typeof assistantInputSchema>;
 
+export interface AssistantPlace {
+  id: string;
+  /** Place name from our directory (never from Gemini). */
+  name: string;
+  /** When it is next open, e.g. "Tomorrow, 10 AM–12 PM". */
+  when: string;
+  /** Short reason it fits. */
+  why: string;
+}
+
 export interface AssistantResult {
-  /** Short lines separated by newlines. */
+  /** Short opening line(s), separated by newlines. */
   reply: string;
+  /** One line per recommended place, shown with the name in bold and the time underlined. */
+  places?: AssistantPlace[];
   /** Urgent safety or same-day help info, shown in bold red. */
   urgent?: string;
   recommendedIds: string[];
@@ -89,7 +101,7 @@ export function assistantSystemPrompt(
     "Recommend 1 to 4 places ONLY from the list below, by id. Never invent places, hours, phone numbers or requirements.",
     "Prefer places that are open now, then the soonest nextOpen time (later today, then tomorrow, then the next day). Never suggest waiting until the same weekday next week when a sooner day is listed. Also weigh distance and fit (household, diet, transport). Read notes for monthly or appointment-only schedules; a place with empty nextOpen has no listed hours, so say to call ahead.",
     "Reply in the same language the person writes in. Plain text, no markdown, no bullet symbols, no ids or codes in the text.",
-    "Format reply as short lines separated by newline characters: one short opening line, then one line per place saying its name, when it is next open, and why it fits (what to bring if listed). Keep the whole reply under 110 words.",
+    "Put one short, kind opening line in reply (no place details, no 211 or 911 there). Put each recommended place in places, best first: id, when (its soonest nextOpen time, written short like \"Today, 5–7 PM\", \"Tomorrow, 10 AM–12 PM\" or \"Tuesday, Nov 24, 10 AM–1 PM\", or \"Call ahead for hours\" if nextOpen is empty), and why (under 15 words: why it fits and what to bring if listed; do not repeat the name or time).",
     "Put urgent info in the separate urgent field, not in reply: if nothing is open today, a short line saying to call 211 (Florida's free help line) for help today; if they mention an emergency or danger, tell them to call 911. Leave urgent empty when none applies.",
     "If nothing fits, say so kindly in reply and put the 211 line in urgent.",
     ...(profileLine(profile) ? [profileLine(profile)] : []),
@@ -129,14 +141,33 @@ export function profileLine(profile?: AssistantProfile): string {
 }
 
 /** Parse Gemini's JSON and keep only ids that exist in the candidate list. */
-export function parseAssistantResult(text: string, knownIds: Set<string>): AssistantResult {
+export function parseAssistantResult(
+  text: string,
+  knownIds: Set<string>,
+  names: Map<string, string> = new Map(),
+): AssistantResult {
   try {
-    const parsed = JSON.parse(text) as Partial<AssistantResult>;
+    const parsed = JSON.parse(text) as Partial<Omit<AssistantResult, "places">> & { places?: unknown };
+    const seen = new Set<string>();
+    const places: AssistantPlace[] = [];
+    for (const item of Array.isArray(parsed.places) ? parsed.places : []) {
+      const { id, when, why } = (item ?? {}) as Record<string, unknown>;
+      if (typeof id !== "string" || !knownIds.has(id) || seen.has(id) || places.length >= 4) continue;
+      seen.add(id);
+      places.push({
+        id,
+        name: names.get(id) ?? "",
+        when: typeof when === "string" ? when.trim() : "",
+        why: typeof why === "string" ? why.trim() : "",
+      });
+    }
     const reply = typeof parsed.reply === "string" ? parsed.reply.trim() : "";
     const urgent = typeof parsed.urgent === "string" ? parsed.urgent.trim() : "";
-    const ids = Array.isArray(parsed.recommendedIds) ? parsed.recommendedIds : [];
+    const ids = [...places.map((p) => p.id), ...(Array.isArray(parsed.recommendedIds) ? parsed.recommendedIds : [])];
+    if (!reply && !places.length) throw new IncompleteReplyError();
     return {
       reply,
+      ...(places.length ? { places } : {}),
       ...(urgent ? { urgent } : {}),
       recommendedIds: [
         ...new Set(ids.filter((id): id is string => typeof id === "string" && knownIds.has(id))),
