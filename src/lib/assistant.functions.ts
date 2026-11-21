@@ -90,6 +90,7 @@ export const askAssistant = createServerFn({ method: "POST" })
             type: Type.OBJECT,
             properties: {
               reply: { type: Type.STRING },
+              urgent: { type: Type.STRING },
               recommendedIds: { type: Type.ARRAY, items: { type: Type.STRING } },
             },
             required: ["reply", "recommendedIds"],

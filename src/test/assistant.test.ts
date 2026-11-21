@@ -69,3 +69,11 @@ describe("assistant profile", () => {
     expect(profileLine(undefined)).toBe("");
   });
 });
+
+describe("urgent info", () => {
+  it("keeps the urgent line separate from the reply", () => {
+    const known = new Set(["a"]);
+    const result = parseAssistantResult(JSON.stringify({ reply: "Hi\nPlace A", urgent: "Call 211 today.", recommendedIds: ["a"] }), known);
+    expect(result).toEqual({ reply: "Hi\nPlace A", urgent: "Call 211 today.", recommendedIds: ["a"] });
+  });
+});
