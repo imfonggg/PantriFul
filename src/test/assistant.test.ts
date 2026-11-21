@@ -6,6 +6,7 @@ import {
   ASSISTANT_CANDIDATES,
   assistantCandidates,
   assistantInputSchema,
+  IncompleteReplyError,
   parseAssistantResult,
 } from "@/data/assistant";
 
@@ -45,6 +46,10 @@ describe("parseAssistantResult", () => {
   });
   it("falls back to plain text", () => {
     expect(parseAssistantResult("hello", known)).toEqual({ reply: "hello", recommendedIds: [] });
+  });
+  it("rejects a cut-off JSON reply instead of showing it", () => {
+    expect(() => parseAssistantResult('{\n"reply": "', known)).toThrow(IncompleteReplyError);
+    expect(() => parseAssistantResult("", known)).toThrow(IncompleteReplyError);
   });
 });
 

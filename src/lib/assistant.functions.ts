@@ -5,6 +5,7 @@ import {
   assistantCandidates,
   assistantInputSchema,
   assistantSystemPrompt,
+  IncompleteReplyError,
   parseAssistantResult,
   type AssistantResult,
 } from "@/data/assistant";
@@ -81,7 +82,8 @@ export const askAssistant = createServerFn({ method: "POST" })
         config: {
           systemInstruction,
           temperature: 0.4,
-          maxOutputTokens: 600,
+          // Thinking tokens count toward this limit, so leave room for the JSON answer.
+          maxOutputTokens: 4096,
           ...(thinking ? { thinkingConfig: thinkingFor(model) } : {}),
           responseMimeType: "application/json",
           responseSchema: {
@@ -122,7 +124,8 @@ export const askAssistant = createServerFn({ method: "POST" })
           const detail = error instanceof Error ? error.message.slice(0, 300) : "unknown";
           console.error(`assistant failed: model=${model} thinking=${thinking} status=${status ?? "?"} ${detail}`);
           if (model === workingModel) workingModel = undefined;
-          if (thinking && status === 400 && /thinking/i.test(detail)) continue;
+          // Retry without thinking if the model rejects the setting or ran out of room mid-answer.
+          if (thinking && ((status === 400 && /thinking/i.test(detail)) || error instanceof IncompleteReplyError)) continue;
           // A bad key or a usage limit won't get better on another model; anything else might.
           if ((status === 400 && /api key/i.test(detail)) || status === 401 || status === 403 || status === 429 || /abort|timed? ?out/i.test(detail))
             throw new Error(friendlyError(error));

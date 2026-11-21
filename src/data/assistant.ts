@@ -133,6 +133,16 @@ export function parseAssistantResult(text: string, knownIds: Set<string>): Assis
       ].slice(0, 4),
     };
   } catch {
+    // A reply that starts as JSON but doesn't parse was cut off; never show raw JSON to the person.
+    if (text.trim().startsWith("{") || !text.trim()) throw new IncompleteReplyError();
     return { reply: text.trim(), recommendedIds: [] };
+  }
+}
+
+/** Gemini stopped before finishing its JSON (e.g. it ran out of output tokens). */
+export class IncompleteReplyError extends Error {
+  constructor() {
+    super("incomplete reply");
+    this.name = "IncompleteReplyError";
   }
 }
