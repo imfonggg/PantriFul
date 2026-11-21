@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { FOOD_RESOURCES } from "@/data/foodResources";
 import {
+  profileLine,
+  toAssistantProfile,
   ASSISTANT_CANDIDATES,
   assistantCandidates,
   assistantInputSchema,
@@ -43,5 +45,22 @@ describe("parseAssistantResult", () => {
   });
   it("falls back to plain text", () => {
     expect(parseAssistantResult("hello", known)).toEqual({ reply: "hello", recommendedIds: [] });
+  });
+});
+
+describe("assistant profile", () => {
+  it("keeps known saved preferences and drops unknown ones", () => {
+    expect(toAssistantProfile({ dietary: "halal", household: "pets", household_size: 4 })).toEqual({
+      dietary: "halal",
+      household: "",
+      householdSize: 4,
+    });
+  });
+  it("describes the profile for the prompt", () => {
+    expect(profileLine({ dietary: "gluten_free", household: "students", householdSize: null })).toContain(
+      "diet: gluten-free, household: students",
+    );
+    expect(profileLine({ dietary: "", household: "", householdSize: null })).toBe("");
+    expect(profileLine(undefined)).toBe("");
   });
 });

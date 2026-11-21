@@ -56,7 +56,7 @@ export const askAssistant = createServerFn({ method: "POST" })
     const now = new Date();
     const candidates = assistantCandidates(FOOD_RESOURCES, data.origin, now);
     const ai = new GoogleGenAI({ apiKey, httpOptions: { timeout: TIMEOUT_MS } });
-    const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin));
+    const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin), data.profile);
     const knownIds = new Set(candidates.map((c) => c.id));
     // Try the configured model first; fall back if Google doesn't know that model name.
     const models = [...new Set([process.env["GEMINI_MODEL"] || DEFAULT_MODEL, ...FALLBACK_MODELS])];

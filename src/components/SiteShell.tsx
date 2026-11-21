@@ -11,13 +11,12 @@ const mainLinks = [{ to: "/", label: "Food finder" }, { to: "/ride-assistance", 
 export function SiteShell({ children }: { children: ReactNode }) {
   const { language, setLanguage, t } = useLanguage();
   const { user, signOut } = useAuth();
-  const [font, setFont] = useState<"nexa" | "montserrat">("montserrat");
   const [helpOpen, setHelpOpen] = useState(false);
   const [helpKey, setHelpKey] = useState(0);
   useEffect(() => {
     try { if (!sessionStorage.getItem("pantriful-guide-seen")) setHelpOpen(true); } catch { /* Guide can still be opened manually. */ }
   }, []);
-  useEffect(() => { document.documentElement.dataset["font"] = font; }, [font]);
+  useEffect(() => { document.documentElement.dataset["font"] = "montserrat"; }, []);
   const changeHelp = (open: boolean) => {
     setHelpOpen(open);
     if (!open) { try { sessionStorage.setItem("pantriful-guide-seen", "1"); } catch { /* Nonessential preference. */ } }
@@ -40,9 +39,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <nav aria-label="Main" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
             {mainLinks.map((item) => <Link key={item.to} to={item.to} activeProps={{ className: "underline underline-offset-4" }} activeOptions={{ exact: true }}>{t(item.label)}</Link>)}
           </nav>
-          <div role="radiogroup" aria-label={t("Font option")} className="flex shrink-0 gap-1 text-xs" dir="ltr">
-            {(["nexa", "montserrat"] as const).map((f) => <Button key={f} role="radio" aria-checked={font === f} size="sm" variant="ghost" onClick={() => setFont(f)} className={font === f ? "bg-primary-foreground text-green hover:bg-primary-foreground hover:text-green" : "text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground"}>{f === "nexa" ? "A · Nexa" : "B · Montserrat"}</Button>)}
-          </div>
         </div>
       </div>
     </header>

@@ -18,7 +18,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { getProfile, saveBookmark } from "@/lib/profile.functions";
 import { AssistantPanel } from "@/components/AssistantPanel";
-import type { AssistantResult } from "@/data/assistant";
+import { toAssistantProfile, type AssistantResult } from "@/data/assistant";
 
 export const Route = createFileRoute("/")({
   head: () => pageHead("Free food in Hillsborough County", "Browse Hillsborough County food pantries, food banks and free meals without signing up. Filter by household, dietary needs and city, and get directions."),
@@ -94,13 +94,13 @@ function Index() {
     <section className="bg-beige">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
         <p className="mb-3 text-sm font-semibold text-green">{t("Free food in Hillsborough County")}</p>
-        <h1 className="max-w-3xl text-3xl font-bold leading-tight sm:text-5xl">{t("Find free food near you, no sign-up needed.")}</h1>
+        <h1 className="max-w-3xl text-3xl font-bold leading-tight sm:text-5xl">{t("Find free food near you.")}</h1>
         <p className="mt-4 max-w-2xl text-base font-normal text-foreground sm:text-lg">{t("Pantries, food banks and free meals across Hillsborough County.")}</p>
         <form onSubmit={(event) => { event.preventDefault(); document.getElementById("results")?.scrollIntoView({ behavior: "smooth" }); }} className="mt-6 flex flex-col gap-3 sm:flex-row">
           <div className="relative min-w-0 flex-1"><Search className="pointer-events-none absolute start-4 top-4 size-5 text-muted-foreground" aria-hidden="true" /><input aria-label={t("Search by name, city or ZIP")} value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("Try: Tampa, 33612, Trinity")} className="h-12 w-full min-w-0 rounded-lg border-2 border-brown bg-card pe-4 ps-12 text-base outline-none focus:border-plum sm:text-lg" /></div>
           <Button type="submit" className="h-12 rounded-lg px-6 font-bold">{t("Find food")}<Search /></Button>
         </form>
-        <AssistantPanel origin={origin} hasLocation={hasLocation} result={aiResult} onResult={handleAiResult} />
+        <AssistantPanel origin={origin} hasLocation={hasLocation} result={aiResult} onResult={handleAiResult} profile={profile.data ? toAssistantProfile(profile.data) : undefined} />
       </div>
     </section>
     <main id="results" className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">

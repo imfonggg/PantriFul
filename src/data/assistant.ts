@@ -8,7 +8,16 @@ export const assistantInputSchema = z.object({
   origin: z
     .object({ lat: z.number().min(-90).max(90), lng: z.number().min(-180).max(180) })
     .optional(),
+  /** Saved account preferences, sent only when the person is signed in. */
+  profile: z
+    .object({
+      dietary: z.enum(["", "vegetarian", "vegan", "halal", "gluten_free"]),
+      household: z.enum(["", "individuals", "families", "seniors", "students"]),
+      householdSize: z.number().int().min(1).max(20).nullable(),
+    })
+    .optional(),
 });
+export type AssistantProfile = NonNullable<AssistantInput["profile"]>;
 export type AssistantInput = z.infer<typeof assistantInputSchema>;
 
 export interface AssistantResult {
@@ -59,6 +68,7 @@ export function assistantSystemPrompt(
   candidates: ReturnType<typeof assistantCandidates>,
   now: Date,
   nearUser: boolean,
+  profile?: AssistantProfile,
 ): string {
   const localTime = now.toLocaleString("en-US", {
     timeZone: "America/New_York",
@@ -73,8 +83,40 @@ export function assistantSystemPrompt(
     "Prefer places that are open now or soon, close by, and that fit the person's situation (household, diet, transport, timing). Read notes for monthly or appointment-only schedules.",
     "Reply in the same language the person writes in. Keep it under 110 words, plain text, no markdown. Mention what to bring if listed, and suggest calling ahead when hours are unknown.",
     "If nothing fits, say so kindly and suggest calling 211 (Florida's free help line). If they mention an emergency or danger, tell them to call 911.",
+    ...(profileLine(profile) ? [profileLine(profile)] : []),
     `Places: ${JSON.stringify(candidates)}`,
   ].join("\n");
+}
+
+const profileSchema = assistantInputSchema.shape.profile.unwrap();
+
+/** Turn a saved profiles row into assistant preferences, dropping any unknown values. */
+export function toAssistantProfile(row: {
+  dietary: string;
+  household: string;
+  household_size: number | null;
+}): AssistantProfile {
+  const pick = <T extends string>(options: readonly T[], value: string) =>
+    (options as readonly string[]).includes(value) ? (value as T) : ("" as T);
+  const size = row.household_size;
+  return {
+    dietary: pick(profileSchema.shape.dietary.options, row.dietary),
+    household: pick(profileSchema.shape.household.options, row.household),
+    householdSize: size && Number.isInteger(size) && size >= 1 && size <= 20 ? size : null,
+  };
+}
+
+/** Describe saved account preferences for the prompt, or "" if there are none. */
+export function profileLine(profile?: AssistantProfile): string {
+  if (!profile) return "";
+  const parts = [
+    profile.dietary && `diet: ${profile.dietary.replace("_", "-")}`,
+    profile.household && `household: ${profile.household}`,
+    profile.householdSize && `household size: ${profile.householdSize}`,
+  ].filter(Boolean);
+  return parts.length
+    ? `The person's saved profile (use it unless their message says otherwise): ${parts.join(", ")}.`
+    : "";
 }
 
 /** Parse Gemini's JSON and keep only ids that exist in the candidate list. */
