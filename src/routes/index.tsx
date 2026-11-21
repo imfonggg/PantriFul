@@ -177,9 +177,9 @@ function Index() {
                   ? <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`} aria-label={`${t("Call")} ${resource.name}`}><Phone /><span dir="ltr">{resource.phone}</span></a></Button>
                   : <Button asChild variant="outline" size="sm"><a href="tel:211" title={t("No phone listed. 211 can connect you.")}><Phone />{t("Call 211")}</a></Button>}
                 {donationUrl && <Button asChild variant="outline" size="sm"><a href={donationUrl} target="_blank" rel="noopener noreferrer"><HeartHandshake />{t("Donate")}</a></Button>}
+                {website.url && <Button asChild variant="outline" size="sm"><a href={website.url} target="_blank" rel="noopener noreferrer">{t("Website")}<ExternalLink /><span className="sr-only"> ({t("opens in a new tab")})</span></a></Button>}
               </div>
               </div></details>
-              {website.url ? <Button asChild variant="outline" size="sm" className="mt-4 h-auto min-h-9 w-full whitespace-normal"><a href={website.url} target="_blank" rel="noopener noreferrer">{t("Website")}{website.isDirectory && <span className="font-normal">· {t("Provider Directory")}</span>}<ExternalLink className="shrink-0" /></a></Button> : <p className="mt-4 text-xs text-muted-foreground">{t("Provider website not published")}</p>}
             </li>;
           })}
           {!list.length && <li className="border-y border-brown py-8 text-muted-foreground">{t("No places match. Try removing a filter.")}<Button variant="outline" className="mt-4 block" onClick={reset}>{t("Reset filters")}</Button></li>}

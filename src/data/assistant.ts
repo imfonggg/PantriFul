@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { FoodResource, LatLng } from "./types";
 import { filterResources } from "./resourceFilters";
+import { nextOpenings } from "./nextOpen";
 
 /** What the browser sends to the assistant. Validated on the server. */
 export const assistantInputSchema = z.object({
@@ -21,7 +22,10 @@ export type AssistantProfile = NonNullable<AssistantInput["profile"]>;
 export type AssistantInput = z.infer<typeof assistantInputSchema>;
 
 export interface AssistantResult {
+  /** Short lines separated by newlines. */
   reply: string;
+  /** Urgent safety or same-day help info, shown in bold red. */
+  urgent?: string;
   recommendedIds: string[];
 }
 
@@ -55,6 +59,8 @@ export function assistantCandidates(
       address: r.address,
       miles: r.miles === null ? null : Math.round(r.miles * 10) / 10,
       openNow: r.open,
+      // Precomputed soonest service times, so Gemini doesn't have to do date math.
+      nextOpen: nextOpenings(r, now),
       hours: r.scheduleKnown === false ? "unknown" : r.hours,
       eligibility: r.eligibility,
       household: r.household,
@@ -81,9 +87,11 @@ export function assistantSystemPrompt(
     "You are PantriFul, a warm, non-judgemental assistant that helps people around USF Tampa and Hillsborough County find free food.",
     `It is ${localTime} in Tampa. Hours use 0=Sunday..6=Saturday in 24h local time. Distances are from ${nearUser ? "the person's location" : "USF Tampa"}.`,
     "Recommend 1 to 4 places ONLY from the list below, by id. Never invent places, hours, phone numbers or requirements.",
-    "Prefer places that are open now or soon, close by, and that fit the person's situation (household, diet, transport, timing). Read notes for monthly or appointment-only schedules.",
-    "Reply in the same language the person writes in. Keep it under 110 words, plain text, no markdown. Mention what to bring if listed, and suggest calling ahead when hours are unknown.",
-    "If nothing fits, say so kindly and suggest calling 211 (Florida's free help line). If they mention an emergency or danger, tell them to call 911.",
+    "Prefer places that are open now, then the soonest nextOpen time (later today, then tomorrow, then the next day). Never suggest waiting until the same weekday next week when a sooner day is listed. Also weigh distance and fit (household, diet, transport). Read notes for monthly or appointment-only schedules; a place with empty nextOpen has no listed hours, so say to call ahead.",
+    "Reply in the same language the person writes in. Plain text, no markdown, no bullet symbols, no ids or codes in the text.",
+    "Format reply as short lines separated by newline characters: one short opening line, then one line per place saying its name, when it is next open, and why it fits (what to bring if listed). Keep the whole reply under 110 words.",
+    "Put urgent info in the separate urgent field, not in reply: if nothing is open today, a short line saying to call 211 (Florida's free help line) for help today; if they mention an emergency or danger, tell them to call 911. Leave urgent empty when none applies.",
+    "If nothing fits, say so kindly in reply and put the 211 line in urgent.",
     ...(profileLine(profile) ? [profileLine(profile)] : []),
     `Places: ${JSON.stringify(candidates)}`,
   ].join("\n");
@@ -125,9 +133,11 @@ export function parseAssistantResult(text: string, knownIds: Set<string>): Assis
   try {
     const parsed = JSON.parse(text) as Partial<AssistantResult>;
     const reply = typeof parsed.reply === "string" ? parsed.reply.trim() : "";
+    const urgent = typeof parsed.urgent === "string" ? parsed.urgent.trim() : "";
     const ids = Array.isArray(parsed.recommendedIds) ? parsed.recommendedIds : [];
     return {
       reply,
+      ...(urgent ? { urgent } : {}),
       recommendedIds: [
         ...new Set(ids.filter((id): id is string => typeof id === "string" && knownIds.has(id))),
       ].slice(0, 4),
