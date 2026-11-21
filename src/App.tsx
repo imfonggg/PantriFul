@@ -1,79 +1,125 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { ChatResult, FoodResourceWithDistance } from '../shared/types'
-import { askAssistant, getFoodResources } from './lib/api'
+import Filters, { type FilterState } from './components/Filters'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import ResourceCard from './components/ResourceCard'
+import { getFoodResources } from './lib/api'
 
-/**
- * Placeholder shell so the API can be tried end to end.
- * The real UI (map, styling) comes from the design and replaces this.
- */
+const NO_FILTERS: FilterState = { types: [], openNow: false, radius: null }
+
 export default function App() {
   const [resources, setResources] = useState<FoodResourceWithDistance[]>([])
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [message, setMessage] = useState('')
   const [answer, setAnswer] = useState<ChatResult | null>(null)
-  const [asking, setAsking] = useState(false)
+  const [filters, setFilters] = useState<FilterState>(NO_FILTERS)
+  const [locating, setLocating] = useState(false)
+  const [locationNote, setLocationNote] = useState<string | null>(null)
 
   useEffect(() => {
-    getFoodResources().then(setResources, (e: Error) => setError(e.message))
+    getFoodResources()
+      .then(setResources, (e: Error) => setError(e.message))
+      .finally(() => setLoading(false))
   }, [])
 
-  async function onAsk(e: FormEvent) {
-    e.preventDefault()
-    if (!message.trim()) return
-    setAsking(true)
-    setError(null)
-    try {
-      setAnswer(await askAssistant(message))
-    } catch (err) {
-      setError((err as Error).message)
-    } finally {
-      setAsking(false)
+  function handleUseLocation() {
+    if (!navigator.geolocation) {
+      setLocationNote('Your browser can’t share location. Showing distances from USF.')
+      return
     }
+    setLocating(true)
+    setLocationNote(null)
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          setResources(await getFoodResources({ lat: pos.coords.latitude, lng: pos.coords.longitude }))
+          setLocationNote('Distances are now from your location.')
+        } catch (e) {
+          setError((e as Error).message)
+        } finally {
+          setLocating(false)
+        }
+      },
+      () => {
+        setLocationNote('We couldn’t get your location. Showing distances from USF.')
+        setLocating(false)
+      },
+    )
   }
 
+  const visible = useMemo(
+    () =>
+      resources.filter(
+        (r) =>
+          (filters.types.length === 0 || filters.types.includes(r.type)) &&
+          (!filters.openNow || r.openNow) &&
+          (filters.radius === null || r.distanceMiles <= filters.radius),
+      ),
+    [resources, filters],
+  )
+
+  const suggested = useMemo(() => answer?.recommendedIds ?? [], [answer])
+  // Suggested places float to the top, otherwise keep distance order.
+  const ordered = useMemo(
+    () => [...visible].sort((a, b) => Number(suggested.includes(b.id)) - Number(suggested.includes(a.id))),
+    [visible, suggested],
+  )
+
   return (
-    <main className="mx-auto max-w-2xl p-4 font-sans text-slate-900">
-      <h1 className="text-2xl font-bold">PantriFul</h1>
-      <p className="text-slate-600">Free food near USF Tampa</p>
+    <>
+      <a href="#listings" className="sr-only focus:not-sr-only focus:absolute focus:bg-white focus:p-2">
+        Skip to food listings
+      </a>
+      <Header />
+      <Hero answer={answer} onAnswer={setAnswer} />
 
-      <form onSubmit={onAsk} className="mt-4 flex gap-2">
-        <label htmlFor="ask" className="sr-only">
-          What do you need?
-        </label>
-        <input
-          id="ask"
-          className="flex-1 rounded border border-slate-300 px-3 py-2"
-          placeholder="e.g. I'm a student with no car and need groceries tonight"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+      <main id="listings" className="mx-auto max-w-5xl px-4 py-8">
+        <h2 className="mb-4 text-2xl font-bold">Food near you</h2>
+        <Filters
+          value={filters}
+          onChange={setFilters}
+          onUseLocation={handleUseLocation}
+          locating={locating}
+          locationNote={locationNote}
         />
-        <button className="rounded bg-green-700 px-4 py-2 text-white disabled:opacity-50" disabled={asking}>
-          {asking ? 'Thinking…' : 'Ask'}
-        </button>
-      </form>
 
-      {error && (
-        <p role="alert" className="mt-3 text-red-700">
-          {error}
+        <div aria-live="polite" className="mt-4">
+          {loading && <p>Loading food resources…</p>}
+          {error && (
+            <p role="alert" className="font-medium text-brick">
+              {error}
+            </p>
+          )}
+          {!loading && !error && (
+            <p className="text-sm">
+              Showing {ordered.length} of {resources.length} places
+            </p>
+          )}
+        </div>
+
+        {!loading && !error && ordered.length === 0 ? (
+          <p className="mt-4 rounded-xl bg-sand p-4">
+            Nothing matches those filters.{' '}
+            <button type="button" className="text-plum underline" onClick={() => setFilters(NO_FILTERS)}>
+              Clear filters
+            </button>
+          </p>
+        ) : (
+          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            {ordered.map((r) => (
+              <ResourceCard key={r.id} resource={r} recommended={suggested.includes(r.id)} />
+            ))}
+          </ul>
+        )}
+      </main>
+
+      <footer className="bg-sand px-4 py-6 text-sm">
+        <p className="mx-auto max-w-5xl">
+          PantriFul supports UN Sustainable Development Goal 2: Zero Hunger. Hours and eligibility can change, so
+          call ahead when you can.
         </p>
-      )}
-      {answer && <p className="mt-3 rounded bg-green-50 p-3">{answer.reply}</p>}
-
-      <ul className="mt-6 space-y-3">
-        {resources.map((r) => (
-          <li
-            key={r.id}
-            className={`rounded border p-3 ${answer?.recommendedIds.includes(r.id) ? 'border-green-700' : 'border-slate-200'}`}
-          >
-            <div className="flex justify-between">
-              <strong>{r.name}</strong>
-              <span className="text-sm">{r.distanceMiles} mi</span>
-            </div>
-            <div className="text-sm text-slate-600">{r.address}</div>
-            <div className="text-sm">{r.openNow ? 'Open now' : 'Closed now'} · {r.eligibility}</div>
-          </li>
-        ))}
-      </ul>
-    </main>
+      </footer>
+    </>
   )
 }
