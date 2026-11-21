@@ -209,7 +209,7 @@ export const translations: Record<Exclude<Language, "en">, Record<string, string
     "Community": "Comunidad",
     "We connect neighbors to existing local providers rather than replacing their work.": "Conectamos a los vecinos con proveedores locales existentes, sin reemplazar su trabajo.",
     "Zero Hunger": "Hambre Cero",
-    "Our work supports UN Sustainable Development Goal 2: Zero Hunger.": "Nuestro trabajo apoya el Objetivo de Desarrollo Sostenible 2 de la ONU: Hambre Cero.",
+    "No one should end the day hungry.": "Nadie debería terminar el día con hambre.",
     "Ride options with Empower": "Opciones de viajes con Empower",
     "Check the ride before you plan the trip.": "Confirma el viaje antes de planear la visita.",
     "Book your ride to food assistance here on PantriFul — no Empower app needed. Choose your food destination and visit time, review the trip, and pay $0 for an approved, donor-funded ride while drivers keep their earnings.": "Reserva tu viaje a la ayuda alimentaria aquí en PantriFul, sin necesidad de la aplicación de Empower. Elige tu destino de alimentos y la hora de visita, revisa el viaje y paga $0 en un viaje aprobado y financiado por donantes, mientras los conductores conservan sus ganancias.",
