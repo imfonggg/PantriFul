@@ -13,6 +13,7 @@ import { RESULT_LIMITS, DEFAULT_RESULT_LIMIT, paginateResults } from "@/data/res
 import { providerDonationUrl } from "@/data/donationLinks";
 import { DirectionsAction } from "@/components/DirectionsAction";
 import { SaveSignupButton, SignupPrompt } from "@/components/SignupPrompt";
+import { publishedZipCode } from "@/data/zipCodes";
 import { useAuth } from "@/components/AuthProvider";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -33,6 +34,7 @@ const HOUSEHOLDS = [{ id: "individuals", label: "Individuals" }, { id: "families
 const DIETS = [{ id: "vegetarian", label: "Vegetarian" }, { id: "vegan", label: "Vegan" }, { id: "halal", label: "Halal" }, { id: "gluten_free", label: "Gluten-free" }];
 const MODES = [{ id: "transit", label: "Transit", icon: BusFront }, { id: "driving", label: "Drive", icon: Car }, { id: "walking", label: "Walk", icon: Footprints }, { id: "bicycling", label: "Bike", icon: Bike }] as const;
 const CITIES = [...new Set(FOOD_RESOURCES.map((r) => r.city).filter((city): city is string => Boolean(city)))].sort();
+const ZIP_CODES = [...new Set(FOOD_RESOURCES.map((r) => publishedZipCode(r.address)).filter((zip): zip is string => Boolean(zip)))].sort();
 const selectClass = "h-11 w-full min-w-0 rounded-lg border-2 border-brown bg-card px-3 text-base";
 
 function Index() {
@@ -47,6 +49,7 @@ function Index() {
   const [household, setHousehold] = useState("");
   const [dietary, setDietary] = useState("");
   const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
   const [includeUnknown, setIncludeUnknown] = useState(true);
   const [openOnly, setOpenOnly] = useState(false);
   const [maxMiles, setMaxMiles] = useState(0);
@@ -68,22 +71,22 @@ function Index() {
     return () => clearInterval(timer);
   }, []);
   const list = useMemo(() => {
-    const rows = filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, openOnly, maxMiles, origin, now, query });
+    const rows = filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query });
     // Places Gemini suggested float to the top, in the order it suggested them.
     const rank = (id: string) => { const i = suggested.indexOf(id); return i === -1 ? Infinity : i; };
     return suggested.length ? [...rows].sort((a, b) => rank(a.id) - rank(b.id)) : rows;
-  }, [types, household, dietary, includeUnknown, city, openOnly, maxMiles, origin, now, query, suggested]);
+  }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query, suggested]);
   const handleAiResult = (result: AssistantResult | null) => {
     setAiResult(result); setPage(1);
     setSelectedId(result?.recommendedIds.find((id) => FOOD_RESOURCES.some((r) => r.id === id && r.location)) ?? null);
   };
   const paginated = paginateResults(list, limit, page);
   const visibleList = paginated.rows;
-  useEffect(() => { setPage(1); }, [types, household, dietary, includeUnknown, city, openOnly, maxMiles, query, limit]);
+  useEffect(() => { setPage(1); }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, query, limit]);
   const mapPoints = useMemo<MapPoint[]>(() => visibleList.flatMap((r) => r.location && r.miles !== null ? [{ id: r.id, name: r.name, address: r.address, location: r.location, open: r.open, miles: r.miles, scheduleKnown: r.scheduleKnown === true }] : []), [visibleList]);
   useEffect(() => { if (selectedId && !visibleList.some((r) => r.id === selectedId)) setSelectedId(null); }, [visibleList, selectedId]);
   const toggleType = (type: ResourceType) => setTypes((current) => current.includes(type) ? current.filter((value) => value !== type) : [...current, type]);
-  const reset = () => { setTypes([]); setHousehold(""); setDietary(""); setCity(""); setQuery(""); setIncludeUnknown(true); setOpenOnly(false); setMaxMiles(0); };
+  const reset = () => { setTypes([]); setHousehold(""); setDietary(""); setCity(""); setZipCode(""); setQuery(""); setIncludeUnknown(true); setOpenOnly(false); setMaxMiles(0); };
   const useLocation = () => {
     if (!navigator.geolocation) { setLocationError(true); return; }
     navigator.geolocation.getCurrentPosition((position) => { setOrigin({ lat: position.coords.latitude, lng: position.coords.longitude }); setHasLocation(true); setLocationError(false); }, () => setLocationError(true), { timeout: 10000 });
@@ -111,11 +114,13 @@ function Index() {
         <div className="mt-3 flex flex-wrap gap-2">
           {TYPES.map((type) => <Button key={type.id} variant="outline" aria-pressed={types.includes(type.id)} onClick={() => toggleType(type.id)} className={`min-h-10 h-auto whitespace-normal rounded-full border-2 px-4 py-2 font-semibold ${types.includes(type.id) ? "border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground" : "border-brown bg-card hover:bg-beige hover:text-foreground"}`}>{t(type.label)}</Button>)}
         </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <label className="grid min-w-0 gap-2 text-sm font-semibold">{t("Household")}<select aria-label={t("Household")} className={selectClass} value={household} onChange={(event) => setHousehold(event.target.value)}><option value="">{t("All households")}</option>{HOUSEHOLDS.map((option) => <option key={option.id} value={option.id}>{t(option.label)}</option>)}</select></label>
           <label className="grid min-w-0 gap-2 text-sm font-semibold">{t("Dietary needs")}<select aria-label={t("Dietary needs")} className={selectClass} value={dietary} onChange={(event) => setDietary(event.target.value)}><option value="">{t("Any diet")}</option>{DIETS.map((option) => <option key={option.id} value={option.id}>{t(option.label)}</option>)}</select></label>
           <label className="grid min-w-0 gap-2 text-sm font-semibold">{t("City")}<select aria-label={t("City")} className={selectClass} value={city} onChange={(event) => setCity(event.target.value)}><option value="">{t("All cities")}</option>{CITIES.map((value) => <option key={value} value={value}>{value}</option>)}</select></label>
+          <label className="grid min-w-0 gap-2 text-sm font-semibold">{t("ZIP code")}<select aria-label={t("ZIP code")} className={selectClass} value={zipCode} onChange={(event) => setZipCode(event.target.value)}><option value="">{t("All ZIP codes")}</option>{ZIP_CODES.map((value) => <option key={value} value={value}>{value}</option>)}</select></label>
         </div>
+        {!user && <div className="mt-4"><SaveSignupButton /></div>}
         <label className="mt-4 flex items-start gap-3 text-sm"><input type="checkbox" checked={includeUnknown} onChange={(event) => setIncludeUnknown(event.target.checked)} className="mt-0.5 size-4 shrink-0 accent-plum" />{t("Include places with unconfirmed household or dietary details")}</label>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t("Availability varies. Call to confirm dietary needs; gluten-free is not an allergy-safety guarantee.")}</p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -175,7 +180,6 @@ function Index() {
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3"><p className="text-sm">{t("Page")} {paginated.current} {t("of")} {paginated.pages}</p><div className="flex gap-2"><Button variant="outline" disabled={paginated.current === 1} onClick={() => { setPage(paginated.current - 1); document.getElementById("results")?.scrollIntoView(); }}><ChevronLeft />{t("Previous")}</Button><Button variant="outline" disabled={paginated.current === paginated.pages} onClick={() => { setPage(paginated.current + 1); document.getElementById("results")?.scrollIntoView(); }}>{t("Next")}<ChevronRight /></Button></div></div>
       {saveMessage && <p role="status" className="mt-3 text-sm text-plum">{saveMessage}</p>}
-      {!user && <div className="mt-5"><SaveSignupButton /></div>}
       <SignupPrompt open={signupOpen} onOpenChange={setSignupOpen} />
       <div className="mt-8 border-t border-brown pt-5 text-sm leading-relaxed text-muted-foreground">
         <p>{t("Directory snapshot: November 21, 2026. Not a complete or live inventory.")}</p>

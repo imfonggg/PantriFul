@@ -9,9 +9,9 @@ import {
   type AssistantResult,
 } from "@/data/assistant";
 
-// Flash-Lite answers fastest; picking a few places from a short list doesn't need more.
-const DEFAULT_MODEL = "gemini-flash-lite-latest";
-const FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-2.5-flash"];
+// The model that has answered in production, then faster/newer aliases to try.
+const DEFAULT_MODEL = "gemini-3.8-flash";
+const FALLBACK_MODELS = ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash"];
 /** The model that last answered, so later requests skip models that failed. */
 let workingModel: string | undefined;
 /** Recent answers (e.g. the example chips), so repeat questions are instant. */
@@ -28,7 +28,7 @@ const TIMEOUT_MS = 15_000;
 function thinkingFor(model: string): ThinkingConfig {
   return /gemini-2\.5/.test(model)
     ? { thinkingBudget: 0 }
-    : { thinkingLevel: ThinkingLevel.MINIMAL };
+    : { thinkingLevel: ThinkingLevel.LOW };
 }
 
 /** Short, actionable message for the person (and for whoever is debugging the deploy). */
@@ -72,49 +72,74 @@ export const askAssistant = createServerFn({ method: "POST" })
     const ai = new GoogleGenAI({ apiKey, httpOptions: { timeout: TIMEOUT_MS } });
     const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin), data.profile);
     const knownIds = new Set(candidates.map((c) => c.id));
-    // Try the configured model first; fall back if Google doesn't know that model name.
+    const ask = (model: string, thinking: boolean) =>
+      ai.models.generateContent({
+        model,
+        contents: data.message,
+        config: {
+          systemInstruction,
+          temperature: 0.4,
+          maxOutputTokens: 600,
+          ...(thinking ? { thinkingConfig: thinkingFor(model) } : {}),
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: {
+              reply: { type: Type.STRING },
+              recommendedIds: { type: Type.ARRAY, items: { type: Type.STRING } },
+            },
+            required: ["reply", "recommendedIds"],
+          },
+        },
+      });
+
+    // Try the model that last worked, then the configured one, then fallbacks.
     const models = [
-      ...new Set([workingModel, process.env["GEMINI_MODEL"] || DEFAULT_MODEL, ...FALLBACK_MODELS]),
+      ...new Set([workingModel, process.env["GEMINI_MODEL"], DEFAULT_MODEL, ...FALLBACK_MODELS]),
     ].filter((m): m is string => Boolean(m));
     let lastError: unknown;
-    for (const model of models) {
-      const started = Date.now();
-      try {
-        const response = await ai.models.generateContent({
-          model,
-          contents: data.message,
-          config: {
-            systemInstruction,
-            temperature: 0.4,
-            maxOutputTokens: 600,
-            thinkingConfig: thinkingFor(model),
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                reply: { type: Type.STRING },
-                recommendedIds: { type: Type.ARRAY, items: { type: Type.STRING } },
-              },
-              required: ["reply", "recommendedIds"],
-            },
-          },
-        });
-        const result = parseAssistantResult(response.text ?? "", knownIds);
-        workingModel = model;
-        // Timing only, never the person's message.
-        console.log(`assistant ok: model=${model} ms=${Date.now() - started}`);
-        if (cache.size > 200) cache.clear();
-        cache.set(key, { at: Date.now(), result });
-        return result;
-      } catch (error) {
-        lastError = error;
-        // Log Google's error (status + message), never the person's message.
-        const status = error instanceof ApiError ? error.status : undefined;
-        const detail = error instanceof Error ? error.message.slice(0, 300) : "unknown";
-        console.error(`assistant failed: model=${model} status=${status ?? "?"} ${detail}`);
-        // Move on only if this model is unknown or rejects the thinking setting.
-        if (model === workingModel) workingModel = undefined;
-        if (status !== 404 && !(status === 400 && /thinking/i.test(detail))) break;
+    let discovered = false;
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i]!;
+      // First with thinking turned down; if the model rejects that setting, once without it.
+      for (const thinking of [true, false]) {
+        const started = Date.now();
+        try {
+          const response = await ask(model, thinking);
+          const result = parseAssistantResult(response.text ?? "", knownIds);
+          workingModel = model;
+          // Timing only, never the person's message.
+          console.log(`assistant ok: model=${model} thinking=${thinking} ms=${Date.now() - started}`);
+          if (cache.size > 200) cache.clear();
+          cache.set(key, { at: Date.now(), result });
+          return result;
+        } catch (error) {
+          lastError = error;
+          // Log Google's error (status + message), never the person's message.
+          const status = error instanceof ApiError ? error.status : undefined;
+          const detail = error instanceof Error ? error.message.slice(0, 300) : "unknown";
+          console.error(`assistant failed: model=${model} thinking=${thinking} status=${status ?? "?"} ${detail}`);
+          if (model === workingModel) workingModel = undefined;
+          if (thinking && status === 400 && /thinking/i.test(detail)) continue;
+          if (status === 404 || (status === 400 && !/api key/i.test(detail))) break; // try the next model
+          throw new Error(friendlyError(error));
+        }
+      }
+      // None of the names we know worked: ask Google which Flash models this key can use.
+      if (i === models.length - 1 && !discovered) {
+        discovered = true;
+        try {
+          const pager = await ai.models.list({ config: { pageSize: 100 } });
+          const available: string[] = [];
+          for await (const m of pager) {
+            const name = m.name?.replace(/^models\//, "");
+            if (name && /flash/i.test(name) && !/image|tts|audio|live|embed/i.test(name) && m.supportedActions?.includes("generateContent") && !models.includes(name)) available.push(name);
+          }
+          console.log(`assistant: discovered models ${available.slice(0, 5).join(", ")}`);
+          models.push(...available.slice(0, 3));
+        } catch (error) {
+          console.error(`assistant: listing models failed ${error instanceof Error ? error.message.slice(0, 200) : ""}`);
+        }
       }
     }
     throw new Error(friendlyError(lastError));
