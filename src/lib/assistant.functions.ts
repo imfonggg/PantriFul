@@ -9,8 +9,14 @@ import {
   type AssistantResult,
 } from "@/data/assistant";
 
-const DEFAULT_MODEL = "gemini-3.8-flash";
-const FALLBACK_MODELS = ["gemini-flash-latest", "gemini-2.5-flash"];
+// Flash-Lite answers fastest; picking a few places from a short list doesn't need more.
+const DEFAULT_MODEL = "gemini-flash-lite-latest";
+const FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-2.5-flash"];
+/** The model that last answered, so later requests skip models that failed. */
+let workingModel: string | undefined;
+/** Recent answers (e.g. the example chips), so repeat questions are instant. */
+const cache = new Map<string, { at: number; result: AssistantResult }>();
+const CACHE_MS = 10 * 60_000;
 /** Give up on a slow Gemini call instead of leaving the person waiting. */
 const TIMEOUT_MS = 15_000;
 
@@ -22,7 +28,7 @@ const TIMEOUT_MS = 15_000;
 function thinkingFor(model: string): ThinkingConfig {
   return /gemini-2\.5/.test(model)
     ? { thinkingBudget: 0 }
-    : { thinkingLevel: ThinkingLevel.LOW };
+    : { thinkingLevel: ThinkingLevel.MINIMAL };
 }
 
 /** Short, actionable message for the person (and for whoever is debugging the deploy). */
@@ -54,14 +60,25 @@ export const askAssistant = createServerFn({ method: "POST" })
       throw new Error("The assistant isn't set up yet. You can still browse the list below.");
 
     const now = new Date();
+    const key = JSON.stringify([
+      data.message.toLowerCase(),
+      data.origin && [data.origin.lat.toFixed(2), data.origin.lng.toFixed(2)],
+      data.profile,
+      Math.floor(now.getTime() / CACHE_MS),
+    ]);
+    const cached = cache.get(key);
+    if (cached && now.getTime() - cached.at < CACHE_MS) return cached.result;
     const candidates = assistantCandidates(FOOD_RESOURCES, data.origin, now);
     const ai = new GoogleGenAI({ apiKey, httpOptions: { timeout: TIMEOUT_MS } });
     const systemInstruction = assistantSystemPrompt(candidates, now, Boolean(data.origin), data.profile);
     const knownIds = new Set(candidates.map((c) => c.id));
     // Try the configured model first; fall back if Google doesn't know that model name.
-    const models = [...new Set([process.env["GEMINI_MODEL"] || DEFAULT_MODEL, ...FALLBACK_MODELS])];
+    const models = [
+      ...new Set([workingModel, process.env["GEMINI_MODEL"] || DEFAULT_MODEL, ...FALLBACK_MODELS]),
+    ].filter((m): m is string => Boolean(m));
     let lastError: unknown;
     for (const model of models) {
+      const started = Date.now();
       try {
         const response = await ai.models.generateContent({
           model,
@@ -82,7 +99,13 @@ export const askAssistant = createServerFn({ method: "POST" })
             },
           },
         });
-        return parseAssistantResult(response.text ?? "", knownIds);
+        const result = parseAssistantResult(response.text ?? "", knownIds);
+        workingModel = model;
+        // Timing only, never the person's message.
+        console.log(`assistant ok: model=${model} ms=${Date.now() - started}`);
+        if (cache.size > 200) cache.clear();
+        cache.set(key, { at: Date.now(), result });
+        return result;
       } catch (error) {
         lastError = error;
         // Log Google's error (status + message), never the person's message.
@@ -90,6 +113,7 @@ export const askAssistant = createServerFn({ method: "POST" })
         const detail = error instanceof Error ? error.message.slice(0, 300) : "unknown";
         console.error(`assistant failed: model=${model} status=${status ?? "?"} ${detail}`);
         // Move on only if this model is unknown or rejects the thinking setting.
+        if (model === workingModel) workingModel = undefined;
         if (status !== 404 && !(status === 400 && /thinking/i.test(detail))) break;
       }
     }
