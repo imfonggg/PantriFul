@@ -53,6 +53,7 @@ function Index() {
   const [includeUnknown, setIncludeUnknown] = useState(true);
   const [openOnly, setOpenOnly] = useState(false);
   const [maxMiles, setMaxMiles] = useState(0);
+  const [day, setDay] = useState<number | "">("");
   const [origin, setOrigin] = useState(USF);
   const [hasLocation, setHasLocation] = useState(false);
   const [locationError, setLocationError] = useState(false);
@@ -71,22 +72,22 @@ function Index() {
     return () => clearInterval(timer);
   }, []);
   const list = useMemo(() => {
-    const rows = filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query });
+    const rows = filterResources(FOOD_RESOURCES, { types, household, dietary, includeUnknown, city, zipCode, day, openOnly, maxMiles, origin, now, query });
     // Places Gemini suggested float to the top, in the order it suggested them.
     const rank = (id: string) => { const i = suggested.indexOf(id); return i === -1 ? Infinity : i; };
     return suggested.length ? [...rows].sort((a, b) => rank(a.id) - rank(b.id)) : rows;
-  }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, origin, now, query, suggested]);
+  }, [types, household, dietary, includeUnknown, city, zipCode, day, openOnly, maxMiles, origin, now, query, suggested]);
   const handleAiResult = (result: AssistantResult | null) => {
     setAiResult(result); setPage(1);
     setSelectedId(result?.recommendedIds.find((id) => FOOD_RESOURCES.some((r) => r.id === id && r.location)) ?? null);
   };
   const paginated = paginateResults(list, limit, page);
   const visibleList = paginated.rows;
-  useEffect(() => { setPage(1); }, [types, household, dietary, includeUnknown, city, zipCode, openOnly, maxMiles, query, limit]);
+  useEffect(() => { setPage(1); }, [types, household, dietary, includeUnknown, city, zipCode, day, openOnly, maxMiles, query, limit]);
   const mapPoints = useMemo<MapPoint[]>(() => visibleList.flatMap((r) => r.location && r.miles !== null ? [{ id: r.id, name: r.name, address: r.address, location: r.location, open: r.open, miles: r.miles, scheduleKnown: r.scheduleKnown === true }] : []), [visibleList]);
   useEffect(() => { if (selectedId && !visibleList.some((r) => r.id === selectedId)) setSelectedId(null); }, [visibleList, selectedId]);
   const toggleType = (type: ResourceType) => setTypes((current) => current.includes(type) ? current.filter((value) => value !== type) : [...current, type]);
-  const reset = () => { setTypes([]); setHousehold(""); setDietary(""); setCity(""); setZipCode(""); setQuery(""); setIncludeUnknown(true); setOpenOnly(false); setMaxMiles(0); };
+  const reset = () => { setTypes([]); setHousehold(""); setDietary(""); setCity(""); setZipCode(""); setDay(""); setQuery(""); setIncludeUnknown(true); setOpenOnly(false); setMaxMiles(0); };
   const useLocation = () => {
     if (!navigator.geolocation) { setLocationError(true); return; }
     navigator.geolocation.getCurrentPosition((position) => { setOrigin({ lat: position.coords.latitude, lng: position.coords.longitude }); setHasLocation(true); setLocationError(false); }, () => setLocationError(true), { timeout: 10000 });
@@ -125,6 +126,7 @@ function Index() {
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t("Availability varies. Call to confirm dietary needs; gluten-free is not an allergy-safety guarantee.")}</p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <Button aria-pressed={openOnly} onClick={() => setOpenOnly((value) => !value)} className={`h-11 bg-green font-bold text-primary-foreground hover:bg-green/90 ${openOnly ? "ring-2 ring-green ring-offset-2" : ""}`}>{openOnly ? "✓ " : ""}{t("Open now")}</Button>
+          <label className="flex min-w-0 items-center gap-2 text-sm">{t("Open on")}<select aria-label={t("Open on")} value={day} onChange={(event) => setDay(event.target.value === "" ? "" : Number(event.target.value))} className="h-11 max-w-44 rounded-lg border-2 border-brown bg-card px-2"><option value="">{t("Any day")}</option>{["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((name, index) => <option key={name} value={index}>{t(name)}</option>)}</select></label>
           <label className="flex min-w-0 items-center gap-2 text-sm">{t("Within")}<select value={maxMiles} onChange={(event) => setMaxMiles(Number(event.target.value))} className="h-11 max-w-44 rounded-lg border-2 border-brown bg-card px-2">{[0, 1, 5, 10, 25, 50].map((miles) => <option key={miles} value={miles}>{miles ? `${miles} mi` : t("Any distance")}</option>)}</select></label>
           <Button variant="outline" className="h-11 border-2 border-plum text-plum" onClick={useLocation}><Navigation />{t("Use my location")}</Button>
           <Button variant="ghost" onClick={reset}><RotateCcw />{t("Reset filters")}</Button>

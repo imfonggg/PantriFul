@@ -1,6 +1,14 @@
 import type { FoodResource, LatLng, ResourceType } from "./types";
 import { isOpenNow, milesBetween } from "./hours";
 import { matchesZipCode } from "./zipCodes";
+import published from "./publishedSchedules.json";
+
+const schedules: Record<string, Record<string, string[]>> = published;
+
+/** True when the place lists any hours on that weekday (0 = Sunday). */
+export function hasHoursOn(resource: FoodResource, day: number) {
+  return Boolean(resource.hours[day as 0 | 1 | 2 | 3 | 4 | 5 | 6]?.length || schedules[resource.id]?.[String(day)]?.length);
+}
 
 export interface ResourceFilters {
   types: ResourceType[];
@@ -11,6 +19,8 @@ export interface ResourceFilters {
   /** 5-digit ZIP from the published address, or "" for any. */
   zipCode?: string;
   query: string;
+  /** Weekday the place must have hours on (0 = Sunday), or "" / undefined for any day. */
+  day?: number | "";
   openOnly: boolean;
   maxMiles: number;
   origin: LatLng;
@@ -36,6 +46,7 @@ export function filterResources(resources: FoodResource[], filters: ResourceFilt
       && (!filters.city || resource.city === filters.city)
       && matchesZipCode(resource.address, filters.zipCode)
       && terms.every((term) => haystack.includes(term))
+      && (filters.day === undefined || filters.day === "" || hasHoursOn(resource, filters.day))
       && (!filters.openOnly || resource.open)
       && (!filters.maxMiles || (resource.miles !== null && resource.miles <= filters.maxMiles));
   }).sort((a, b) => (a.miles ?? Infinity) - (b.miles ?? Infinity) || a.name.localeCompare(b.name));

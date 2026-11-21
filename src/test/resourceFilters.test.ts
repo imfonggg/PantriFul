@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { FOOD_RESOURCES } from "@/data/foodResources";
-import { directionsUrl, filterResources, matchesNeed, type ResourceFilters } from "@/data/resourceFilters";
+import { directionsUrl, filterResources, hasHoursOn, matchesNeed, type ResourceFilters } from "@/data/resourceFilters";
 import { isOpenNow } from "@/data/hours";
 
 const filters: ResourceFilters = { types: [], household: "", dietary: "", includeUnknown: true, city: "", query: "", openOnly: false, maxMiles: 0, origin: { lat: 28.0637, lng: -82.4131 }, now: null };
@@ -52,5 +52,18 @@ describe("ZIP code filter", () => {
     const rows = filterResources(FOOD_RESOURCES, { types: [], household: "", dietary: "", includeUnknown: true, city: "", zipCode: "33612", openOnly: false, maxMiles: 0, origin: { lat: 28.0637, lng: -82.4131 }, now: new Date("2026-11-21T15:00:00Z"), query: "" });
     expect(rows.length).toBeGreaterThan(0);
     expect(rows.every((r) => /\b33612\b/.test(r.address))).toBe(true);
+  });
+});
+
+describe("Day of week filter", () => {
+  it("keeps only places with hours on the chosen day", () => {
+    const all = filterResources(FOOD_RESOURCES, filters);
+    for (let day = 0; day < 7; day++) {
+      const rows = filterResources(FOOD_RESOURCES, { ...filters, day });
+      expect(rows.length).toBeGreaterThan(0);
+      expect(rows.length).toBeLessThan(all.length);
+      expect(rows.every((row) => hasHoursOn(row, day))).toBe(true);
+    }
+    expect(filterResources(FOOD_RESOURCES, { ...filters, day: "" })).toHaveLength(all.length);
   });
 });
