@@ -29,7 +29,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         {/* Phones: language, help and account live in one small menu at the right edge. */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="sm" className="ms-auto h-9 gap-1 px-2 text-xs text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground sm:hidden" aria-label={t("Menu")}><Menu className="size-4" />{t("Menu")}</Button>
+            <Button variant="ghost" size="sm" className="ms-auto h-9 gap-1.5 px-3 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground sm:hidden" aria-label={t("Menu")}><Menu className="size-5" />{t("Menu")}</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-52 text-sm">
             <DropdownMenuLabel className="flex items-center gap-1 text-xs"><Languages className="size-3.5" aria-hidden="true" />{t("Language")}</DropdownMenuLabel>
