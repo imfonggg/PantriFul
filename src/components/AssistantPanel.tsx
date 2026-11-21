@@ -139,6 +139,17 @@ export function AssistantPanel({ origin, hasLocation, result, profile, onResult 
         {result && (
           <div className="mt-4 rounded-lg bg-beige p-4">
             <div className="space-y-2 text-base leading-relaxed">{result.reply.split(/\n+/).map((line) => line.trim()).filter(Boolean).map((line, i) => <p key={i}>{line}</p>)}</div>
+            {result.places && result.places.length > 0 && (
+              <ul className="mt-3 space-y-2 text-base leading-relaxed">
+                {result.places.map((place) => (
+                  <li key={place.id}>
+                    {place.name && <strong dir="ltr">{place.name}</strong>}
+                    {place.when && <>{place.name ? " · " : ""}<span className="underline underline-offset-4">{place.when}</span></>}
+                    {place.why && <>{" · "}{place.why}</>}
+                  </li>
+                ))}
+              </ul>
+            )}
             {result.urgent && <p role="alert" className="mt-3 space-y-1 text-base font-bold text-status-alert">{result.urgent.split(/\n+/).map((line, i) => <span key={i} className="block">{line}</span>)}</p>}
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
               {result.recommendedIds.length > 0 && (
