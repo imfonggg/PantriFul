@@ -5,7 +5,7 @@ export const faqItems = [
   ["What documents should I bring?", "Requirements vary by provider and program. Ask about photo ID, proof of address, household information, appointments and service-area restrictions using the listing's phone or source link."],
   ["Can I get directions without a car?", "Yes. Choose Transit, Walk or Bike above the listings. Directions opens Google Maps with your destination; Google determines available routes and schedules."],
   ["Are Empower rides free through PantriFul?", "For approved, fully funded food-assistance trips through the PantriFul–Empower ride program, riders experiencing food insecurity pay $0. PantriFul's donors cover the driver payment, and drivers keep their ride earnings under Empower's zero-commission rules. Ordinary Empower rides are not automatically covered. You request the trip here on PantriFul, so there is no separate Empower booking to make."],
-  ["How do I use another language?", "Choose English, Español or العربية at the top. Organization names and addresses stay as published so you can identify the correct destination. Linked provider websites may use another language."],
+  ["How do I use another language?", "Choose English or Español at the top. Organization names and addresses stay as published so you can identify the correct destination. Linked provider websites may use another language."],
 ];
 export const aboutSections = [
   ["No account. No judgment.", "You should not need to register just to find your next meal. Everyone can browse local food resources and plan a visit."],
