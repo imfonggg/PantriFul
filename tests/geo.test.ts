@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { distanceMiles, isOpenAt, USF_TAMPA, withDistance } from '../shared/geo.js'
+import { directionsUrl, distanceMiles, isOpenAt, USF_TAMPA, withDistance } from '../shared/geo.js'
 import { FOOD_RESOURCES } from '../shared/foodResources.js'
 
 describe('distanceMiles', () => {
@@ -31,5 +31,13 @@ describe('withDistance', () => {
     const list = withDistance(FOOD_RESOURCES, USF_TAMPA)
     const distances = list.map((r) => r.distanceMiles)
     expect(distances).toEqual([...distances].sort((a, b) => a - b))
+  })
+})
+
+describe('directionsUrl', () => {
+  it('builds a Google Maps directions link', () => {
+    expect(directionsUrl({ lat: 28.1, lng: -82.4 })).toBe(
+      'https://www.google.com/maps/dir/?api=1&destination=28.1%2C-82.4&travelmode=transit',
+    )
   })
 })

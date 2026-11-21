@@ -1,9 +1,9 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
+import type { ApiRequest, ApiResponse } from '../server/http.js'
 import { chat, validateChatRequest } from '../server/chat.js'
 import { fail, HttpError, ok } from '../server/respond.js'
 
 // POST /api/chat  { message: string, location?: { lat, lng } }
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') return res.status(405).json(fail('Method not allowed'))
   try {
     const input = validateChatRequest(req.body)
