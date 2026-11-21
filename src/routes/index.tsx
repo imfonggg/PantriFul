@@ -107,6 +107,7 @@ function Index() {
       <h2 className="text-2xl font-bold sm:text-3xl">{t("Food near you")}</h2>
       <section aria-label={t("What kind of help?")} className="mt-5 border-y border-brown py-5">
         <p className="font-bold">{t("What kind of help?")}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{t("Shows places offering any of the kinds you pick. The other filters narrow the list.")}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {TYPES.map((type) => <Button key={type.id} variant="outline" aria-pressed={types.includes(type.id)} onClick={() => toggleType(type.id)} className={`min-h-10 h-auto whitespace-normal rounded-full border-2 px-4 py-2 font-semibold ${types.includes(type.id) ? "border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground" : "border-brown bg-card hover:bg-beige hover:text-foreground"}`}>{t(type.label)}</Button>)}
         </div>
@@ -144,7 +145,8 @@ function Index() {
             const saved = profile.data?.saved_resource_ids.includes(resource.id) ?? false;
             const householdLabel = resource.id === "usf-feed-a-bull" ? t("USF students") : resource.household?.length === 4 ? t("Open to everyone") : t("Confirm household eligibility with the provider.");
             const dietLabels = DIETS.filter((diet) => resource.dietary?.includes(diet.id)).map((diet) => t(diet.label));
-            return <li key={resource.id} className={`min-w-0 rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : suggested.includes(resource.id) ? "border-green" : "border-beige"}`}>
+            return <li key={resource.id} onClick={(event) => { if (!resource.location || (event.target as HTMLElement).closest("a, button, input, select, [role=dialog]")) return; const id = resource.id; // Defer so the <details> toggle from this click lands first.
+              window.setTimeout(() => setSelectedId(id), 0); }} className={`min-w-0 cursor-pointer rounded-lg border-2 bg-card p-5 shadow-sm ${selectedId === resource.id ? "border-plum ring-2 ring-plum" : suggested.includes(resource.id) ? "border-green" : "border-beige"}`}>
               {suggested.includes(resource.id) && <p className="mb-2 inline-flex items-center gap-1 rounded-full bg-green px-3 py-1 text-xs font-bold text-primary-foreground"><Sparkles className="size-3.5" aria-hidden="true" />{t("Suggested for you")}</p>}
               <details className="location-details" open={selectedId === resource.id ? true : undefined}>
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4"><div className="min-w-0"><h3 className="break-words text-lg font-bold leading-snug" lang="en" dir="ltr">{resource.name}</h3>
@@ -159,9 +161,11 @@ function Index() {
                 <DirectionsAction url={directionsUrl(resource.address, travelMode, hasLocation ? origin : undefined)} />
                 <Button size="sm" variant="outline" aria-pressed={saved} aria-label={t(saved ? "Unsave Location" : "Save Location") + ": " + resource.name} onClick={async () => { if (!user) { setSignupOpen(true); return; } try { await bookmark({data: {resourceId: resource.id, saved: !saved}}); await queryClient.invalidateQueries({queryKey: ["profile"]}); setSaveMessage(t(saved ? "Location Removed" : "Location Saved")); } catch { setSaveMessage(t("Please try again.")); } }}><Bookmark />{t(saved ? "Saved" : "Save")}</Button>
                 {resource.location && <Button variant="outline" size="sm" onClick={() => { setSelectedId(resource.id); mapSection.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" }); }}><MapPin />{t("Show on map")}</Button>}
-                {resource.phone && <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`}><Phone />{t("Call")}</a></Button>}
+                {resource.phone
+                  ? <Button asChild variant="outline" size="sm"><a href={`tel:${resource.phone.replace(/[^+\d]/g, "")}`} aria-label={`${t("Call")} ${resource.name}`}><Phone /><span dir="ltr">{resource.phone}</span></a></Button>
+                  : <Button asChild variant="outline" size="sm"><a href="tel:211" title={t("No phone listed. 211 can connect you.")}><Phone />{t("Call 211")}</a></Button>}
                 {donationUrl && <Button asChild variant="outline" size="sm"><a href={donationUrl} target="_blank" rel="noopener noreferrer"><HeartHandshake />{t("Donate")}</a></Button>}
-                {resource.website && <Button asChild variant="link" size="sm"><a href={resource.website} target="_blank" rel="noreferrer">{t("Website")}<ExternalLink /></a></Button>}
+                {(resource.website || resource.source) && <Button asChild variant="outline" size="sm"><a href={resource.website || resource.source} target="_blank" rel="noopener noreferrer">{t(resource.website ? "Website" : "Listing page")}<ExternalLink /><span className="sr-only"> ({t("opens in a new tab")})</span></a></Button>}
               </div>
               </div></details>
             </li>;

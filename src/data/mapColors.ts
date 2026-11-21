@@ -12,6 +12,8 @@ export const MAP_COLORS = {
   closed: "#af8e6e",
   /** The starting point: USF Tampa, or the person's own location (--green). */
   origin: "#45653e",
+  /** The place picked from a card or pin: stands out from open and closed pins. */
+  selected: "#e8590c",
   /** Ring around every pin (--card). */
   ring: "#fffbf4",
 } as const;

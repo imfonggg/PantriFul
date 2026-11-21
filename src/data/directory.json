@@ -577,7 +577,8 @@
     "notes": "",
     "serviceNames": [
       "Hot Meals"
-    ]
+    ],
+    "website": "https://www.salvationarmyusa.org/fl/tampa/"
   },
   {
     "id": "ftb-23415",
@@ -740,7 +741,9 @@
     "notes": "https://www.usda.gov/non-discrimination-statement",
     "serviceNames": [
       "Food Distribution"
-    ]
+    ],
+    "website": "https://www.metromin.org/locations/",
+    "phone": "(813) 209-1000"
   },
   {
     "id": "ftb-23442",
@@ -942,7 +945,8 @@
     "notes": "",
     "serviceNames": [
       "Food Distribution"
-    ]
+    ],
+    "website": "https://icnarelief.org/tampa-florida"
   },
   {
     "id": "ftb-23488",
@@ -1579,7 +1583,8 @@
     "notes": "",
     "serviceNames": [
       "A Box of Fresh Groceries"
-    ]
+    ],
+    "website": "https://stlawrence.org/matthew25"
   },
   {
     "id": "ftb-23491",
@@ -2059,7 +2064,8 @@
     "notes": "https://www.usda.gov/non-discrimination-statement",
     "serviceNames": [
       "A Box of Fresh Groceries"
-    ]
+    ],
+    "website": "https://www.dosp.org/parishes/most-holy-redeemer-tampa/"
   },
   {
     "id": "ftb-23441",
@@ -2246,7 +2252,8 @@
     "notes": "",
     "serviceNames": [
       "A Box of Fresh Groceries"
-    ]
+    ],
+    "website": "https://www.dosp.org/parishes/st-stephen-riverview/"
   },
   {
     "id": "ftb-23464",
@@ -3379,7 +3386,8 @@
     "offers": [],
     "phone": "(813) 961-1061",
     "verified": false,
-    "source": "https://www.foodpantries.org/li/fl_33613_st-mary"
+    "source": "https://www.foodpantries.org/li/fl_33613_st-mary",
+    "website": "https://www.dosp.org/parishes/st-mary-tampa/"
   },
   {
     "id": "directory-fl_33609_st-patrick",
@@ -3507,7 +3515,8 @@
     "offers": [],
     "phone": "(813) 961-3023",
     "verified": false,
-    "source": "https://www.foodpantries.org/li/fl_33618_st-paul-catholic-church"
+    "source": "https://www.foodpantries.org/li/fl_33618_st-paul-catholic-church",
+    "website": "https://www.dosp.org/parishes/st-paul-tampa/"
   },
   {
     "id": "directory-fl_33615_berkeley-preparatory-school-food-pantry-33615",
