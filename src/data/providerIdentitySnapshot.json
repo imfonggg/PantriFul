@@ -1,0 +1,114 @@
+{
+  "checked": "2026-11-21",
+  "records": {
+    "ftb-23443": {
+      "directory": "https://sites.vivery.com/new-life-assembly/tampa-fl/23443",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/new-life-assembly/tampa-fl/23443"
+        ]
+      }
+    },
+    "ftb-23430": {
+      "directory": "https://sites.vivery.com/lighthouse-gospel-mission/riverview-fl/23430",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/lighthouse-gospel-mission/riverview-fl/23430"
+        ]
+      }
+    },
+    "ftb-23715": {
+      "directory": "https://sites.vivery.com/new-salem-mb-church/temple-terrace-fl/23715",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/new-salem-mb-church/temple-terrace-fl/23715"
+        ]
+      }
+    },
+    "ftb-54507": {
+      "directory": "https://sites.vivery.com/river-of-life-food-pantry/lutz-fl/54507",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/river-of-life-food-pantry/lutz-fl/54507"
+        ]
+      }
+    },
+    "ftb-24783": {
+      "directory": "https://sites.vivery.com/the-ladybug-venue/plant-city-fl/24783"
+    },
+    "ftb-23446": {
+      "directory": "https://sites.vivery.com/faith-focus-community-development-corp/plant-city-fl/23446"
+    },
+    "ftb-23447": {
+      "directory": "https://sites.vivery.com/the-harbor-church/keystone-fl/23447",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/the-harbor-church/keystone-fl/23447"
+        ]
+      }
+    },
+    "ftb-23411": {
+      "directory": "https://sites.vivery.com/beth-el-farmworkers-ministries-inc/wimauma-fl/23411",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/beth-el-farmworkers-ministries-inc/wimauma-fl/23411"
+        ]
+      },
+      "name": "Beth-El Farmworker Ministry, Inc.",
+      "website": "https://beth-el.org/",
+      "nameSource": "https://beth-el.org/"
+    },
+    "ftb-23981": {
+      "directory": "https://sites.vivery.com/st-clement-catholic-church/plant-city-fl/23981",
+      "languages": {
+        "en": "English, Spanish",
+        "es": "Inglés, Español",
+        "sources": [
+          "https://sites.vivery.com/st-clement-catholic-church/plant-city-fl/23981"
+        ]
+      }
+    },
+    "ftb-23419": {
+      "name": "Crossover Church",
+      "website": "https://www.crossoverchurch.org/community-resources",
+      "nameSource": "https://www.crossoverchurch.org/community-resources"
+    },
+    "ftb-23413": {
+      "name": "Bible-Based Fellowship Church of Temple Terrace",
+      "website": "https://www.bbftt.org/pantry",
+      "nameSource": "https://www.bbftt.org/pantry"
+    },
+    "ftb-23543": {
+      "name": "Hillsborough College — SouthShore Campus",
+      "website": "https://www.hcfl.edu/food-2-finish",
+      "nameSource": "https://www.hcfl.edu/food-2-finish"
+    },
+    "ftb-23472": {
+      "name": "Community Food Pantry",
+      "website": "https://www.thecommunityfoodpantry.com/client-info",
+      "nameSource": "https://www.thecommunityfoodpantry.com/client-info"
+    },
+    "ftb-23421": {
+      "name": "EPIC (Empath Partners in Care) — Tampa",
+      "website": "https://myepic.org/food-pantry/",
+      "nameSource": "https://myepic.org/food-pantry/"
+    },
+    "ftb-23487": {
+      "name": "Wellfed Community — Kinship Free Market",
+      "website": "https://www.thewellfedcommunity.org/kinship-free-market",
+      "nameSource": "https://www.thewellfedcommunity.org/kinship-free-market"
+    }
+  }
+}

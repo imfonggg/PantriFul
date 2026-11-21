@@ -1,5 +1,27 @@
 # Roadmap
 
+- [x] List only the days a provider serves: non-service days are removed from each listing's weekly schedule, with a call-ahead line when none are published; English/Spanish and phone checks passed, 93 tests pass.
+- [x] Add a popup offering an Empower ride when someone searches for help without a car (for example "no car, need groceries tonight"); the popup links to funded ride booking and is dismissible.
+- [x] Pushed the current changes to imfonggg/PantriFul as branch `lovable/ride-popup-hours-20261121-203609`, PR #18 open (37 files applied over current main; no force-push).
+
+- [x] Add funded-ride booking preview and donor payment selection; remove project-language sections while clearly marking inactive transactions. Desktop/phone English/Spanish flows verified; 89 tests pass.
+- [x] Move funded ride booking to the first subsection under "Ride Options With Empower", remove the old hero title, and word ride steps as booking on PantriFul; English/Spanish and phone checks pending.
+- [x] Update PR #14 without rewriting history, resolve conflicts against current main, and preserve mobile navigation. Delivered commit 0843b12c; GitHub confirms mergeable and zero commits behind main (checks still determine readiness).
+
+- [x] Update the Empower FAQ and ride-fare section to explain donor-covered approved trips and driver earnings without project wording in those sections; English/Spanish and phone checks passed, separate disclaimer and booking limitations retained.
+
+- [x] Present PantriFul–Empower as a fictional project partnership with an explicit non-agreement disclaimer on driver, ride assistance and donation pages; verified in English and Spanish, real payments and bookings remain disabled.
+
+- [x] Add official Tampa/Orlando Empower pricing ($49.99/month, $19.99/week, 30-day trial, zero ride commission) and donor-funded ride proposal across driver, ride assistance and donation pages; English/Spanish and mobile checks passed.
+
+- [x] Prioritize published dietary matches, correct verified organization names/websites (including Crossover Church), restrict Feeding Tampa Bay links to its own listings, clarify monthly and AM/PM hours, add seven sourced language records with unpublished labels elsewhere, and label/test Copy Address.
+
+- [x] Replace generic notices with a source-linked bilingual snapshot: 35 locations with eligibility, 38 with visit requirements, 91 with food descriptions, and 3 with dietary information; unpublished details are not inferred.
+- [x] Move Save for Future Visits immediately below the household, dietary needs and city filters; optional signup dialog verified.
+- [x] Add a ZIP field beside Open Now that filters exact published address ZIPs; typing, clearing, empty results and mobile alignment verified.
+- [x] Directions automatically opens a separate Google Maps window; exact destination, cleared opener, blocked-popup fallback and clipboard checked.
+- [x] Show Website at the bottom of listings with verified official or provider-directory links; unavailable websites are labeled rather than redirected to Feeding Tampa Bay.
+- [x] Provider updates checked in English and Spanish; desktop, 390px phone and 886px current viewport checked; 69 targeted tests passed.
 - [x] Optional signup/login and private profile/bookmarks; public browsing and dismissible signup prompt, no signed-out preference storage or tracking cookies.
 - [x] Empower driver signup and proposed partnership/discount information, without claiming an active agreement or price.
 - [x] Verified provider donation links and PantriFul ride-fund page with no simulated payments.
@@ -7,10 +29,19 @@
 - [x] Default 10 results, options 5/10/20/50/80/100; list and map paginated together.
 - [x] Top and footer links: Food Finder, Ride Assistance, About, Mission & Values, FAQ.
 - [x] Green footer with white text; no red branding; red limited to requested closing-status indicators.
-- [x] Directions now opens copy-link dialog from both listings and maps; clipboard flow checked.
-- [x] Account controls and new food-hours/supporter copy translated into Spanish and Arabic.
+- [x] Shared Directions action opens Google Maps separately from listings and maps, with a copy-link fallback.
+- [x] Account controls and new food-hours/supporter copy translated into Spanish.
+- [x] Arabic language option removed; English and Español remain.
+- [x] Font switcher removed; site is Montserrat only.
 - [x] Public browser checks, phone layout, private-page redirect and 21 targeted tests passed.
 - [x] Changes committed for Lovable's repository sync.
+
+## GitHub delivery
+- [x] Pushed Lovable codebase to imfonggg/PantriFul as branch `lovable-main`, PR #6 open (uploaded via GitHub API; sandbox git push/fetch is blocked).
+- [ ] Ongoing: user wants all future changes committed to imfonggg/PantriFul via branch + PR, and the Lovable preview kept in sync with pantriful.vercel.app (GitHub main). Reuse the token the user already pasted; do not ask for a fresh one each time.
+- [x] Delivered listing, Empower, FAQ and fare updates to imfonggg/PantriFul as PR #14 on branch `lovable/listings-empower-20261121-201403`; applied changed files over current main without force-pushing.
+- [x] Resolve PR #18 conflict: merged teammate's main (PRs #7–#17: Gemini assistant, card-to-map highlight, phone/website on cards, ZIP filter) into our version, keeping user-mandated choices (no Arabic, Montserrat only, ZIP text input, service-days-only hours, provider identity layer); merge commit d676ccac on the PR branch, GitHub reports mergeable.
+- [ ] Underline the "No car, need groceries tonight?" button so it reads as clickable; push to PR #18 branch.
 
 ## Waiting on external setup or confirmation
 - [ ] Stripe checkout: user approved Stripe, but declined the Stripe account setup form; no payments enabled or accepted.

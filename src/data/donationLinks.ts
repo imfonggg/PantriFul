@@ -6,9 +6,9 @@ const links: Record<string, string> = {
  "ECHO of Brandon": "https://www.echofl.org/donations",
  "ECHO of Riverview": "https://www.echofl.org/donations",
  "Metropolitan Ministries": "https://give.metromin.org/campaign/703276/donate",
- "EPIC Tampa": "https://myepic.org/online-donations/",
+ "EPIC (Empath Partners in Care) — Tampa": "https://myepic.org/online-donations/",
  "United Food Bank of Plant City": "https://ufbpc.org/donate-today-2/",
- "The Well": "https://www.thewellfedcommunity.org/donate",
+ "Wellfed Community — Kinship Free Market": "https://www.thewellfedcommunity.org/donate",
  "Harvest Hope Park": "https://www.uacdc.org/donate/",
 };
 export function providerDonationUrl(resource: FoodResource) { return links[resource.name] ?? null; }

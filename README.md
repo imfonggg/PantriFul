@@ -27,9 +27,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## PantriFul additions
-
-- **Ask PantriFul AI (Gemini):** describe what you need; Gemini picks 1–4 places from the 40 nearest and they're highlighted in the list and on the map. Code: `src/lib/assistant.functions.ts`, `src/components/AssistantPanel.tsx`.
-- **Environment variables:** copy `.env.example` to `.env`. On Vercel set `GEMINI_API_KEY`, `GEMINI_MODEL`, `VITE_GOOGLE_MAPS_API_KEY` and the Supabase values.
-- **Deploy on Vercel:** `vercel.json` builds with `NITRO_PRESET=vercel`.

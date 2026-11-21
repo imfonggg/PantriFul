@@ -21,6 +21,16 @@ describe("Food assistance rules", () => {
     expect(matchesNeed([], "vegetarian", true)).toBe(true);
     expect(matchesNeed([], "vegetarian", false)).toBe(false);
   });
+  it("ranks vegetarian matches above nearer unconfirmed listings", () => {
+    const results = filterResources(FOOD_RESOURCES, { ...filters, dietary: "vegetarian" });
+    expect(results.slice(0, 2).map(r => r.id).sort()).toEqual(["ftb-23431", "ftb-23799"]);
+    expect(results.slice(2).every(r => !r.dietary?.length)).toBe(true);
+  });
+  it("does not treat a published nonmatching diet as unconfirmed", () => {
+    const results = filterResources(FOOD_RESOURCES, { ...filters, dietary: "vegan", includeUnknown: true });
+    expect(results.map(r => r.id)).not.toContain("ftb-23431");
+    expect(results.map(r => r.id)).not.toContain("ftb-23799");
+  });
   it("offers transit directions to the exact pantry address", () => {
     const url = new URL(directionsUrl("2030 W Fletcher Ave, Tampa, FL 33612", "transit"));
     expect(url.searchParams.get("travelmode")).toBe("transit");
@@ -46,10 +56,8 @@ describe("Food assistance rules", () => {
   });
 });
 describe("ZIP code filter", () => {
-  it("keeps only places whose published address has that ZIP", async () => {
-    const { filterResources } = await import("@/data/resourceFilters");
-    const { FOOD_RESOURCES } = await import("@/data/foodResources");
-    const rows = filterResources(FOOD_RESOURCES, { types: [], household: "", dietary: "", includeUnknown: true, city: "", zipCode: "33612", openOnly: false, maxMiles: 0, origin: { lat: 28.0637, lng: -82.4131 }, now: new Date("2026-11-21T15:00:00Z"), query: "" });
+  it("keeps only places whose published address has that ZIP", () => {
+    const rows = filterResources(FOOD_RESOURCES, { ...filters, zipCode: "33612", now: new Date("2026-11-21T15:00:00Z") });
     expect(rows.length).toBeGreaterThan(0);
     expect(rows.every((r) => /\b33612\b/.test(r.address))).toBe(true);
   });
