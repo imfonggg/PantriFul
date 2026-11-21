@@ -74,8 +74,8 @@ export default function App() {
       <Header />
       <Hero answer={answer} onAnswer={setAnswer} />
 
-      <main id="listings" className="mx-auto max-w-5xl px-4 py-8">
-        <h2 className="mb-4 text-2xl font-bold">Food near you</h2>
+      <main id="listings" className="mx-auto max-w-6xl px-4 py-8">
+        <h2 className="mb-4 text-2xl font-emph">Food near you</h2>
         <Filters
           value={filters}
           onChange={setFilters}
@@ -87,7 +87,7 @@ export default function App() {
         <div aria-live="polite" className="mt-4">
           {loading && <p>Loading food resources…</p>}
           {error && (
-            <p role="alert" className="font-medium text-brick">
+            <p role="alert" className="font-emph text-brick">
               {error}
             </p>
           )}
@@ -106,7 +106,7 @@ export default function App() {
             </button>
           </p>
         ) : (
-          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {ordered.map((r) => (
               <ResourceCard key={r.id} resource={r} recommended={suggested.includes(r.id)} />
             ))}
@@ -115,7 +115,7 @@ export default function App() {
       </main>
 
       <footer className="bg-sand px-4 py-6 text-sm">
-        <p className="mx-auto max-w-5xl">
+        <p className="mx-auto max-w-6xl">
           PantriFul supports UN Sustainable Development Goal 2: Zero Hunger. Hours and eligibility can change, so
           call ahead when you can.
         </p>

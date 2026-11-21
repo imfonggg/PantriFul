@@ -34,11 +34,11 @@ export default function Hero({ onAnswer, answer }: Props) {
 
   return (
     <section aria-labelledby="hero-title" className="bg-sand">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
-        <h1 id="hero-title" className="max-w-2xl text-3xl font-bold sm:text-4xl">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-14">
+        <h1 id="hero-title" className="max-w-2xl text-2xl font-emph sm:text-4xl lg:text-5xl">
           Find free food near you, no sign-up needed.
         </h1>
-        <p className="mt-3 max-w-2xl text-lg">
+        <p className="mt-3 max-w-2xl text-base sm:text-lg">
           Pantries, food banks and free meals around USF Tampa. Browse the list below, or tell us what you
           need and we'll point you to the right place.
         </p>
@@ -57,7 +57,7 @@ export default function Hero({ onAnswer, answer }: Props) {
           <button
             type="submit"
             disabled={asking}
-            className="min-h-12 rounded-lg bg-plum px-6 py-2 font-semibold text-white disabled:opacity-60"
+            className="min-h-12 rounded-lg bg-plum px-6 py-2 font-emph text-white disabled:opacity-60"
           >
             {asking ? 'Thinking…' : 'Find food'}
           </button>
@@ -72,7 +72,7 @@ export default function Hero({ onAnswer, answer }: Props) {
                   setMessage(ex)
                   void ask(ex)
                 }}
-                className="rounded-full border border-clay bg-paper px-3 py-1 text-sm hover:bg-white"
+                className="min-h-10 rounded-full border border-clay bg-paper px-3 py-1 text-left text-sm hover:bg-white"
               >
                 {ex}
               </button>
@@ -82,7 +82,7 @@ export default function Hero({ onAnswer, answer }: Props) {
 
         <div aria-live="polite" className="mt-4 max-w-2xl">
           {error && (
-            <p role="alert" className="rounded-lg bg-white p-3 font-medium text-brick">
+            <p role="alert" className="rounded-lg bg-white p-3 font-emph text-brick">
               {error}
             </p>
           )}

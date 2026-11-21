@@ -1,18 +1,51 @@
 @import 'tailwindcss';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/600.css';
+
+@font-face {
+  font-family: 'Nexa';
+  src: local('Nexa Regular'), url('/fonts/Nexa-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SangBleu';
+  src: local('SangBleu Regular'), url('/fonts/SangBleu-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
 
 @theme {
   --color-sand: #f0d8b6;
   --color-clay: #b3926f;
-  --color-leaf: #69a657;
+  --color-leaf: #4a7f40;
   --color-brick: #a63838;
   --color-plum: #5a0058;
   --color-ink: #2b1d12;
   --color-paper: #fffaf1;
+  --font-brand: 'SangBleu', Georgia, 'Times New Roman', serif;
+}
+
+/* Two body-font options, switched with ?font=nexa or ?font=montserrat (see main.tsx). */
+:root {
+  --font-body: 'Nexa', ui-sans-serif, system-ui, sans-serif;
+  --emph-weight: 400;
+}
+
+:root[data-font='montserrat'] {
+  --font-body: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --emph-weight: 600;
+}
+
+@utility font-emph {
+  font-weight: var(--emph-weight);
 }
 
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
+  font-family: var(--font-body);
 }
 
 :focus-visible {
