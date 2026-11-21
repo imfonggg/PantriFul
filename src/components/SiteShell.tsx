@@ -60,7 +60,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </div>
     </header>
     <div className="flex-1">{children}</div>
-    <footer className="bg-green text-primary-foreground"><div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><nav aria-label="Footer" className="mb-5 flex flex-wrap gap-5 text-sm font-semibold">{mainLinks.map(item => <Link key={item.to} to={item.to} className="underline underline-offset-4">{t(item.label)}</Link>)}</nav><p className="text-sm leading-relaxed">{t("PantriFul supports UN Sustainable Development Goal 2: Zero Hunger. Hours and eligibility can change, so call ahead when you can.")}</p><nav aria-label={t("Ways To Help")} className="mt-4 flex flex-wrap gap-5 text-sm font-semibold"><Link to="/donations" className="underline underline-offset-4">{t("Support PantriFul")}</Link><Link to="/empower-drivers" className="underline underline-offset-4">{t("Drive With Empower")}</Link></nav></div></footer>
+    <footer className="bg-green text-primary-foreground"><div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><nav aria-label="Footer" className="flex flex-wrap gap-5 text-sm font-semibold">{mainLinks.map(item => <Link key={item.to} to={item.to} className="underline underline-offset-4">{t(item.label)}</Link>)}</nav><nav aria-label={t("Ways To Help")} className="mt-4 flex flex-wrap gap-5 text-sm font-semibold"><Link to="/donations" className="underline underline-offset-4">{t("Support PantriFul")}</Link><Link to="/empower-drivers" className="underline underline-offset-4">{t("Drive With Empower")}</Link></nav></div></footer>
     <HelpTutorial key={helpKey} open={helpOpen} onOpenChange={changeHelp} />
   </div>;
 }
