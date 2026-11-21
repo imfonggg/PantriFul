@@ -26,7 +26,6 @@ export const translations: Record<Exclude<Language, "en">, Record<string, string
     "Round Trip": "Ida y vuelta",
     "One Way": "Solo ida",
     "Rider Fare": "Tarifa del pasajero",
-    "Not booked. This preview does not arrange transportation.": "Sin reserva. Esta vista previa no organiza transporte.",
     "Donate to the Ride Fund": "Donar al Fondo de transporte",
     "Help keep Empower rides free for PantriFul riders experiencing food insecurity.": "Ayuda a mantener gratuitos los viajes de Empower para pasajeros de PantriFul con inseguridad alimentaria.",
     "Payment preview only. No money is collected and no card details are needed.": "Solo vista previa de pago. No se cobra dinero ni se necesitan datos de tarjeta.",
