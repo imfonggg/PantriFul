@@ -15,6 +15,9 @@ const DEFAULT_MODEL = "gemini-3.8-flash";
 const FALLBACK_MODELS = ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash"];
 /** The model that last answered, so later requests skip models that failed. */
 let workingModel: string | undefined;
+/** Models that hit a usage limit, and when to try them again. Free-tier limits are per model. */
+const coolingUntil = new Map<string, number>();
+const COOL_DOWN_MS = 60_000;
 /** Recent answers (e.g. the example chips), so repeat questions are instant. */
 const cache = new Map<string, { at: number; result: AssistantResult }>();
 const CACHE_MS = 10 * 60_000;
@@ -102,6 +105,9 @@ export const askAssistant = createServerFn({ method: "POST" })
     const models = [
       ...new Set([workingModel, process.env["GEMINI_MODEL"], DEFAULT_MODEL, ...FALLBACK_MODELS]),
     ].filter((m): m is string => Boolean(m));
+    // Skip models that just hit their limit, unless that would leave nothing to try.
+    const ready = models.filter((m) => (coolingUntil.get(m) ?? 0) <= Date.now());
+    if (ready.length) models.splice(0, models.length, ...ready);
     let lastError: unknown;
     let discovered = false;
     for (let i = 0; i < models.length; i++) {
@@ -127,8 +133,10 @@ export const askAssistant = createServerFn({ method: "POST" })
           if (model === workingModel) workingModel = undefined;
           // Retry without thinking if the model rejects the setting or ran out of room mid-answer.
           if (thinking && ((status === 400 && /thinking/i.test(detail)) || error instanceof IncompleteReplyError)) continue;
-          // A bad key or a usage limit won't get better on another model; anything else might.
-          if ((status === 400 && /api key/i.test(detail)) || status === 401 || status === 403 || status === 429 || /abort|timed? ?out/i.test(detail))
+          // Usage limits are per model on the free tier, so rest this one and try the next.
+          if (status === 429) coolingUntil.set(model, Date.now() + COOL_DOWN_MS);
+          // A bad key won't get better on another model, and a timeout has already kept the person waiting.
+          if ((status === 400 && /api key/i.test(detail)) || status === 401 || status === 403 || /abort|timed? ?out/i.test(detail))
             throw new Error(friendlyError(error));
           break; // try the next model
         }
