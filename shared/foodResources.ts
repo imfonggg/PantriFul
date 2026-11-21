@@ -4,9 +4,9 @@ import type { FoodResource, WeeklyHours } from './types.js'
  * Food resources near USF Tampa.
  *
  * Sources: USF Feed-A-Bull page (Fall 2026), USF Student Health Services
- * "Community Food Pantry List" (2024), and UACDC's food distribution page.
- * Hours can change, so entries from the 2024 list stay `verified: false`
- * (the UI tells people to call ahead) until someone confirms them.
+ * "Community Food Pantry List" (2024), UACDC's food pages, and each place's
+ * own website (checked Nov 2026). `verified: true` means the hours were
+ * confirmed on a page current for 2026; others show "call ahead" in the UI.
  *
  * Coordinates are estimated from the street address (within a few blocks).
  * Fix any pin that looks off on the map.
@@ -54,27 +54,13 @@ export const FOOD_RESOURCES: FoodResource[] = [
     verified: false,
   },
   {
-    id: 'trinity-cafe-busch',
-    name: 'Trinity Café 2 (Busch Blvd)',
-    type: 'hot_meal',
-    address: '2202 E Busch Blvd, Tampa, FL 33612',
-    location: { lat: 28.0336, lng: -82.437 },
-    phone: '813-865-4822',
-    website: 'https://feedingtampabay.org/ways-we-serve/trinity-cafe',
-    hours: { ...weekdays('11:30', '12:30'), 6: [{ open: '09:00', close: '10:00' }] },
-    eligibility: 'Anyone; no proof of need, religious service or counseling required',
-    requirements: 'Get a meal ticket on the day (from 10:30am weekdays, 8am Saturday)',
-    offers: ['free hot meal (to-go boxes)'],
-    verified: false,
-  },
-  {
     id: 'trinity-cafe-nebraska',
-    name: 'Trinity Café 1 (Nebraska Ave)',
+    name: 'Trinity Café (Nebraska Ave)',
     type: 'hot_meal',
     address: '2801 N Nebraska Ave, Tampa, FL 33602',
     location: { lat: 27.9686, lng: -82.4511 },
     phone: '813-865-4822',
-    website: 'https://feedingtampabay.org/ways-we-serve/trinity-cafe',
+    website: 'https://ftb.org/groceries-meals/trinity-cafe/',
     hours: {
       ...weekdays('11:30', '12:30'),
       0: [{ open: '09:00', close: '10:00' }],
@@ -83,7 +69,8 @@ export const FOOD_RESOURCES: FoodResource[] = [
     eligibility: 'Anyone; no proof of need, religious service or counseling required',
     requirements: 'Get a meal ticket on the day (from 10:30am weekdays, 8am weekends)',
     offers: ['free hot meal'],
-    verified: false,
+    verified: true,
+    notes: 'Open 365 days a year. Walk-ins welcome, no need to call ahead.',
   },
   {
     id: 'uacdc-mobile-pantry',
@@ -101,16 +88,31 @@ export const FOOD_RESOURCES: FoodResource[] = [
   },
   {
     id: 'uacdc-harvest-hope',
-    name: 'Kinship Free Market at Harvest Hope Park',
+    name: 'Fridays in the Park: Kinship Free Market (Harvest Hope Park)',
     type: 'mobile_pantry',
     address: '13704 N 20th St, Tampa, FL 33613',
     location: { lat: 28.069, lng: -82.4385 },
     phone: '813-558-5212',
     website: 'https://www.uacdc.org/fooddistribution/',
-    hours: { 5: [{ open: '11:00', close: '12:00' }] },
+    hours: { 5: [{ open: '09:00', close: '11:30' }] },
     eligibility: 'Anyone in need',
-    offers: ['free groceries', 'garden produce'],
-    verified: false,
+    offers: ['free groceries', 'garden produce', 'health screenings with USF Family Medicine'],
+    verified: true,
+    notes: 'Every Friday 9:00–11:30am (UACDC events calendar, Nov–Dec 2026).',
+  },
+  {
+    id: 'uacdc-thursday-harvest',
+    name: 'Thursday Harvest Free Dinner (Harvest Hope Park)',
+    type: 'hot_meal',
+    address: '13704 N 20th St, Tampa, FL 33613',
+    location: { lat: 28.069, lng: -82.4385 },
+    phone: '813-558-5212',
+    website: 'https://www.uacdc.org/events_general/category/food_distribution_events/list/',
+    hours: { 4: [{ open: '18:00', close: '19:00' }] },
+    eligibility: 'Anyone',
+    offers: ['free hot meal'],
+    verified: true,
+    notes: 'Every Thursday 6–7pm (UACDC events calendar, Nov–Dec 2026).',
   },
   {
     id: 'uacdc-mort-park',
@@ -176,11 +178,12 @@ export const FOOD_RESOURCES: FoodResource[] = [
     location: { lat: 28.064, lng: -82.505 },
     phone: '813-963-2772',
     website: 'http://www.thecommunityfoodpantry.com/',
-    hours: { 0: [{ open: '12:00', close: '14:00' }], 3: [{ open: '09:00', close: '11:00' }] },
-    eligibility: 'Anyone in need',
-    requirements: 'ID',
+    hours: { 3: [{ open: '09:00', close: '11:00' }], 6: [{ open: '09:00', close: '11:00' }] },
+    eligibility: 'Families in its service ZIP codes; one visit every 4–6 weeks, one family per address',
+    requirements: 'Government photo ID and proof of current address',
     offers: ['groceries (drive-through)', 'health screenings', 'nutrition education'],
-    verified: false,
+    verified: true,
+    notes: 'Drive-through. Arrive between 9:00 and 10:45am, not before 9.',
   },
   {
     id: 'hope-effect',
@@ -190,8 +193,8 @@ export const FOOD_RESOURCES: FoodResource[] = [
     location: { lat: 28.0545, lng: -82.5235 },
     phone: '813-960-3030',
     website: 'https://mstarchurch.org/resources/food-pantry',
-    hours: { 4: [{ open: '14:00', close: '15:00' }], 0: [{ open: '10:30', close: '11:30' }] },
-    eligibility: 'Anyone; once a week per person',
+    hours: { 4: [{ open: '14:00', close: '15:00' }], 0: [{ open: '09:00', close: '10:00' }] },
+    eligibility: 'Anyone',
     requirements: 'Valid ID',
     offers: ['groceries'],
     verified: false,
@@ -200,16 +203,16 @@ export const FOOD_RESOURCES: FoodResource[] = [
     id: 'abe-brown',
     name: 'Abe Brown Ministries Food for Life Pantry',
     type: 'pantry',
-    address: '2921 N 29th St, Tampa, FL 33605',
+    address: '2918 N 29th St, Tampa, FL 33605',
     location: { lat: 27.97, lng: -82.429 },
     phone: '813-247-3285',
     website: 'http://www.abebrown.org/food-for-life-pantry',
     hours: {},
-    eligibility: 'Adults in need; must register first',
+    eligibility: 'Households within USDA income guidelines; annual registration required',
     requirements: 'ID',
     offers: ['groceries', 'one-time emergency food supply'],
-    verified: false,
-    notes: 'Last two Fridays of each month: sign up 8:00–9:30am, food handed out 10am–12pm.',
+    verified: true,
+    notes: 'Usually the last two Fridays of the month, 8:30am–12pm (register 8:30–10am). Next listed date: Friday Dec 11, 2026.',
   },
   {
     id: 'metropolitan-ministries',
