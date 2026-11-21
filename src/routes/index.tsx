@@ -20,8 +20,7 @@ import { RideOfferDialog } from "@/components/RideOfferDialog";
 import { needsRide } from "@/data/rideIntent";
 import { useAuth } from "@/components/AuthProvider";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
-import { getProfile, saveBookmark } from "@/lib/profile.functions";
+import { getProfile, saveBookmark } from "@/lib/localAccounts";
 import { AssistantPanel } from "@/components/AssistantPanel";
 import { toAssistantProfile, type AssistantResult } from "@/data/assistant";
 
@@ -44,7 +43,7 @@ function Index() {
   const { t } = useLanguage();
   const mapSection = useRef<HTMLElement | null>(null);
   const { user } = useAuth();
-  const loadProfile = useServerFn(getProfile); const bookmark = useServerFn(saveBookmark); const queryClient = useQueryClient();
+  const loadProfile = getProfile; const bookmark = saveBookmark; const queryClient = useQueryClient();
   const profile = useQuery({ queryKey: ["profile", user?.id], queryFn: () => loadProfile(), enabled: Boolean(user) });
   const [signupOpen, setSignupOpen] = useState(false); const [saveMessage, setSaveMessage] = useState("");
   const [limit, setLimit] = useState<number>(DEFAULT_RESULT_LIMIT); const [page, setPage] = useState(1);

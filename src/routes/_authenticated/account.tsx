@@ -1,18 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Save, Bookmark, Trash2 } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Button } from "@/components/ui/button";
-import { getProfile, saveProfile, saveBookmark } from "@/lib/profile.functions";
+import { getProfile, saveProfile, saveBookmark } from "@/lib/localAccounts";
 import { profileSchema } from "@/data/accountSchemas";
 import { FOOD_RESOURCES } from "@/data/foodResources";
 import { pageHead } from "@/data/pages";
 export const Route = createFileRoute("/_authenticated/account")({ head: () => pageHead("My Account", "Manage your optional private PantriFul profile, household preferences and saved food locations."), component: Account });
 function Account() {
- const {user,ready}=useAuth();const {t}=useLanguage();const client=useQueryClient();const load=useServerFn(getProfile);const save=useServerFn(saveProfile);const bookmark=useServerFn(saveBookmark);
+ const {user,ready}=useAuth();const {t}=useLanguage();const client=useQueryClient();const load=getProfile;const save=saveProfile;const bookmark=saveBookmark;
  const profile=useQuery({queryKey:["profile",user?.id],queryFn:()=>load(),enabled:Boolean(user)});
  const [name,setName]=useState("");const [size,setSize]=useState("");const [household,setHousehold]=useState("");const [diet,setDiet]=useState("");const [city,setCity]=useState("");const [busy,setBusy]=useState(false);const [message,setMessage]=useState("");
  useEffect(()=>{if(profile.data){setName(profile.data.display_name);setSize(profile.data.household_size?.toString()??"");setHousehold(profile.data.household);setDiet(profile.data.dietary);setCity(profile.data.city);}},[profile.data]);
