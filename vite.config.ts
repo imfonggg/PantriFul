@@ -1,56 +1,18 @@
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
-import type { IncomingMessage, ServerResponse } from 'node:http'
-import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from 'vite'
+// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
+// or the app will break with duplicate plugins:
+//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
+//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
+//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
+// Never set ssr.external or resolve.external: the Worker has no runtime module resolution, so
+// the build fails. Never add compression (compressPublicAssets, vite-plugin-compression):
+// hosting already compresses at the edge.
+// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-/**
- * Serves the Vercel functions in /api during `npm run dev`, so you don't need
- * the Vercel CLI locally. In production Vercel runs /api/*.ts directly.
- */
-function localApi(): Plugin {
-  return {
-    name: 'local-api',
-    configureServer(server: ViteDevServer) {
-      server.middlewares.use('/api', async (req: IncomingMessage, res: ServerResponse, next) => {
-        const url = new URL(req.url ?? '/', 'http://localhost')
-        const route = url.pathname.replace(/^\/+|\/+$/g, '')
-        if (!/^[a-z0-9-]+$/.test(route)) return next()
-        let mod: { default: (req: unknown, res: unknown) => unknown }
-        try {
-          mod = (await server.ssrLoadModule(`/api/${route}.ts`)) as typeof mod
-        } catch {
-          return next()
-        }
-        let raw = ''
-        for await (const chunk of req) raw += chunk
-        let body: unknown = undefined
-        try {
-          body = raw ? JSON.parse(raw) : undefined
-        } catch {
-          body = raw
-        }
-        const vreq = Object.assign(req, { query: Object.fromEntries(url.searchParams), body })
-        const vres = Object.assign(res, {
-          status(code: number) {
-            res.statusCode = code
-            return vres
-          },
-          json(payload: unknown) {
-            res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify(payload))
-            return vres
-          },
-        })
-        await mod.default(vreq, vres)
-      })
-    },
-  }
-}
-
-export default defineConfig(({ mode }) => {
-  // Make server-only secrets (GEMINI_API_KEY) from .env available to the dev API.
-  Object.assign(process.env, loadEnv(mode, process.cwd(), ''))
-  return {
-    plugins: [react(), tailwindcss(), localApi()],
-  }
-})
+export default defineConfig({
+  tanstackStart: {
+    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+    // nitro/vite builds from this
+    server: { entry: "server" },
+  },
+});
