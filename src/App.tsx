@@ -14,7 +14,6 @@ export default function App() {
   const [openOnly, setOpenOnly] = useState(false)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [message, setMessage] = useState('')
   const [answer, setAnswer] = useState<ChatResult | null>(null)
   const [asking, setAsking] = useState(false)
   const [locating, setLocating] = useState(false)
@@ -52,6 +51,24 @@ export default function App() {
     } finally {
       setAsking(false)
     }
+    setLocating(true)
+    setLocationNote(null)
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          setResources(await getFoodResources({ lat: pos.coords.latitude, lng: pos.coords.longitude }))
+          setLocationNote('Distances are now from your location.')
+        } catch (e) {
+          setError((e as Error).message)
+        } finally {
+          setLocating(false)
+        }
+      },
+      () => {
+        setLocationNote('We couldn’t get your location. Showing distances from USF.')
+        setLocating(false)
+      },
+    )
   }
 
   const recommendedIds = answer?.recommendedIds ?? []
