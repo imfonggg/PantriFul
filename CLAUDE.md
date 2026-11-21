@@ -1,21 +1,14 @@
 # PantriFul — Claude notes
 
-Hackathon prototype (deadline-driven). Helps people around USF Tampa find free food; Gemini API track.
-See README.md for commands, layout and API.
+Hackathon app (Gemini API track): helps people around USF Tampa / Hillsborough County find free food.
+Built from the team's Lovable app (TanStack Start + Supabase) plus a Gemini assistant. See AGENTS.md
+for the Lovable-managed parts (don't hand-edit generated files, migrations or secrets).
 
-## Rules
-
-- Keep it simple and cheap to host: one Vercel project, serverless functions in `api/`, no database yet.
-- `api/*.ts` stay thin; logic lives in `server/`, shared types/data in `shared/`.
-- Relative imports in `api/`, `server/`, `shared/` use `.js` extensions (Node ESM on Vercel).
-- Every API response uses `{ success, data, error, meta }` (helpers in `server/respond.ts`).
-- Validate all input at the API boundary. Never log user messages or personal data.
-- Secrets only in env vars. `GEMINI_API_KEY` is server-only; only `VITE_*` vars reach the browser.
-- Gemini may only recommend resources from our list (ids are filtered server-side).
-- Accessibility: keyboard and screen-reader usable, readable on low-end phones.
-- Tests: add Vitest tests for logic in `server/` and `shared/`; full TDD is relaxed for the hackathon.
+- Food data: `src/data/directory.json` + `src/data/foodResources.ts`. Filtering in `src/data/resourceFilters.ts`.
+- Gemini assistant: `src/lib/assistant.functions.ts` (server function; `GEMINI_API_KEY` stays server-side),
+  prompt/validation in `src/data/assistant.ts`, UI in `src/components/AssistantPanel.tsx`.
+  Gemini may only recommend ids from the candidate list (filtered server-side). Never log user messages.
+- Env vars: see `.env.example`. Never commit `.env`.
+- Deploy: Vercel builds with `NITRO_PRESET=vercel` (see `vercel.json`); Lovable hosting builds for Cloudflare.
+- Checks: `npx vitest run`, `npx tsc --noEmit`, `npm run build`.
 - Commits: conventional format (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).
-
-## Out of scope for the prototype
-
-Accounts, donor listings, claim/pickup flow, database, payments, native apps.
